@@ -103,9 +103,10 @@ public abstract class Game implements LevelObserver {
             pointCalculator.pacmanMoved(player, direction);
         }
     }
-
+    public boolean won=false;
     @Override
     public void levelWon() {
+        won = true;
         stop();
     }
 

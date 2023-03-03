@@ -181,11 +181,76 @@ public class Launcher {
      * Creates and starts a JPac-Man game.
      */
     public void launch() {
+        levelMap = "/skyboard.txt";
         makeGame();
         PacManUiBuilder builder = new PacManUiBuilder().withDefaultButtons();
         addSinglePlayerKeys(builder);
         pacManUI = builder.build(getGame());
         pacManUI.start();
+        //System.out.println(game.getLevel().remainingPellets());
+        do{
+            //game.getLevel().remainingPellets();
+            System.out.println('1');
+            if (!game.getLevel().isAnyPlayerAlive()){
+                if (getLevelMap()=="/board.txt"){
+                    dispose();
+                    makeGame();
+                    builder = new PacManUiBuilder().withDefaultButtons();
+                    addSinglePlayerKeys(builder);
+                    pacManUI = builder.build(getGame());
+                    pacManUI.start();
+                }
+            }
+            else if (game.won){
+                if (getLevelMap()=="/skyboard.txt"){
+                    levelMap = "/board.txt";
+                    dispose();
+                    makeGame();
+                    builder = new PacManUiBuilder().withDefaultButtons();
+                    addSinglePlayerKeys(builder);
+                    pacManUI = builder.build(getGame());
+                    pacManUI.start();
+                }
+                if (getLevelMap()=="/board.txt"){
+                    levelMap = "/caveboard.txt";
+                    dispose();
+                    makeGame();
+                    builder = new PacManUiBuilder().withDefaultButtons();
+                    addSinglePlayerKeys(builder);
+                    pacManUI = builder.build(getGame());
+                    pacManUI.start();
+                }
+                if (getLevelMap()=="/caveboard.txt"){
+                    levelMap = "/iceboard.txt";
+                    dispose();
+                    makeGame();
+                    builder = new PacManUiBuilder().withDefaultButtons();
+                    addSinglePlayerKeys(builder);
+                    pacManUI = builder.build(getGame());
+                    pacManUI.start();
+                }
+                if (getLevelMap()=="/iceboard.txt"){
+                    levelMap = "/lavaboard.txt";
+                    dispose();
+                    makeGame();
+                    builder = new PacManUiBuilder().withDefaultButtons();
+                    addSinglePlayerKeys(builder);
+                    pacManUI = builder.build(getGame());
+                    pacManUI.start();
+                }
+                if (getLevelMap()=="/lavaboard.txt"){
+                    levelMap = "/skyboard.txt";
+                    dispose();
+                    makeGame();
+                    builder = new PacManUiBuilder().withDefaultButtons();
+                    addSinglePlayerKeys(builder);
+                    pacManUI = builder.build(getGame());
+                    pacManUI.start();
+                }
+
+            }
+        }while (true);
+        //System.out.println("2");
     }
 
     /**
