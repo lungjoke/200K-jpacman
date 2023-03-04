@@ -177,6 +177,14 @@ public class Launcher {
         return players.get(0);
     }
 
+    public void delay(int num){
+        try {
+            Thread.sleep(num);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     /**
      * Creates and starts a JPac-Man game.
      */
@@ -187,22 +195,21 @@ public class Launcher {
         addSinglePlayerKeys(builder);
         pacManUI = builder.build(getGame());
         pacManUI.start();
-        //System.out.println(game.getLevel().remainingPellets());
+
         do{
-            //game.getLevel().remainingPellets();
-            System.out.println('1');
+            delay(1);
             if (!game.getLevel().isAnyPlayerAlive()){
-                if (getLevelMap()=="/board.txt"){
-                    dispose();
-                    makeGame();
-                    builder = new PacManUiBuilder().withDefaultButtons();
-                    addSinglePlayerKeys(builder);
-                    pacManUI = builder.build(getGame());
-                    pacManUI.start();
-                }
+                delay(2000);
+                dispose();
+                makeGame();
+                builder = new PacManUiBuilder().withDefaultButtons();
+                addSinglePlayerKeys(builder);
+                pacManUI = builder.build(getGame());
+                pacManUI.start();
             }
             else if (game.won){
                 if (getLevelMap()=="/skyboard.txt"){
+                    delay(2000);
                     levelMap = "/board.txt";
                     dispose();
                     makeGame();
@@ -210,8 +217,10 @@ public class Launcher {
                     addSinglePlayerKeys(builder);
                     pacManUI = builder.build(getGame());
                     pacManUI.start();
+
                 }
-                if (getLevelMap()=="/board.txt"){
+                else if (getLevelMap()=="/board.txt"){
+                    delay(2000);
                     levelMap = "/caveboard.txt";
                     dispose();
                     makeGame();
@@ -219,8 +228,10 @@ public class Launcher {
                     addSinglePlayerKeys(builder);
                     pacManUI = builder.build(getGame());
                     pacManUI.start();
+
                 }
-                if (getLevelMap()=="/caveboard.txt"){
+                else if (getLevelMap()=="/caveboard.txt"){
+                    delay(2000);
                     levelMap = "/iceboard.txt";
                     dispose();
                     makeGame();
@@ -228,8 +239,10 @@ public class Launcher {
                     addSinglePlayerKeys(builder);
                     pacManUI = builder.build(getGame());
                     pacManUI.start();
+
                 }
-                if (getLevelMap()=="/iceboard.txt"){
+                else if (getLevelMap()=="/iceboard.txt"){
+                    delay(2000);
                     levelMap = "/lavaboard.txt";
                     dispose();
                     makeGame();
@@ -237,8 +250,10 @@ public class Launcher {
                     addSinglePlayerKeys(builder);
                     pacManUI = builder.build(getGame());
                     pacManUI.start();
+
                 }
-                if (getLevelMap()=="/lavaboard.txt"){
+                else if (getLevelMap()=="/lavaboard.txt"){
+                    delay(2000);
                     levelMap = "/skyboard.txt";
                     dispose();
                     makeGame();
