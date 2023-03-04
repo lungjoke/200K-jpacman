@@ -115,8 +115,14 @@ public class PacManSprites extends SpriteStore {
     /**
      * @return The sprite for the wall.
      */
+    private String NameFileWall;
+
+    public void setNameFileWall(String namefilewall) {
+        NameFileWall = namefilewall;
+    }
+
     public Sprite getWallSprite() {
-        return loadSprite("/sprite/wall.png");
+        return loadSprite(NameFileWall);
     }
 
     /**
@@ -129,8 +135,14 @@ public class PacManSprites extends SpriteStore {
     /**
      * @return The sprite for the
      */
+    private String NameFilePellet;
+
     public Sprite getPelletSprite() {
-        return loadSprite("/sprite/pellet.png");
+        return loadSprite(NameFilePellet);
+    }
+
+    public void setNameFilePellet(String nameFilePellet) {
+        NameFilePellet = nameFilePellet;
     }
 
     /**

@@ -58,7 +58,7 @@ public class Launcher {
      * Set the name of the file containing this level's map.
      *
      * @param fileName
-     *            Map to be used.
+     *                 Map to be used.
      * @return Level corresponding to the given map.
      */
     public Launcher withMapFile(String fileName) {
@@ -153,7 +153,7 @@ public class Launcher {
      * Adds key events UP, DOWN, LEFT and RIGHT to a game.
      *
      * @param builder
-     *            The {@link PacManUiBuilder} that will provide the UI.
+     *                The {@link PacManUiBuilder} that will provide the UI.
      */
     protected void addSinglePlayerKeys(final PacManUiBuilder builder) {
         builder.addKey(KeyEvent.VK_UP, moveTowardsDirection(Direction.NORTH))
@@ -177,7 +177,7 @@ public class Launcher {
         return players.get(0);
     }
 
-    public void delay(int num){
+    public void delay(int num) {
         try {
             Thread.sleep(num);
         } catch (InterruptedException e) {
@@ -190,82 +190,93 @@ public class Launcher {
      */
     public void launch() {
         levelMap = "/skyboard.txt";
+        SPRITE_STORE.setNameFileWall("/sprite/sky2.png");
+        SPRITE_STORE.setNameFilePellet("/sprite/featherpellet.png");
         makeGame();
         PacManUiBuilder builder = new PacManUiBuilder().withDefaultButtons();
         addSinglePlayerKeys(builder);
         pacManUI = builder.build(getGame());
         pacManUI.start();
-
-        do{
+        
+        do {
             delay(1);
-            if (!game.getLevel().isAnyPlayerAlive()){
+            if (!game.getLevel().isAnyPlayerAlive()) {
                 delay(2000);
                 dispose();
+                SPRITE_STORE.setNameFileWall("/sprite/sky2.png");
+                SPRITE_STORE.setNameFilePellet("/sprite/featherpellet.png");
                 makeGame();
                 builder = new PacManUiBuilder().withDefaultButtons();
                 addSinglePlayerKeys(builder);
                 pacManUI = builder.build(getGame());
                 pacManUI.start();
-            }
-            else if (game.won){
-                if (getLevelMap()=="/skyboard.txt"){
+
+            } else if (game.won) {
+                if (getLevelMap() == "/skyboard.txt") {
                     delay(2000);
                     levelMap = "/board.txt";
                     dispose();
+                    SPRITE_STORE.setNameFileWall("/sprite/Forest.png");
+                    SPRITE_STORE.setNameFilePellet("/sprite/gem for.png");
                     makeGame();
                     builder = new PacManUiBuilder().withDefaultButtons();
                     addSinglePlayerKeys(builder);
                     pacManUI = builder.build(getGame());
                     pacManUI.start();
-
-                }
-                else if (getLevelMap()=="/board.txt"){
+                    
+                } else if (getLevelMap() == "/board.txt") {
                     delay(2000);
                     levelMap = "/caveboard.txt";
                     dispose();
+                    SPRITE_STORE.setNameFileWall("/sprite/Stone.png");
+                    SPRITE_STORE.setNameFilePellet("/sprite/gemStone.png");
                     makeGame();
                     builder = new PacManUiBuilder().withDefaultButtons();
                     addSinglePlayerKeys(builder);
                     pacManUI = builder.build(getGame());
                     pacManUI.start();
-
-                }
-                else if (getLevelMap()=="/caveboard.txt"){
+                    
+                } else if (getLevelMap() == "/caveboard.txt") {
                     delay(2000);
                     levelMap = "/iceboard.txt";
                     dispose();
+                    SPRITE_STORE.setNameFileWall("/sprite/ice cave.png");
+                    SPRITE_STORE.setNameFilePellet("/sprite/gemice.png");
                     makeGame();
                     builder = new PacManUiBuilder().withDefaultButtons();
                     addSinglePlayerKeys(builder);
                     pacManUI = builder.build(getGame());
                     pacManUI.start();
-
-                }
-                else if (getLevelMap()=="/iceboard.txt"){
+                   
+                } else if (getLevelMap() == "/iceboard.txt") {
                     delay(2000);
                     levelMap = "/lavaboard.txt";
                     dispose();
+                    SPRITE_STORE.setNameFileWall("/sprite/Lava.png");
+                    SPRITE_STORE.setNameFilePellet("/sprite/gemlava.png");
                     makeGame();
                     builder = new PacManUiBuilder().withDefaultButtons();
                     addSinglePlayerKeys(builder);
                     pacManUI = builder.build(getGame());
                     pacManUI.start();
-
-                }
-                else if (getLevelMap()=="/lavaboard.txt"){
+                    
+                } else if (getLevelMap() == "/lavaboard.txt") {
                     delay(2000);
                     levelMap = "/skyboard.txt";
                     dispose();
+                    SPRITE_STORE.setNameFileWall("/sprite/sky2.png");
+                    SPRITE_STORE.setNameFilePellet("/sprite/featherpellet.png");
                     makeGame();
                     builder = new PacManUiBuilder().withDefaultButtons();
                     addSinglePlayerKeys(builder);
                     pacManUI = builder.build(getGame());
                     pacManUI.start();
+                    
                 }
 
             }
-        }while (true);
-        //System.out.println("2");
+        } while (true);
+        // System.out.println("2");
     }
 
     /**
@@ -283,9 +294,9 @@ public class Launcher {
      * Main execution method for the Launcher.
      *
      * @param args
-     *            The command line arguments - which are ignored.
+     *             The command line arguments - which are ignored.
      * @throws IOException
-     *             When a resource could not be read.
+     *                     When a resource could not be read.
      */
     public static void main(String[] args) throws IOException {
         new Launcher().launch();
