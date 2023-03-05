@@ -2,15 +2,18 @@ package nl.tudelft.jpacman.ui;
 
 
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.IOException;
 
 
 public class MainUI extends JFrame {
 
-    public MainUI(){
+    public MainUI() throws IOException {
 
         // Set JFrame properties
         setSize(500, 500);
@@ -24,23 +27,18 @@ public class MainUI extends JFrame {
         Image image = icon.getImage().getScaledInstance(500, 500, Image.SCALE_SMOOTH);
         ImageIcon scaledIcon = new ImageIcon(image);
 
+        Image imagebtn = ImageIO.read(new File("src/main/resources/sprite/Element_Play.png"));
+        JButton button2 = new ImageButton(imagebtn);
+        button2.setBounds(175, 300, 150, 100); // Set position and size
+
         // Create JLabel and set image icon
         JLabel label = new JLabel();
         label.setIcon(scaledIcon);
         label.setBounds(0, 0, 500, 500); // Set position and size
 
-        // Create JButton and set text
-        JButton button = new JButton("Start");
-        button.setBounds(200, 200, 100, 50); // Set position and size
-
-        // set button style
-        button.setAlignmentX(Component.CENTER_ALIGNMENT);
-        button.setBackground(Color.orange);
-        button.setForeground(Color.WHITE);
-        button.setFont(new Font("Arial", Font.BOLD, 20));
 
         // Add ActionListener to button
-        button.addActionListener(new ActionListener() {
+        button2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 SwingUtilities.invokeLater(new Runnable() {
@@ -53,9 +51,9 @@ public class MainUI extends JFrame {
                 });
             }
         });
-
         // Add JLabel and JButton to JPanel
-        panel.add(button);
+
+        panel.add(button2);
         panel.add(label);
 
         // Set JPanel size to match image size
@@ -64,11 +62,10 @@ public class MainUI extends JFrame {
         // Add JPanel to JFrame
         add(panel);
 
-        //center botton
-        setLocationRelativeTo(button);
-
         // Set JFrame visibility
+        setLocationRelativeTo(null);
         setVisible(true);
+
 
 
     }
