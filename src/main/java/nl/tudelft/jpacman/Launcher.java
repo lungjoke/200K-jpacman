@@ -195,12 +195,14 @@ public class Launcher {
         makeGame();
         PacManUiBuilder builder = new PacManUiBuilder().withDefaultButtons();
         addSinglePlayerKeys(builder);
-        pacManUI = builder.build(getGame());
+        pacManUI = builder.build(getGame(),"src/main/resources/sprite/BGsky.png");
         pacManUI.start();
+
         
         do {
             delay(1);
             if (!game.getLevel().isAnyPlayerAlive()) {
+                levelMap = "/skyboard.txt";
                 delay(2000);
                 dispose();
                 SPRITE_STORE.setNameFileWall("/sprite/sky2.png");
@@ -208,7 +210,7 @@ public class Launcher {
                 makeGame();
                 builder = new PacManUiBuilder().withDefaultButtons();
                 addSinglePlayerKeys(builder);
-                pacManUI = builder.build(getGame());
+                pacManUI = builder.build(getGame(),"src/main/resources/sprite/BGsky.png");
                 pacManUI.start();
 
             } else if (game.won) {
@@ -221,8 +223,9 @@ public class Launcher {
                     makeGame();
                     builder = new PacManUiBuilder().withDefaultButtons();
                     addSinglePlayerKeys(builder);
-                    pacManUI = builder.build(getGame());
+                    pacManUI = builder.build(getGame(),"src/main/resources/sprite/BGForest.png");
                     pacManUI.start();
+
                     
                 } else if (getLevelMap() == "/board.txt") {
                     delay(2000);
@@ -233,8 +236,9 @@ public class Launcher {
                     makeGame();
                     builder = new PacManUiBuilder().withDefaultButtons();
                     addSinglePlayerKeys(builder);
-                    pacManUI = builder.build(getGame());
+                    pacManUI = builder.build(getGame(),"src/main/resources/sprite/BGcave.png");
                     pacManUI.start();
+
                     
                 } else if (getLevelMap() == "/caveboard.txt") {
                     delay(2000);
@@ -245,8 +249,9 @@ public class Launcher {
                     makeGame();
                     builder = new PacManUiBuilder().withDefaultButtons();
                     addSinglePlayerKeys(builder);
-                    pacManUI = builder.build(getGame());
+                    pacManUI = builder.build(getGame(),"src/main/resources/sprite/BGice.png");
                     pacManUI.start();
+
                    
                 } else if (getLevelMap() == "/iceboard.txt") {
                     delay(2000);
@@ -257,8 +262,9 @@ public class Launcher {
                     makeGame();
                     builder = new PacManUiBuilder().withDefaultButtons();
                     addSinglePlayerKeys(builder);
-                    pacManUI = builder.build(getGame());
+                    pacManUI = builder.build(getGame(),"src/main/resources/sprite/BGlava.png");
                     pacManUI.start();
+
                     
                 } else if (getLevelMap() == "/lavaboard.txt") {
                     delay(2000);
@@ -269,7 +275,7 @@ public class Launcher {
                     makeGame();
                     builder = new PacManUiBuilder().withDefaultButtons();
                     addSinglePlayerKeys(builder);
-                    pacManUI = builder.build(getGame());
+                    pacManUI = builder.build(getGame(),"src/main/resources/sprite/BGsky.png");
                     pacManUI.start();
                     
                 }
@@ -300,5 +306,7 @@ public class Launcher {
      */
     public static void main(String[] args) throws IOException {
         new Launcher().launch();
+
+
     }
 }

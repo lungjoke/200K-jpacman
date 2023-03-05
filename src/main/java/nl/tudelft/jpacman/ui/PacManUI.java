@@ -67,7 +67,7 @@ public class PacManUI extends JFrame {
      */
     public PacManUI(final Game game, final Map<String, Action> buttons,
                     final Map<Integer, Action> keyMappings,
-                    ScoreFormatter scoreFormatter) {
+                    ScoreFormatter scoreFormatter,String nameFileBG) {
         super("JPacman");
         assert game != null;
         assert buttons != null;
@@ -85,7 +85,7 @@ public class PacManUI extends JFrame {
             scorePanel.setScoreFormatter(scoreFormatter);
         }
 
-        boardPanel = new BoardPanel(game);
+        boardPanel = new BoardPanel(game,nameFileBG);
 
         Container contentPanel = getContentPane();
         contentPanel.setLayout(new BorderLayout());
@@ -101,6 +101,7 @@ public class PacManUI extends JFrame {
      * intervals.
      */
     public void start() {
+        setLocationRelativeTo(null);
         setVisible(true);
         ScheduledExecutorService service = Executors.newSingleThreadScheduledExecutor();
         service.scheduleAtFixedRate(this::nextFrame, 0, FRAME_INTERVAL, TimeUnit.MILLISECONDS);

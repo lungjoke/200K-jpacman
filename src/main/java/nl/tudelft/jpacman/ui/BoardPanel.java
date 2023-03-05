@@ -4,7 +4,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 
-import javax.swing.JPanel;
+import javax.swing.*;
 
 import nl.tudelft.jpacman.board.Board;
 import nl.tudelft.jpacman.board.Square;
@@ -33,7 +33,7 @@ class BoardPanel extends JPanel {
      * The size (in pixels) of a square on the board. The initial size of this
      * panel will scale to fit a board with square of this size.
      */
-    private static final int SQUARE_SIZE = 16;
+    private static final int SQUARE_SIZE = 24;
 
     /**
      * The game to display.
@@ -45,11 +45,17 @@ class BoardPanel extends JPanel {
      *
      * @param game
      *            The game to display.
+     *
      */
-    BoardPanel(Game game) {
+
+    private String bg;
+
+    BoardPanel(Game game,String bg) {
         super();
         assert game != null;
         this.game = game;
+
+        this.bg = bg;
 
         Board board = game.getLevel().getBoard();
 
@@ -81,8 +87,9 @@ class BoardPanel extends JPanel {
         int cellW = window.width / board.getWidth();
         int cellH = window.height / board.getHeight();
 
-        graphics.setColor(BACKGROUND_COLOR);
-        graphics.fillRect(0, 0, window.width, window.height);
+
+        ImageIcon C = new ImageIcon(bg);
+        graphics.drawImage(C.getImage(),0,0,550,490,this);
 
         for (int y = 0; y < board.getHeight(); y++) {
             for (int x = 0; x < board.getWidth(); x++) {
