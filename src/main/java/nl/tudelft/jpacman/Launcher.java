@@ -18,6 +18,7 @@ import nl.tudelft.jpacman.points.PointCalculator;
 import nl.tudelft.jpacman.points.PointCalculatorLoader;
 import nl.tudelft.jpacman.sprite.PacManSprites;
 import nl.tudelft.jpacman.ui.Action;
+import nl.tudelft.jpacman.ui.MainUI;
 import nl.tudelft.jpacman.ui.PacManUI;
 import nl.tudelft.jpacman.ui.PacManUiBuilder;
 
@@ -305,8 +306,18 @@ public class Launcher {
      *                     When a resource could not be read.
      */
     public static void main(String[] args) throws IOException {
+        //new Launcher().launch();
+
+        MainUI M = new MainUI();
+        Launcher launcher = new Launcher();
+
+        while (M.getStart()){
+            launcher.delay(1);
+        }
+        M.dispose();
         new Launcher().launch();
 
 
     }
+
 }
