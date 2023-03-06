@@ -28,10 +28,10 @@ import nl.tudelft.jpacman.ui.PacManUiBuilder;
  */
 @SuppressWarnings("PMD.TooManyMethods")
 public class Launcher {
+    private PacManUiBuilder builder;
+    private final PacManSprites SPRITE_STORE = new PacManSprites();
 
-    private static final PacManSprites SPRITE_STORE = new PacManSprites();
-
-    public static final String DEFAULT_MAP = "/board.txt";
+    public final String DEFAULT_MAP = "/board.txt";
     private String levelMap = DEFAULT_MAP;
 
     private PacManUI pacManUI;
@@ -188,76 +188,77 @@ public class Launcher {
     /**
      * Creates and starts a JPac-Man game.
      */
+    public void lost(){
+        levelMap = "/skyboard.txt";
+        SPRITE_STORE.setNameFileWall("/sprite/sky2.png");
+        SPRITE_STORE.setNameFilePellet("/sprite/featherpellet.png");
+        makeGame();
+        game.setLauncher(this);
+        builder.addStartButton(getGame());
+        builder.addStopButton(getGame());
+        pacManUI.newMap(getGame(),"src/main/resources/sprite/BGsky.png");
+    }
+    public void won(){
+        if (getLevelMap() == "/skyboard.txt") {
+            levelMap = "/board.txt";
+            SPRITE_STORE.setNameFileWall("/sprite/Forest.png");
+            SPRITE_STORE.setNameFilePellet("/sprite/gem for.png");
+            makeGame();
+            game.setLauncher(this);
+            builder.addStartButton(getGame());
+            builder.addStopButton(getGame());
+            pacManUI.newMap(getGame(),"src/main/resources/sprite/BGForest.png");
+            game.levelWon();
+        } else if (getLevelMap() == "/board.txt") {
+            levelMap = "/caveboard.txt";
+            SPRITE_STORE.setNameFileWall("/sprite/Stone.png");
+            SPRITE_STORE.setNameFilePellet("/sprite/gemStone.png");
+            makeGame();
+            game.setLauncher(this);
+            builder.addStartButton(getGame());
+            builder.addStopButton(getGame());
+            pacManUI.newMap(getGame(),"src/main/resources/sprite/BGcave.png");
+        } else if (getLevelMap() == "/caveboard.txt") {
+            levelMap = "/iceboard.txt";
+            SPRITE_STORE.setNameFileWall("/sprite/ice cave.png");
+            SPRITE_STORE.setNameFilePellet("/sprite/gemice.png");
+            makeGame();
+            game.setLauncher(this);
+            builder.addStartButton(getGame());
+            builder.addStopButton(getGame());
+            pacManUI.newMap(getGame(),"src/main/resources/sprite/BGice.png");
+        } else if (getLevelMap() == "/iceboard.txt") {
+            levelMap = "/lavaboard.txt";
+            SPRITE_STORE.setNameFileWall("/sprite/Lava.png");
+            SPRITE_STORE.setNameFilePellet("/sprite/gemlava.png");
+            makeGame();
+            game.setLauncher(this);
+            builder.addStartButton(getGame());
+            builder.addStopButton(getGame());
+            pacManUI.newMap(getGame(),"src/main/resources/sprite/BGlava.png");
+        } else if (getLevelMap() == "/lavaboard.txt") {
+            levelMap = "/skyboard.txt";
+            SPRITE_STORE.setNameFileWall("/sprite/sky2.png");
+            SPRITE_STORE.setNameFilePellet("/sprite/featherpellet.png");
+            makeGame();
+            game.setLauncher(this);
+            builder.addStartButton(getGame());
+            builder.addStopButton(getGame());
+            pacManUI.newMap(getGame(),"src/main/resources/sprite/BGsky.png");
+        }
+    }
     public void launch() {
         levelMap = "/skyboard.txt";
         SPRITE_STORE.setNameFileWall("/sprite/sky2.png");
         SPRITE_STORE.setNameFilePellet("/sprite/featherpellet.png");
         makeGame();
-        PacManUiBuilder builder = new PacManUiBuilder().withDefaultButtons();
+        game.setLauncher(this);
+        builder = new PacManUiBuilder().withDefaultButtons();
         addSinglePlayerKeys(builder);
         pacManUI = builder.build(getGame(),"src/main/resources/sprite/BGsky.png");
         pacManUI.start();
-        do {
-            delay(1);
-            if (!game.getLevel().isAnyPlayerAlive()) {
-                delay(2000);
-                levelMap = "/skyboard.txt";
-                SPRITE_STORE.setNameFileWall("/sprite/sky2.png");
-                SPRITE_STORE.setNameFilePellet("/sprite/featherpellet.png");
-                makeGame();
-                builder.addStartButton(getGame());
-                builder.addStopButton(getGame());
-                pacManUI.newMap(getGame(),"src/main/resources/sprite/BGsky.png");
-            } else if (game.won) {
-                if (getLevelMap() == "/skyboard.txt") {
-                    delay(2000);
-                    levelMap = "/board.txt";
-                    SPRITE_STORE.setNameFileWall("/sprite/Forest.png");
-                    SPRITE_STORE.setNameFilePellet("/sprite/gem for.png");
-                    makeGame();
-                    builder.addStartButton(getGame());
-                    builder.addStopButton(getGame());
-                    pacManUI.newMap(getGame(),"src/main/resources/sprite/BGForest.png");
-                } else if (getLevelMap() == "/board.txt") {
-                    delay(2000);
-                    levelMap = "/caveboard.txt";
-                    SPRITE_STORE.setNameFileWall("/sprite/Stone.png");
-                    SPRITE_STORE.setNameFilePellet("/sprite/gemStone.png");
-                    makeGame();
-                    builder.addStartButton(getGame());
-                    builder.addStopButton(getGame());
-                    pacManUI.newMap(getGame(),"src/main/resources/sprite/BGcave.png");
-                } else if (getLevelMap() == "/caveboard.txt") {
-                    delay(2000);
-                    levelMap = "/iceboard.txt";
-                    SPRITE_STORE.setNameFileWall("/sprite/ice cave.png");
-                    SPRITE_STORE.setNameFilePellet("/sprite/gemice.png");
-                    makeGame();
-                    builder.addStartButton(getGame());
-                    builder.addStopButton(getGame());
-                    pacManUI.newMap(getGame(),"src/main/resources/sprite/BGice.png");
-                } else if (getLevelMap() == "/iceboard.txt") {
-                    delay(2000);
-                    levelMap = "/lavaboard.txt";
-                    SPRITE_STORE.setNameFileWall("/sprite/Lava.png");
-                    SPRITE_STORE.setNameFilePellet("/sprite/gemlava.png");
-                    makeGame();
-                    builder.addStartButton(getGame());
-                    builder.addStopButton(getGame());
-                    pacManUI.newMap(getGame(),"src/main/resources/sprite/BGlava.png");
-                } else if (getLevelMap() == "/lavaboard.txt") {
-                    delay(2000);
-                    levelMap = "/skyboard.txt";
-                    SPRITE_STORE.setNameFileWall("/sprite/sky2.png");
-                    SPRITE_STORE.setNameFilePellet("/sprite/featherpellet.png");
-                    makeGame();
-                    builder.addStartButton(getGame());
-                    builder.addStopButton(getGame());
-                    pacManUI.newMap(getGame(),"src/main/resources/sprite/BGsky.png");
-                }
-            }
-        } while (true);
-        // System.out.println("2");*/
+        game.levelWon();
+
     }
 
     /**

@@ -35,6 +35,7 @@ public class LauncherSmokeTest {
     void setUpPacman() {
         launcher = new Launcher();
         launcher.launch();
+
     }
 
     /**

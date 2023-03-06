@@ -232,7 +232,6 @@ public class Level {
 
             service.schedule(new NpcMoveTask(service, npc),
                 npc.getInterval() / 2, TimeUnit.MILLISECONDS);
-
             npcs.put(npc, service);
         }
     }
