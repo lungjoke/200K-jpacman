@@ -1,15 +1,14 @@
 package nl.tudelft.jpacman.ui;
 
-import java.awt.BorderLayout;
-import java.awt.Container;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.Map;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.WindowConstants;
+import javax.swing.*;
 
 import nl.tudelft.jpacman.game.Game;
 import nl.tudelft.jpacman.ui.ScorePanel.ScoreFormatter;
@@ -44,12 +43,21 @@ public class PacManUI extends JFrame {
     /**
      * The panel displaying the player scores.
      */
-    private final ScorePanel scorePanel;
+    private ScorePanel scorePanel;
 
     /**
      * The panel displaying the game.
      */
-    private final BoardPanel boardPanel;
+    private BoardPanel boardPanel;
+    /**
+     *contentPanel
+     * */
+    Container contentPanel = getContentPane();
+    /**
+     * scoreFormatter
+     *
+     * */
+    private ScoreFormatter scoreFormatter;
 
     /**
      * Creates a new UI for a JPacman game.
@@ -65,6 +73,7 @@ public class PacManUI extends JFrame {
      * @param scoreFormatter
      *            The formatter used to display the current score.
      */
+
     public PacManUI(final Game game, final Map<String, Action> buttons,
                     final Map<Integer, Action> keyMappings,
                     ScoreFormatter scoreFormatter,String nameFileBG) {
@@ -74,7 +83,7 @@ public class PacManUI extends JFrame {
         assert keyMappings != null;
 
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-
+        setSize(500,500);
         PacKeyListener keys = new PacKeyListener(keyMappings);
         addKeyListener(keys);
 
@@ -84,16 +93,69 @@ public class PacManUI extends JFrame {
         if (scoreFormatter != null) {
             scorePanel.setScoreFormatter(scoreFormatter);
         }
-
-        boardPanel = new BoardPanel(game,nameFileBG);
-
-        Container contentPanel = getContentPane();
         contentPanel.setLayout(new BorderLayout());
-        contentPanel.add(buttonPanel, BorderLayout.SOUTH);
+        boardPanel = new BoardPanel(game,nameFileBG);
+        Main_UI(buttonPanel);
+    }
+    /**
+     *
+     * newMap
+     *
+     * */
+    public void newMap(Game game,String nameFileBG){
+        contentPanel.remove(scorePanel);
+        scorePanel = new ScorePanel(game.getPlayers());
+        if (scoreFormatter != null) {
+            scorePanel.setScoreFormatter(scoreFormatter);
+        }
         contentPanel.add(scorePanel, BorderLayout.NORTH);
-        contentPanel.add(boardPanel, BorderLayout.CENTER);
-
+        contentPanel.remove(boardPanel);
+        boardPanel = new BoardPanel(game,nameFileBG);
+        contentPanel.add(boardPanel);
         pack();
+    }
+    /**
+     *
+     *
+     *Main_UI
+     *
+     * */
+    public void Main_UI(JPanel buttonPanel){
+
+        ImageIcon icon = new ImageIcon("src/main/resources/sprite/BGmainmenu.png");
+        Image image = icon.getImage().getScaledInstance(500, 500, Image.SCALE_SMOOTH);
+        ImageIcon scaledIcon = new ImageIcon(image);
+        JLabel label = new JLabel();
+        label.setIcon(scaledIcon);
+        label.setBounds(0, 0, 500, 500);
+
+        ImageIcon imagebtn = new ImageIcon("src/main/resources/sprite/Element_Play.png");
+        JButton button2 = new ImageButton(imagebtn.getImage());
+        button2.setBounds(175, 300, 150, 100);
+        JPanel panel = new JPanel(null);
+        click(button2,panel,buttonPanel);
+        panel.add(button2);
+        panel.add(label);
+        add(panel);
+    }
+    private void click(JButton button2,JPanel panel,JPanel buttonPanel){
+        button2.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                SwingUtilities.invokeLater(new Runnable() {
+                    @Override
+                    public void run() {
+                        System.out.println("click no");
+                        remove(panel);
+                        pack();
+                        contentPanel.add(buttonPanel, BorderLayout.SOUTH);
+                        contentPanel.add(scorePanel, BorderLayout.NORTH);
+                        contentPanel.add(boardPanel, BorderLayout.CENTER);
+                        pack();
+                    }
+                });
+            }
+        });
     }
 
     /**

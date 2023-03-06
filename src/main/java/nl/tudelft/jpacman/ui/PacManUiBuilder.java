@@ -77,7 +77,7 @@ public class PacManUiBuilder {
      * @param game
      *            The game to stop.
      */
-    private void addStopButton(final Game game) {
+    public void addStopButton(final Game game) {
         assert game != null;
 
         buttons.put(STOP_CAPTION, game::stop);
@@ -90,7 +90,7 @@ public class PacManUiBuilder {
      * @param game
      *            The game to start.
      */
-    private void addStartButton(final Game game) {
+    public void addStartButton(final Game game) {
         assert game != null;
 
         buttons.put(START_CAPTION, game::start);

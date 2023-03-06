@@ -18,7 +18,6 @@ import nl.tudelft.jpacman.points.PointCalculator;
 import nl.tudelft.jpacman.points.PointCalculatorLoader;
 import nl.tudelft.jpacman.sprite.PacManSprites;
 import nl.tudelft.jpacman.ui.Action;
-import nl.tudelft.jpacman.ui.MainUI;
 import nl.tudelft.jpacman.ui.PacManUI;
 import nl.tudelft.jpacman.ui.PacManUiBuilder;
 
@@ -198,92 +197,67 @@ public class Launcher {
         addSinglePlayerKeys(builder);
         pacManUI = builder.build(getGame(),"src/main/resources/sprite/BGsky.png");
         pacManUI.start();
-
-        
         do {
             delay(1);
             if (!game.getLevel().isAnyPlayerAlive()) {
-                levelMap = "/skyboard.txt";
                 delay(2000);
-                dispose();
+                levelMap = "/skyboard.txt";
                 SPRITE_STORE.setNameFileWall("/sprite/sky2.png");
                 SPRITE_STORE.setNameFilePellet("/sprite/featherpellet.png");
                 makeGame();
-                builder = new PacManUiBuilder().withDefaultButtons();
-                addSinglePlayerKeys(builder);
-                pacManUI = builder.build(getGame(),"src/main/resources/sprite/BGsky.png");
-                pacManUI.start();
-
+                builder.addStartButton(getGame());
+                builder.addStopButton(getGame());
+                pacManUI.newMap(getGame(),"src/main/resources/sprite/BGsky.png");
             } else if (game.won) {
                 if (getLevelMap() == "/skyboard.txt") {
                     delay(2000);
                     levelMap = "/board.txt";
-                    dispose();
                     SPRITE_STORE.setNameFileWall("/sprite/Forest.png");
                     SPRITE_STORE.setNameFilePellet("/sprite/gem for.png");
                     makeGame();
-                    builder = new PacManUiBuilder().withDefaultButtons();
-                    addSinglePlayerKeys(builder);
-                    pacManUI = builder.build(getGame(),"src/main/resources/sprite/BGForest.png");
-                    pacManUI.start();
-
-                    
+                    builder.addStartButton(getGame());
+                    builder.addStopButton(getGame());
+                    pacManUI.newMap(getGame(),"src/main/resources/sprite/BGForest.png");
                 } else if (getLevelMap() == "/board.txt") {
                     delay(2000);
                     levelMap = "/caveboard.txt";
-                    dispose();
                     SPRITE_STORE.setNameFileWall("/sprite/Stone.png");
                     SPRITE_STORE.setNameFilePellet("/sprite/gemStone.png");
                     makeGame();
-                    builder = new PacManUiBuilder().withDefaultButtons();
-                    addSinglePlayerKeys(builder);
-                    pacManUI = builder.build(getGame(),"src/main/resources/sprite/BGcave.png");
-                    pacManUI.start();
-
-                    
+                    builder.addStartButton(getGame());
+                    builder.addStopButton(getGame());
+                    pacManUI.newMap(getGame(),"src/main/resources/sprite/BGcave.png");
                 } else if (getLevelMap() == "/caveboard.txt") {
                     delay(2000);
                     levelMap = "/iceboard.txt";
-                    dispose();
                     SPRITE_STORE.setNameFileWall("/sprite/ice cave.png");
                     SPRITE_STORE.setNameFilePellet("/sprite/gemice.png");
                     makeGame();
-                    builder = new PacManUiBuilder().withDefaultButtons();
-                    addSinglePlayerKeys(builder);
-                    pacManUI = builder.build(getGame(),"src/main/resources/sprite/BGice.png");
-                    pacManUI.start();
-
-                   
+                    builder.addStartButton(getGame());
+                    builder.addStopButton(getGame());
+                    pacManUI.newMap(getGame(),"src/main/resources/sprite/BGice.png");
                 } else if (getLevelMap() == "/iceboard.txt") {
                     delay(2000);
                     levelMap = "/lavaboard.txt";
-                    dispose();
                     SPRITE_STORE.setNameFileWall("/sprite/Lava.png");
                     SPRITE_STORE.setNameFilePellet("/sprite/gemlava.png");
                     makeGame();
-                    builder = new PacManUiBuilder().withDefaultButtons();
-                    addSinglePlayerKeys(builder);
-                    pacManUI = builder.build(getGame(),"src/main/resources/sprite/BGlava.png");
-                    pacManUI.start();
-
-                    
+                    builder.addStartButton(getGame());
+                    builder.addStopButton(getGame());
+                    pacManUI.newMap(getGame(),"src/main/resources/sprite/BGlava.png");
                 } else if (getLevelMap() == "/lavaboard.txt") {
                     delay(2000);
                     levelMap = "/skyboard.txt";
-                    dispose();
                     SPRITE_STORE.setNameFileWall("/sprite/sky2.png");
                     SPRITE_STORE.setNameFilePellet("/sprite/featherpellet.png");
                     makeGame();
-                    builder = new PacManUiBuilder().withDefaultButtons();
-                    addSinglePlayerKeys(builder);
-                    pacManUI = builder.build(getGame(),"src/main/resources/sprite/BGsky.png");
-                    pacManUI.start();
-                    
+                    builder.addStartButton(getGame());
+                    builder.addStopButton(getGame());
+                    pacManUI.newMap(getGame(),"src/main/resources/sprite/BGsky.png");
                 }
-
             }
         } while (true);
-        // System.out.println("2");
+        // System.out.println("2");*/
     }
 
     /**
@@ -306,18 +280,7 @@ public class Launcher {
      *                     When a resource could not be read.
      */
     public static void main(String[] args) throws IOException {
-        //new Launcher().launch();
-
-        MainUI M = new MainUI();
-        Launcher launcher = new Launcher();
-
-        while (M.getStart()){
-            launcher.delay(1);
-        }
-        M.dispose();
         new Launcher().launch();
-
-
     }
 
 }
