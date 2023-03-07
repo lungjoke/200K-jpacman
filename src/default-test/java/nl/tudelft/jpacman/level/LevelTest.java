@@ -102,6 +102,17 @@ class LevelTest {
     }
 
     /**
+     * Validates the state of the level when it is started then stopped and started again.
+     */
+    @Test
+    void startstopStart() {
+        level.start();
+        level.stop();
+        level.start();
+        assertThat(level.isInProgress()).isTrue();
+    }
+
+    /**
      * Verifies registering a player puts the player on the correct starting
      * square.
      */
