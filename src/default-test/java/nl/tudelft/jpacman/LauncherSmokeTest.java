@@ -56,7 +56,9 @@ public class LauncherSmokeTest {
     @SuppressWarnings({"magicnumber", "methodlength", "PMD.JUnitTestContainsTooManyAsserts"})
     @Test
     void smokeTest() throws InterruptedException {
+        
         Game game = launcher.getGame();
+        
         Player player = game.getPlayers().get(0);
 
         // start cleanly.

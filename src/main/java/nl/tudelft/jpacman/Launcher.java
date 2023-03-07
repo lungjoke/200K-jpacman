@@ -208,7 +208,7 @@ public class Launcher {
             builder.addStartButton(getGame());
             builder.addStopButton(getGame());
             pacManUI.newMap(getGame(),"src/main/resources/sprite/BGForest.png");
-            game.levelWon();
+            
         } else if (getLevelMap() == "/board.txt") {
             levelMap = "/caveboard.txt";
             SPRITE_STORE.setNameFileWall("/sprite/Stone.png");
@@ -257,8 +257,6 @@ public class Launcher {
         addSinglePlayerKeys(builder);
         pacManUI = builder.build(getGame(),"src/main/resources/sprite/BGsky.png");
         pacManUI.start();
-        game.levelWon();
-
     }
 
     /**
