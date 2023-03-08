@@ -29,7 +29,7 @@ import nl.tudelft.jpacman.ui.PacManUiBuilder;
 @SuppressWarnings("PMD.TooManyMethods")
 public class Launcher {
     private PacManUiBuilder builder;
-    private final PacManSprites SPRITE_STORE = new PacManSprites();
+    public final PacManSprites SPRITE_STORE = new PacManSprites();
 
     public final String DEFAULT_MAP = "/forest.txt";
     private String levelMap = DEFAULT_MAP;
@@ -50,7 +50,7 @@ public class Launcher {
      *
      * @return The name of the map file.
      */
-    protected String getLevelMap() {
+    public String getLevelMap() {
         return levelMap;
     }
 
@@ -184,6 +184,8 @@ public class Launcher {
             throw new RuntimeException(e);
         }
     }
+
+    public Launcher getLauncher(){return this;}
 
     /**
      * Creates and starts a JPac-Man game.

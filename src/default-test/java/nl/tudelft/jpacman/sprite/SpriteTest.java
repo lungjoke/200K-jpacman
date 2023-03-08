@@ -5,6 +5,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import java.io.IOException;
 
+import nl.tudelft.jpacman.Launcher;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -28,10 +29,13 @@ public class SpriteTest {
      * @throws java.io.IOException
      *      when the sprite could not be loaded.
      */
+
+    private Launcher launcher;
+
     @BeforeEach
     public void setUp() throws IOException {
         store = new SpriteStore();
-        sprite = store.loadSprite("/sprite/64x64white.png");
+        sprite = store.loadSprite("/sprite/sai.png");
     }
 
     /**
@@ -109,4 +113,5 @@ public class SpriteTest {
         Sprite split = sprite.split(10, 10, 64, 10);
         assertThat(split).isInstanceOf(EmptySprite.class);
     }
+
 }

@@ -49,6 +49,14 @@ public class PacManUI extends JFrame {
      * The panel displaying the game.
      */
     private BoardPanel boardPanel;
+
+    public BoardPanel getBoardPanel(){
+        return this.boardPanel;
+    }
+
+    public String getNameBG(){
+        return getBoardPanel().getBGName();
+    }
     /**
      *contentPanel
      * */
@@ -81,7 +89,7 @@ public class PacManUI extends JFrame {
     public PacManUI(final Game game, final Map<String, Action> buttons,
                     final Map<Integer, Action> keyMappings,
                     ScoreFormatter scoreFormatter,String nameFileBG) {
-        super("200K-JPacman");
+        super("JPacman EiEi");
         assert game != null;
         assert buttons != null;
         assert keyMappings != null;

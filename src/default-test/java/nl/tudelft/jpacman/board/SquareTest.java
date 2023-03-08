@@ -26,6 +26,7 @@ class SquareTest {
         square = new BasicSquare();
     }
 
+
     /**
      * Assert that the square holds the occupant once it has occupied it.
      */

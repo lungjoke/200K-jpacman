@@ -101,6 +101,10 @@ class BoardPanel extends JPanel {
         }
     }
 
+    public String getBGName(){
+        return bg;
+    }
+
     /**
      * Renders a single square on the given graphics context on the specified
      * rectangle.

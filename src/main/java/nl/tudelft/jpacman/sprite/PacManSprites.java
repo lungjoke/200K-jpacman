@@ -120,6 +120,9 @@ public class PacManSprites extends SpriteStore {
     public void setNameFileWall(String namefilewall) {
         NameFileWall = namefilewall;
     }
+    public String getNameFileWall() {
+        return NameFileWall;
+    }
 
     public Sprite getWallSprite() {
         return loadSprite(NameFileWall);
@@ -143,6 +146,9 @@ public class PacManSprites extends SpriteStore {
 
     public void setNameFilePellet(String nameFilePellet) {
         NameFilePellet = nameFilePellet;
+    }
+    public String getNameFilePellet() {
+        return NameFilePellet;
     }
 
     /**
