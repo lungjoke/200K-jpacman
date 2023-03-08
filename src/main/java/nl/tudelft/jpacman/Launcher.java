@@ -23,7 +23,7 @@ import nl.tudelft.jpacman.ui.PacManUiBuilder;
 
 /**
  * Creates and launches the JPacMan UI.
- * 
+ *
  * @author Jeroen Roosen
  */
 @SuppressWarnings("PMD.TooManyMethods")
@@ -31,7 +31,7 @@ public class Launcher {
     private PacManUiBuilder builder;
     private final PacManSprites SPRITE_STORE = new PacManSprites();
 
-    public final String DEFAULT_MAP = "/board.txt";
+    public final String DEFAULT_MAP = "/forest.txt";
     private String levelMap = DEFAULT_MAP;
 
     private PacManUI pacManUI;
@@ -84,7 +84,7 @@ public class Launcher {
 
     /**
      * Creates a new level. By default this method will use the map parser to
-     * parse the default board stored in the <code>board.txt</code> resource.
+     * parse the default board stored in the <code>forest.txt</code> resource.
      *
      * @return A new level.
      */
@@ -93,7 +93,7 @@ public class Launcher {
             return getMapParser().parseMap(getLevelMap());
         } catch (IOException e) {
             throw new PacmanConfigurationException(
-                    "Unable to create level, name = " + getLevelMap(), e);
+                "Unable to create level, name = " + getLevelMap(), e);
         }
     }
 
@@ -157,9 +157,9 @@ public class Launcher {
      */
     protected void addSinglePlayerKeys(final PacManUiBuilder builder) {
         builder.addKey(KeyEvent.VK_UP, moveTowardsDirection(Direction.NORTH))
-                .addKey(KeyEvent.VK_DOWN, moveTowardsDirection(Direction.SOUTH))
-                .addKey(KeyEvent.VK_LEFT, moveTowardsDirection(Direction.WEST))
-                .addKey(KeyEvent.VK_RIGHT, moveTowardsDirection(Direction.EAST));
+            .addKey(KeyEvent.VK_DOWN, moveTowardsDirection(Direction.SOUTH))
+            .addKey(KeyEvent.VK_LEFT, moveTowardsDirection(Direction.WEST))
+            .addKey(KeyEvent.VK_RIGHT, moveTowardsDirection(Direction.EAST));
     }
 
     private Action moveTowardsDirection(Direction direction) {
@@ -200,7 +200,7 @@ public class Launcher {
     }
     public void won(){
         if (getLevelMap() == "/skyboard.txt") {
-            levelMap = "/board.txt";
+            levelMap = "/forest.txt";
             SPRITE_STORE.setNameFileWall("/sprite/Forest.png");
             SPRITE_STORE.setNameFilePellet("/sprite/gem for.png");
             makeGame();
@@ -208,8 +208,8 @@ public class Launcher {
             builder.addStartButton(getGame());
             builder.addStopButton(getGame());
             pacManUI.newMap(getGame(),"src/main/resources/sprite/BGForest.png");
-            
-        } else if (getLevelMap() == "/board.txt") {
+
+        } else if (getLevelMap() == "/forest.txt") {
             levelMap = "/caveboard.txt";
             SPRITE_STORE.setNameFileWall("/sprite/Stone.png");
             SPRITE_STORE.setNameFilePellet("/sprite/gemStone.png");
@@ -269,7 +269,9 @@ public class Launcher {
         assert pacManUI != null;
         pacManUI.dispose();
     }
-
+    public PacManUI getPacManUItest(){
+        return this.pacManUI;
+    }
     /**
      * Main execution method for the Launcher.
      *
@@ -281,5 +283,4 @@ public class Launcher {
     public static void main(String[] args) throws IOException {
         new Launcher().launch();
     }
-
 }

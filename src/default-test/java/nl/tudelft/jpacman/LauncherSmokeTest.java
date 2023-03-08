@@ -56,14 +56,16 @@ public class LauncherSmokeTest {
     @SuppressWarnings({"magicnumber", "methodlength", "PMD.JUnitTestContainsTooManyAsserts"})
     @Test
     void smokeTest() throws InterruptedException {
-        
+        /**buttonPlay test*/
+        launcher.getPacManUItest().buttonPlay.doClick();
+
         Game game = launcher.getGame();
-        
         Player player = game.getPlayers().get(0);
 
         // start cleanly.
         assertThat(game.isInProgress()).isFalse();
         game.start();
+
         assertThat(game.isInProgress()).isTrue();
         assertThat(player.getScore()).isZero();
 
@@ -76,30 +78,35 @@ public class LauncherSmokeTest {
         assertThat(player.getScore()).isEqualTo(10);
 
         // try to move as far as we can
-        move(game, Direction.EAST, 7);
+        moveForTest(game, Direction.EAST, 6);
         assertThat(player.getScore()).isEqualTo(60);
 
         // move towards the monsters
-        move(game, Direction.NORTH, 6);
-        assertThat(player.getScore()).isEqualTo(120);
+        moveForTest(game, Direction.NORTH,4 );
+        assertThat(player.getScore()).isEqualTo(100);
 
         // no more points to earn here.
-        move(game, Direction.WEST, 2);
-        assertThat(player.getScore()).isEqualTo(120);
+        moveForTest(game, Direction.WEST, 12);
+        assertThat(player.getScore()).isEqualTo(220);
 
-        move(game, Direction.NORTH, 2);
+        moveForTest(game, Direction.SOUTH, 2);
+        assertThat(player.getScore()).isEqualTo(240);
 
         // Sleeping in tests is generally a bad idea.
         // Here we do it just to let the monsters move.
-        Thread.sleep(500L);
+        Thread.sleep(5000L);
 
         // we're close to monsters, this will get us killed.
-        move(game, Direction.WEST, 10);
-        move(game, Direction.EAST, 10);
+        moveForTest(game, Direction.WEST, 10);
+        moveForTest(game, Direction.EAST, 10);
         assertThat(player.isAlive()).isFalse();
 
         game.stop();
         assertThat(game.isInProgress()).isFalse();
+
+        assertThat(launcher.getPacManUItest().getisbuttonPlay()).isTrue();
+
+
     }
 
     /**
@@ -109,7 +116,7 @@ public class LauncherSmokeTest {
      * @param dir The direction to be taken
      * @param numSteps The number of steps to take
      */
-    public static void move(Game game, Direction dir, int numSteps) {
+    public static void moveForTest(Game game, Direction dir, int numSteps) {
         Player player = game.getPlayers().get(0);
         for (int i = 0; i < numSteps; i++) {
             game.move(player, dir);

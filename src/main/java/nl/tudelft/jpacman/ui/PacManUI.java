@@ -24,7 +24,7 @@ import nl.tudelft.jpacman.ui.ScorePanel.ScoreFormatter;
  * <li>A button panel, containing all buttons provided upon creation.
  * </ul>
  *
- * @author Jeroen Roosen 
+ * @author Jeroen Roosen
  *
  */
 public class PacManUI extends JFrame {
@@ -73,11 +73,15 @@ public class PacManUI extends JFrame {
      * @param scoreFormatter
      *            The formatter used to display the current score.
      */
-
+    public boolean isbuttonPlay;
+    public boolean getisbuttonPlay(){
+        return this.isbuttonPlay;
+    }
+    public JButton buttonPlay;
     public PacManUI(final Game game, final Map<String, Action> buttons,
                     final Map<Integer, Action> keyMappings,
                     ScoreFormatter scoreFormatter,String nameFileBG) {
-        super("JPacman");
+        super("200K-JPacman");
         assert game != null;
         assert buttons != null;
         assert keyMappings != null;
@@ -121,8 +125,8 @@ public class PacManUI extends JFrame {
      *
      * */
     public void Main_UI(JPanel buttonPanel){
-
-        ImageIcon icon = new ImageIcon("src/main/resources/sprite/BGmainmenu.png");
+        isbuttonPlay = false;
+        ImageIcon icon = new ImageIcon("src/main/resources/sprite/BGmainmenu.jpg");
         Image image = icon.getImage().getScaledInstance(500, 500, Image.SCALE_SMOOTH);
         ImageIcon scaledIcon = new ImageIcon(image);
         JLabel label = new JLabel();
@@ -130,22 +134,24 @@ public class PacManUI extends JFrame {
         label.setBounds(0, 0, 500, 500);
 
         ImageIcon imagebtn = new ImageIcon("src/main/resources/sprite/Element_Play.png");
-        JButton button2 = new ImageButton(imagebtn.getImage());
-        button2.setBounds(175, 300, 150, 100);
+        this.buttonPlay = new ImageButton(imagebtn.getImage());
+        this.buttonPlay.setBounds(175, 300, 150, 100);
         JPanel panel = new JPanel(null);
-        click(button2,panel,buttonPanel);
-        panel.add(button2);
+        click(buttonPlay,panel,buttonPanel);
+        panel.add(buttonPlay);
         panel.add(label);
         add(panel);
     }
-    private void click(JButton button2,JPanel panel,JPanel buttonPanel){
-        button2.addActionListener(new ActionListener() {
+    private void click(JButton buttonPlay,JPanel panel,JPanel buttonPanel){
+        buttonPlay.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 SwingUtilities.invokeLater(new Runnable() {
                     @Override
                     public void run() {
-                        System.out.println("click no");
+                        System.out.println("test"+isbuttonPlay);
+                        isbuttonPlay = true;
+                        System.out.println("test"+isbuttonPlay);
                         remove(panel);
                         pack();
                         contentPanel.add(buttonPanel, BorderLayout.SOUTH);
