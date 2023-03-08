@@ -50,7 +50,7 @@ public class Launcher {
      *
      * @return The name of the map file.
      */
-    protected String getLevelMap() {
+    public String getLevelMap() {
         return levelMap;
     }
 
