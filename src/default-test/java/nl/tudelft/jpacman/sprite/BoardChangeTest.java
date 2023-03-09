@@ -6,9 +6,10 @@ import java.io.IOException;
 
 import nl.tudelft.jpacman.Launcher;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class BoardTest {
+public class BoardChangeTest {
 
     private Sprite sprite;
     private SpriteStore store;
@@ -20,21 +21,28 @@ public class BoardTest {
         launcher.launch();
         launcher.getPacManUItest().buttonPlay.doClick();
     }
+
+    @DisplayName("TC1601")
     @Test
     public void testBoardSky() {
         assertThat(launcher.getLevelMap()).isEqualTo("/skyboard.txt");
     }
+
+    @DisplayName("TC1602")
     @Test
     public void testBoardForest (){
         launcher.getGame().levelWon();
         assertThat(launcher.getLevelMap()).isEqualTo("/forest.txt");
     }
+    @DisplayName("TC1603")
     @Test
     public void testBoardcave(){
         launcher.getGame().levelWon();
         launcher.getGame().levelWon();
         assertThat(launcher.getLevelMap()).isEqualTo("/caveboard.txt");
     }
+
+    @DisplayName("TC1604")
     @Test
     public void testBoardice(){
         launcher.getGame().levelWon();
@@ -42,6 +50,8 @@ public class BoardTest {
         launcher.getGame().levelWon();
         assertThat(launcher.getLevelMap()).isEqualTo("/iceboard.txt");
     }
+
+    @DisplayName("TC1604")
     @Test
     public void testBoardlava(){
         launcher.getGame().levelWon();
