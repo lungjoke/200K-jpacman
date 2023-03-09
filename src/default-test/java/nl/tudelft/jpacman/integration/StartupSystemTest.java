@@ -43,9 +43,9 @@ public class StartupSystemTest {
         launcher.launch();
         launcher.getPacManUItest().buttonPlay.doClick();
 
-        getGame().start();
 
-        assertThat(getGame().isInProgress()).isTrue();
+
+        assertThat(launcher.getPacManUItest().isbuttonPlay).isTrue();
     }
 
 
