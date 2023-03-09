@@ -95,12 +95,14 @@ class BoardPanel extends JPanel {
             for (int x = 0; x < board.getWidth(); x++) {
                 int cellX = x * cellW;
                 int cellY = y * cellH;
+
                 Square square = board.squareAt(x, y);
                 render(square, graphics, cellX, cellY, cellW, cellH);
             }
         }
     }
 
+    /** Return background path*/
     public String getBGName(){
         return bg;
     }
