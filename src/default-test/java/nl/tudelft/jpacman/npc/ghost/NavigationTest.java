@@ -158,4 +158,5 @@ class NavigationTest {
             assertThat(unit).isNotNull();
         }
     }
+
 }

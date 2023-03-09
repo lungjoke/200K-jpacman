@@ -56,7 +56,7 @@ public class LauncherSmokeTest {
     @SuppressWarnings({"magicnumber", "methodlength", "PMD.JUnitTestContainsTooManyAsserts"})
     @Test
     void smokeTest() throws InterruptedException {
-        /**buttonPlay test*/
+        // click buttonPlay.
         launcher.getPacManUItest().buttonPlay.doClick();
 
         Game game = launcher.getGame();
