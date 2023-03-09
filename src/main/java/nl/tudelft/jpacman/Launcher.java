@@ -259,6 +259,7 @@ public class Launcher {
         addSinglePlayerKeys(builder);
         pacManUI = builder.build(getGame(),"src/main/resources/sprite/BGsky.png");
         pacManUI.start();
+
     }
     public void setlaunchGame() {
         game.setLauncher(this);
