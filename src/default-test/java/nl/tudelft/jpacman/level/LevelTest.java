@@ -12,6 +12,7 @@ import nl.tudelft.jpacman.npc.Ghost;
 
 import com.google.common.collect.Lists;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 /**
@@ -85,6 +86,7 @@ class LevelTest {
     /**
      * Validates the state of the level when it is started.
      */
+    @DisplayName("TC1101")
     @Test
     void start() {
         level.start();
@@ -94,6 +96,7 @@ class LevelTest {
     /**
      * Validates the state of the level when it is started then stopped.
      */
+    @DisplayName("TC1001")
     @Test
     void startStop() {
         level.start();
@@ -104,6 +107,7 @@ class LevelTest {
     /**
      * Validates the state of the level when it is started then stopped and started again.
      */
+    @DisplayName("TC1201")
     @Test
     void startstopStart() {
         level.start();

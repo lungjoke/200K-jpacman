@@ -4,6 +4,7 @@ import nl.tudelft.jpacman.Launcher;
 import nl.tudelft.jpacman.game.Game;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -35,9 +36,12 @@ public class StartupSystemTest {
      * The simplest test that just starts the
      * game and checks it is indeed in progress.
      */
+
+    @DisplayName("TC201")
     @Test
     public void gameIsRunning() {
         launcher.launch();
+        launcher.getPacManUItest().buttonPlay.doClick();
 
         getGame().start();
 

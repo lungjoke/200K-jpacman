@@ -4,7 +4,9 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.mock;
 import nl.tudelft.jpacman.sprite.PacManSprites;
 
+import org.assertj.core.api.AssertionsForClassTypes;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
@@ -46,6 +48,9 @@ class BoardFactoryTest {
     /**
      * Verifies that a single cell is connected to itself on all sides.
      */
+
+
+    @DisplayName("TC1901")
     @Test
     void worldIsRound() {
         factory.createBoard(new Square[][]{{s1}});
@@ -55,6 +60,8 @@ class BoardFactoryTest {
     /**
      * Verifies a chain of cells is connected to the east.
      */
+
+    @DisplayName("TC2001")
     @Test
     void connectedEast() {
         factory.createBoard(new Square[][]{{s1}, {s2}});
@@ -65,6 +72,8 @@ class BoardFactoryTest {
     /**
      * Verifies a chain of cells is connected to the west.
      */
+
+    @DisplayName("TC2101")
     @Test
     void connectedWest() {
         factory.createBoard(new Square[][]{{s1}, {s2}});
@@ -75,6 +84,8 @@ class BoardFactoryTest {
     /**
      * Verifies a chain of cells is connected to the north.
      */
+
+    @DisplayName("TC2201")
     @Test
     void connectedNorth() {
         factory.createBoard(new Square[][]{{s1, s2}});
@@ -85,10 +96,13 @@ class BoardFactoryTest {
     /**
      * Verifies a chain of cells is connected to the south.
      */
+
+    @DisplayName("TC2301")
     @Test
     void connectedSouth() {
         factory.createBoard(new Square[][]{{s1, s2}});
         assertThat(s1.getSquareAt(Direction.SOUTH)).isEqualTo(s2);
         assertThat(s2.getSquareAt(Direction.SOUTH)).isEqualTo(s1);
     }
+
 }
