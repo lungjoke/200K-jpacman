@@ -32,7 +32,7 @@ public class Launcher {
     public final PacManSprites SPRITE_STORE = new PacManSprites();
 
     public final String DEFAULT_MAP = "/forest.txt";
-    private String levelMap = DEFAULT_MAP;
+    public String levelMap = DEFAULT_MAP;
 
     private PacManUI pacManUI;
     private Game game;
@@ -195,7 +195,7 @@ public class Launcher {
         SPRITE_STORE.setNameFileWall("/sprite/sky2.png");
         SPRITE_STORE.setNameFilePellet("/sprite/featherpellet.png");
         makeGame();
-        game.setLauncher(this);
+        setlaunchGame();
         builder.addStartButton(getGame());
         builder.addStopButton(getGame());
         pacManUI.newMap(getGame(),"src/main/resources/sprite/BGsky.png");
@@ -206,7 +206,7 @@ public class Launcher {
             SPRITE_STORE.setNameFileWall("/sprite/Forest.png");
             SPRITE_STORE.setNameFilePellet("/sprite/gem for.png");
             makeGame();
-            game.setLauncher(this);
+            setlaunchGame();
             builder.addStartButton(getGame());
             builder.addStopButton(getGame());
             pacManUI.newMap(getGame(),"src/main/resources/sprite/BGForest.png");
@@ -216,7 +216,7 @@ public class Launcher {
             SPRITE_STORE.setNameFileWall("/sprite/Stone.png");
             SPRITE_STORE.setNameFilePellet("/sprite/gemStone.png");
             makeGame();
-            game.setLauncher(this);
+            setlaunchGame();
             builder.addStartButton(getGame());
             builder.addStopButton(getGame());
             pacManUI.newMap(getGame(),"src/main/resources/sprite/BGcave.png");
@@ -225,7 +225,7 @@ public class Launcher {
             SPRITE_STORE.setNameFileWall("/sprite/ice cave.png");
             SPRITE_STORE.setNameFilePellet("/sprite/gemice.png");
             makeGame();
-            game.setLauncher(this);
+            setlaunchGame();
             builder.addStartButton(getGame());
             builder.addStopButton(getGame());
             pacManUI.newMap(getGame(),"src/main/resources/sprite/BGice.png");
@@ -234,16 +234,16 @@ public class Launcher {
             SPRITE_STORE.setNameFileWall("/sprite/Lava.png");
             SPRITE_STORE.setNameFilePellet("/sprite/gemlava.png");
             makeGame();
-            game.setLauncher(this);
+            setlaunchGame();
             builder.addStartButton(getGame());
             builder.addStopButton(getGame());
             pacManUI.newMap(getGame(),"src/main/resources/sprite/BGlava.png");
-        } else if (getLevelMap() == "/lavaboard.txt") {
+        } else {
             levelMap = "/skyboard.txt";
             SPRITE_STORE.setNameFileWall("/sprite/sky2.png");
             SPRITE_STORE.setNameFilePellet("/sprite/featherpellet.png");
             makeGame();
-            game.setLauncher(this);
+            setlaunchGame();
             builder.addStartButton(getGame());
             builder.addStopButton(getGame());
             pacManUI.newMap(getGame(),"src/main/resources/sprite/BGsky.png");
@@ -254,13 +254,15 @@ public class Launcher {
         SPRITE_STORE.setNameFileWall("/sprite/sky2.png");
         SPRITE_STORE.setNameFilePellet("/sprite/featherpellet.png");
         makeGame();
-        game.setLauncher(this);
+        setlaunchGame();
         builder = new PacManUiBuilder().withDefaultButtons();
         addSinglePlayerKeys(builder);
         pacManUI = builder.build(getGame(),"src/main/resources/sprite/BGsky.png");
         pacManUI.start();
     }
-
+    public void setlaunchGame() {
+        game.setLauncher(this);
+    }
     /**
      * Disposes of the UI. For more information see
      * {@link javax.swing.JFrame#dispose()}.

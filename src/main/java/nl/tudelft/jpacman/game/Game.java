@@ -52,7 +52,6 @@ public abstract class Game implements LevelObserver {
      * Starts or resumes the game.
      */
     public void start() {
-        System.out.println(this);
         synchronized (progressLock) {
             if (isInProgress()) {
                 return;

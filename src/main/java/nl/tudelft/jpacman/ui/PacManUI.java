@@ -157,9 +157,7 @@ public class PacManUI extends JFrame {
                 SwingUtilities.invokeLater(new Runnable() {
                     @Override
                     public void run() {
-                        System.out.println("test"+isbuttonPlay);
                         isbuttonPlay = true;
-                        System.out.println("test"+isbuttonPlay);
                         remove(panel);
                         pack();
                         contentPanel.add(buttonPanel, BorderLayout.SOUTH);
