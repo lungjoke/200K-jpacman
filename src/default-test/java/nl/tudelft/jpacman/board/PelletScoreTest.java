@@ -50,6 +50,7 @@ public class PelletScoreTest {
         assertThat(player.getScore()).isEqualTo(10);
     }
 
+
     @DisplayName("TC503")
     @Test
     void testNorthPellet() {
@@ -70,6 +71,61 @@ public class PelletScoreTest {
 
         game.start();
         move(game, Direction.WEST, 1);
+        game.move(player, Direction.SOUTH);
+        assertThat(player.getScore()).isEqualTo(20);
+    }
+
+    @DisplayName("TC601")
+    @Test
+    void testWestEmptyPellet() {
+        Game game = launcher.getGame();
+        Player player = game.getPlayers().get(0);
+
+        game.start();
+        move(game, Direction.WEST, 1);
+        game.move(player, Direction.EAST);
+        game.move(player, Direction.WEST);
+        assertThat(player.getScore()).isEqualTo(10);
+    }
+
+
+    @DisplayName("TC602")
+    @Test
+    void testEastEmptyPellet() {
+        Game game = launcher.getGame();
+        Player player = game.getPlayers().get(0);
+
+        game.start();
+        move(game, Direction.EAST, 1);
+        game.move(player, Direction.WEST);
+        game.move(player, Direction.EAST);
+        assertThat(player.getScore()).isEqualTo(10);
+    }
+
+    @DisplayName("TC603")
+    @Test
+    void testNorthEmptyPellet() {
+        Game game = launcher.getGame();
+        Player player = game.getPlayers().get(0);
+
+        game.start();
+        move(game, Direction.EAST, 4);
+        game.move(player, Direction.NORTH);
+        game.move(player, Direction.SOUTH);
+        game.move(player, Direction.NORTH);
+        assertThat(player.getScore()).isEqualTo(50);
+    }
+
+    @DisplayName("TC604")
+    @Test
+    void testSouthEmptyPellet() {
+        Game game = launcher.getGame();
+        Player player = game.getPlayers().get(0);
+
+        game.start();
+        move(game, Direction.WEST, 1);
+        game.move(player, Direction.SOUTH);
+        game.move(player, Direction.NORTH);
         game.move(player, Direction.SOUTH);
         assertThat(player.getScore()).isEqualTo(20);
     }
