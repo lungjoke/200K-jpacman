@@ -36,7 +36,7 @@ class BoardTest {
     /**
      * Verifies the board has the correct height.
      */
-    @DisplayName("TC2402")
+    @DisplayName("TC2501")
     @Test
     void verifyHeight() {
         assertThat(board.getHeight()).isEqualTo(MAX_HEIGHT);
@@ -47,7 +47,7 @@ class BoardTest {
      * @param x Horizontal coordinate of relevant cell.
      * @param y Vertical coordinate of relevant cell.
      */
-    @DisplayName("TC2403")
+    @DisplayName("TC2601")
     @ParameterizedTest
     @CsvSource({
             "0, 0",
