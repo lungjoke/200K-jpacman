@@ -53,7 +53,7 @@ class NavigationTest {
     /**
      * Verifies that the path to the same square is empty.
      */
-    @DisplayName("TC2501")
+    @DisplayName("TC2701")
     @Test
     void testShortestPathEmpty() {
         Board b = parser.parseMap(Lists.newArrayList(" ")).getBoard();
@@ -67,7 +67,7 @@ class NavigationTest {
     /**
      * Verifies that if no path exists, the result is <code>null</code>.
      */
-    @DisplayName("TC2502")
+    @DisplayName("TC2702")
     @Test
     void testNoShortestPath() {
         Board b = parser
@@ -83,7 +83,7 @@ class NavigationTest {
     /**
      * Verifies that having no traveller ignores terrain.
      */
-    @DisplayName("TC2503")
+    @DisplayName("TC2703")
     @Test
     void testNoTraveller() {
         Board b = parser
@@ -98,7 +98,7 @@ class NavigationTest {
     /**
      * Tests if the algorithm can find a path in a straight line.
      */
-    @DisplayName("TC2504")
+    @DisplayName("TC2704")
     @Test
     void testSimplePath() {
         Board b = parser.parseMap(Lists.newArrayList("####", "#  #", "####"))
@@ -114,7 +114,7 @@ class NavigationTest {
     /**
      * Verifies that the algorithm can find a path when it has to take corners.
      */
-    @DisplayName("TC2505")
+    @DisplayName("TC2705")
     @Test
     void testCornerPath() {
         Board b = parser.parseMap(
@@ -129,7 +129,7 @@ class NavigationTest {
     /**
      * Verifies that the nearest object is detected.
      */
-    @DisplayName("TC2506")
+    @DisplayName("TC2706")
     @Test
     void testNearestUnit() {
         Board b = parser
@@ -144,7 +144,7 @@ class NavigationTest {
     /**
      * Verifies that there is no such location if there is no nearest object.
      */
-    @DisplayName("TC2507")
+    @DisplayName("TC2707")
     @Test
     void testNoNearestUnit() {
         Board b = parser.parseMap(Lists.newArrayList(" ")).getBoard();
@@ -159,7 +159,7 @@ class NavigationTest {
      *
      * @throws IOException if board reading fails.
      */
-    @DisplayName("TC2508")
+    @DisplayName("TC2708")
     @Test
     void testFullSizedLevel() throws IOException {
         try (InputStream i = getClass().getResourceAsStream("/forest.txt")) {
@@ -169,5 +169,4 @@ class NavigationTest {
             assertThat(unit).isNotNull();
         }
     }
-
 }
