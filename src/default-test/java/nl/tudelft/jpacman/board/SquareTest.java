@@ -32,7 +32,7 @@ class SquareTest {
      * Assert that the square holds the occupant once it has occupied it.
      */
 
-    @DisplayName("TC1701")
+    @DisplayName("TC1601")
     @Test
     void testOccupy() {
         Unit occupant = mock(Unit.class);
@@ -46,7 +46,7 @@ class SquareTest {
      * square.
      */
 
-    @DisplayName("TC1801")
+    @DisplayName("TC1701")
     @Test
     void testLeave() {
         Unit occupant = mock(Unit.class);

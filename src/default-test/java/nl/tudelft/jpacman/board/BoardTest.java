@@ -1,5 +1,6 @@
 package nl.tudelft.jpacman.board;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
@@ -26,7 +27,7 @@ class BoardTest {
     /**
      * Verifies the board has the correct width.
      */
-
+    @DisplayName("TC2401")
     @Test
     void verifyWidth() {
         assertThat(board.getWidth()).isEqualTo(MAX_WIDTH);
@@ -35,7 +36,7 @@ class BoardTest {
     /**
      * Verifies the board has the correct height.
      */
-
+    @DisplayName("TC2402")
     @Test
     void verifyHeight() {
         assertThat(board.getHeight()).isEqualTo(MAX_HEIGHT);
@@ -46,6 +47,7 @@ class BoardTest {
      * @param x Horizontal coordinate of relevant cell.
      * @param y Vertical coordinate of relevant cell.
      */
+    @DisplayName("TC2403")
     @ParameterizedTest
     @CsvSource({
             "0, 0",

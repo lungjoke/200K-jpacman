@@ -8,6 +8,7 @@ import nl.tudelft.jpacman.npc.ghost.*;
 import nl.tudelft.jpacman.points.PointCalculator;
 import nl.tudelft.jpacman.sprite.PacManSprites;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 
@@ -29,7 +30,7 @@ public class FindUnitInBoardTest {
             mock(PointCalculator.class));
         parser = new MapParser(levelFactory, new BoardFactory(sprites));
     }
-
+    @DisplayName("TC2301")
     @Test
     void testFindPinkyInBoard(){
         Board b = parser.parseMap(Lists.newArrayList("G G G G")).getBoard();
@@ -39,7 +40,7 @@ public class FindUnitInBoardTest {
 
         assertThat(foundPinky).isNotNull();
     }
-
+    @DisplayName("TC2302")
     @Test
     void testFindInkyInBoard(){
         Board b = parser.parseMap(Lists.newArrayList("G G G G")).getBoard();
@@ -47,7 +48,7 @@ public class FindUnitInBoardTest {
 
         assertThat(foundInky).isNotNull();
     }
-
+    @DisplayName("TC2303")
     @Test
     void testFindBlinkyInBoard(){
         Board b = parser.parseMap(Lists.newArrayList("G G G G")).getBoard();
@@ -55,7 +56,7 @@ public class FindUnitInBoardTest {
 
         assertThat(foundBlinky).isNotNull();
     }
-
+    @DisplayName("TC2304")
     @Test
     void testFindClydeInBoard(){
         Board b = parser.parseMap(Lists.newArrayList("G G G G")).getBoard();

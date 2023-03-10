@@ -24,26 +24,26 @@ public class ResourceTest {
         Assertions.assertThat(east.getDeltaY()).isEqualTo(0);
     }
 
-    @DisplayName("TC1501")
+    @DisplayName("TC1401")
     @Test
     public void testSkyWall() {
         assertThat(launcher.SPRITE_STORE.getNameFileWall()).isEqualTo("/sprite/sky2.png");
     }
 
 
-    @DisplayName("TC1502")
+    @DisplayName("TC1402")
     @Test
     public void testSkyBG(){
         assertThat(launcher.getPacManUItest().getNameBG()).isEqualTo("src/main/resources/sprite/BGsky.png");
     }
 
-    @DisplayName("TC1503")
+    @DisplayName("TC1403")
     @Test
     public void testSkyPellet() {
         assertThat(launcher.SPRITE_STORE.getNameFilePellet()).isEqualTo("/sprite/featherpellet.png");
     }
 
-    @DisplayName("TC1504")
+    @DisplayName("TC1404")
     @Test
     public void testForestWall() {
         launcher.getGame().levelWon();
@@ -51,7 +51,7 @@ public class ResourceTest {
     }
 
 
-    @DisplayName("TC1505")
+    @DisplayName("TC1405")
     @Test
     public void testForestBG(){
         launcher.getGame().levelWon();
@@ -60,14 +60,14 @@ public class ResourceTest {
 
 
 
-    @DisplayName("TC1506")
+    @DisplayName("TC1406")
     @Test
     public void testForestPellet() {
         launcher.getGame().levelWon();
         assertThat(launcher.SPRITE_STORE.getNameFilePellet()).isEqualTo("/sprite/gem for.png");
     }
 
-    @DisplayName("TC1507")
+    @DisplayName("TC1407")
     @Test
     public void testCaveWall() {
         launcher.getGame().levelWon();
@@ -77,7 +77,7 @@ public class ResourceTest {
 
 
 
-    @DisplayName("TC1508")
+    @DisplayName("TC1408")
     @Test
     public void testCaveBG(){
         launcher.getGame().levelWon();
@@ -86,7 +86,7 @@ public class ResourceTest {
     }
 
 
-    @DisplayName("TC1509")
+    @DisplayName("TC1409")
     @Test
     public void testCavePellet() {
         launcher.getGame().levelWon();
@@ -94,7 +94,7 @@ public class ResourceTest {
         assertThat(launcher.SPRITE_STORE.getNameFilePellet()).isEqualTo("/sprite/gemStone.png");
     }
 
-    @DisplayName("TC1510")
+    @DisplayName("TC1410")
     @Test
     public void testIceWall() {
         launcher.getGame().levelWon();
@@ -105,7 +105,7 @@ public class ResourceTest {
 
 
 
-    @DisplayName("TC1511")
+    @DisplayName("TC1411")
     @Test
     public void testIceBG(){
         launcher.getGame().levelWon();
@@ -116,7 +116,7 @@ public class ResourceTest {
 
 
 
-    @DisplayName("TC1512")
+    @DisplayName("TC1412")
     @Test
     public void testIcePellet() {
         launcher.getGame().levelWon();
@@ -125,7 +125,7 @@ public class ResourceTest {
         assertThat(launcher.SPRITE_STORE.getNameFilePellet()).isEqualTo("/sprite/gemice.png");
     }
 
-    @DisplayName("TC1513")
+    @DisplayName("TC1413")
     @Test
     public void testLavaWall() {
         launcher.getGame().levelWon();
@@ -136,7 +136,7 @@ public class ResourceTest {
     }
 
 
-    @DisplayName("TC1514")
+    @DisplayName("TC1414")
     @Test
     public void testLavaBG(){
         launcher.getGame().levelWon();
@@ -147,7 +147,7 @@ public class ResourceTest {
     }
 
 
-    @DisplayName("TC1515")
+    @DisplayName("TC1415")
     @Test
     public void testLavaPellet() {
         launcher.getGame().levelWon();

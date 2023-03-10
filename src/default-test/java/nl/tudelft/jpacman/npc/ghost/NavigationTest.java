@@ -13,6 +13,7 @@ import nl.tudelft.jpacman.npc.Ghost;
 import nl.tudelft.jpacman.points.PointCalculator;
 import nl.tudelft.jpacman.sprite.PacManSprites;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
@@ -38,6 +39,7 @@ class NavigationTest {
     /**
      * Set up the map parser.
      */
+
     @BeforeEach
     void setUp() {
         PacManSprites sprites = new PacManSprites();
@@ -51,6 +53,7 @@ class NavigationTest {
     /**
      * Verifies that the path to the same square is empty.
      */
+    @DisplayName("TC2501")
     @Test
     void testShortestPathEmpty() {
         Board b = parser.parseMap(Lists.newArrayList(" ")).getBoard();
@@ -64,6 +67,7 @@ class NavigationTest {
     /**
      * Verifies that if no path exists, the result is <code>null</code>.
      */
+    @DisplayName("TC2502")
     @Test
     void testNoShortestPath() {
         Board b = parser
@@ -79,6 +83,7 @@ class NavigationTest {
     /**
      * Verifies that having no traveller ignores terrain.
      */
+    @DisplayName("TC2503")
     @Test
     void testNoTraveller() {
         Board b = parser
@@ -93,6 +98,7 @@ class NavigationTest {
     /**
      * Tests if the algorithm can find a path in a straight line.
      */
+    @DisplayName("TC2504")
     @Test
     void testSimplePath() {
         Board b = parser.parseMap(Lists.newArrayList("####", "#  #", "####"))
@@ -104,9 +110,11 @@ class NavigationTest {
         assertThat(path).containsExactly(Direction.EAST);
     }
 
+
     /**
      * Verifies that the algorithm can find a path when it has to take corners.
      */
+    @DisplayName("TC2505")
     @Test
     void testCornerPath() {
         Board b = parser.parseMap(
@@ -121,6 +129,7 @@ class NavigationTest {
     /**
      * Verifies that the nearest object is detected.
      */
+    @DisplayName("TC2506")
     @Test
     void testNearestUnit() {
         Board b = parser
@@ -135,6 +144,7 @@ class NavigationTest {
     /**
      * Verifies that there is no such location if there is no nearest object.
      */
+    @DisplayName("TC2507")
     @Test
     void testNoNearestUnit() {
         Board b = parser.parseMap(Lists.newArrayList(" ")).getBoard();
@@ -149,6 +159,7 @@ class NavigationTest {
      *
      * @throws IOException if board reading fails.
      */
+    @DisplayName("TC2508")
     @Test
     void testFullSizedLevel() throws IOException {
         try (InputStream i = getClass().getResourceAsStream("/forest.txt")) {

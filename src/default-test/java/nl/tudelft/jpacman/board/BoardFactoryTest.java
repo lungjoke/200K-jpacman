@@ -50,7 +50,7 @@ class BoardFactoryTest {
      */
 
 
-    @DisplayName("TC1901")
+    @DisplayName("TC1801")
     @Test
     void worldIsRound() {
         factory.createBoard(new Square[][]{{s1}});
@@ -61,7 +61,7 @@ class BoardFactoryTest {
      * Verifies a chain of cells is connected to the east.
      */
 
-    @DisplayName("TC2001")
+    @DisplayName("TC1901")
     @Test
     void connectedEast() {
         factory.createBoard(new Square[][]{{s1}, {s2}});
@@ -73,7 +73,7 @@ class BoardFactoryTest {
      * Verifies a chain of cells is connected to the west.
      */
 
-    @DisplayName("TC2101")
+    @DisplayName("TC2001")
     @Test
     void connectedWest() {
         factory.createBoard(new Square[][]{{s1}, {s2}});
@@ -85,7 +85,7 @@ class BoardFactoryTest {
      * Verifies a chain of cells is connected to the north.
      */
 
-    @DisplayName("TC2201")
+    @DisplayName("TC2101")
     @Test
     void connectedNorth() {
         factory.createBoard(new Square[][]{{s1, s2}});
@@ -97,7 +97,7 @@ class BoardFactoryTest {
      * Verifies a chain of cells is connected to the south.
      */
 
-    @DisplayName("TC2301")
+    @DisplayName("TC2201")
     @Test
     void connectedSouth() {
         factory.createBoard(new Square[][]{{s1, s2}});

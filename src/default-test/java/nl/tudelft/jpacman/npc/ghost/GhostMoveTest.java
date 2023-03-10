@@ -5,6 +5,7 @@ import nl.tudelft.jpacman.board.Direction;
 import nl.tudelft.jpacman.npc.Ghost;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
@@ -19,7 +20,7 @@ public class GhostMoveTest {
         launcher.launch();
         launcher.getPacManUItest().buttonPlay.doClick();
     }
-
+    @DisplayName("TC401")
     @Test
     void testPinkyMove() {
         Ghost PinkyPosition = Navigation.findUnitInBoard(Pinky.class, launcher.getGame().getLevel().getBoard());
@@ -33,7 +34,7 @@ public class GhostMoveTest {
         };
         assertThat(StartPosition!=MovePosition).isTrue();
     }
-
+    @DisplayName("TC402")
     @Test
     void testInkyMove() {
         Ghost InkyPosition = Navigation.findUnitInBoard(Inky.class, launcher.getGame().getLevel().getBoard());
@@ -47,7 +48,7 @@ public class GhostMoveTest {
         };
         assertThat(StartPosition!=MovePosition).isTrue();
     }
-
+    @DisplayName("TC403")
     @Test
     void testBlinkyMove() {
         Ghost BlinkyPosition = Navigation.findUnitInBoard(Blinky.class, launcher.getGame().getLevel().getBoard());
@@ -61,7 +62,7 @@ public class GhostMoveTest {
         };
         assertThat(StartPosition!=MovePosition).isTrue();
     }
-
+    @DisplayName("TC404")
     @Test
     void testClydeMove() {
         Ghost ClydePosition = Navigation.findUnitInBoard(Clyde.class, launcher.getGame().getLevel().getBoard());
