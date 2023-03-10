@@ -98,7 +98,7 @@ class NavigationTest {
     /**
      * Tests if the algorithm can find a path in a straight line.
      */
-    @DisplayName("TC2704")
+    @DisplayName("TC2701")
     @Test
     void testSimplePath() {
         Board b = parser.parseMap(Lists.newArrayList("####", "#  #", "####"))
@@ -114,7 +114,7 @@ class NavigationTest {
     /**
      * Verifies that the algorithm can find a path when it has to take corners.
      */
-    @DisplayName("TC2705")
+    @DisplayName("TC2801")
     @Test
     void testCornerPath() {
         Board b = parser.parseMap(
@@ -129,7 +129,7 @@ class NavigationTest {
     /**
      * Verifies that the nearest object is detected.
      */
-    @DisplayName("TC2706")
+    @DisplayName("TC2901")
     @Test
     void testNearestUnit() {
         Board b = parser
@@ -144,7 +144,7 @@ class NavigationTest {
     /**
      * Verifies that there is no such location if there is no nearest object.
      */
-    @DisplayName("TC2707")
+    @DisplayName("TC3001")
     @Test
     void testNoNearestUnit() {
         Board b = parser.parseMap(Lists.newArrayList(" ")).getBoard();
@@ -159,7 +159,7 @@ class NavigationTest {
      *
      * @throws IOException if board reading fails.
      */
-    @DisplayName("TC2708")
+    @DisplayName("TC3101")
     @Test
     void testFullSizedLevel() throws IOException {
         try (InputStream i = getClass().getResourceAsStream("/forest.txt")) {
