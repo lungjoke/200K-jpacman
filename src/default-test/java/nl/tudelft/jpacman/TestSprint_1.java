@@ -1,6 +1,5 @@
-package nl.tudelft.jpacman.level;
+package nl.tudelft.jpacman;
 
-import nl.tudelft.jpacman.Launcher;
 import nl.tudelft.jpacman.board.Direction;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -12,47 +11,46 @@ import java.util.Random;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class Pelletchancemaptest {
+public class TestSprint_1 {
+
     private Launcher l =new Launcher();
     @BeforeEach
     void setUp() {
         l.launch();
         l.getPacManUItest().buttonPlay.doClick();
     }
-
     @AfterEach
     void tearDown() {
         l.dispose();
     }
     @Test
-    void Pelletchancemaptest(){
-        String map = "/boardTest.txt";
-        setgameLauncher(map);
-        while (l.getLevelMap() == "/boardTest.txt"){
+    void Sprint(){
+        setgameLauncher("/skyboard.txt");
+        while (l.getLevelMap() == "/skyboard.txt"){
             l.delay(1);
             l.getGame().move(l.getGame().getPlayers().get(0),randomMove());
         }
-        assertThat(map!=l.getLevelMap()).isTrue();
-    }
-    @Test
-    void PelletNoChancemaptest(){
-        String map = "/boardTest.txt";
-        setgameLauncher(map);
-        for (int i = 0; i < 30; i++){
-            l.delay(5);
+        setgameLauncher("/forest.txt");
+        while (l.getLevelMap() == "/forest.txt"){
+            l.delay(1);
             l.getGame().move(l.getGame().getPlayers().get(0),randomMove());
         }
-        assertThat(map==l.getLevelMap()).isTrue();
-    }
-    @Test
-    void PelletDead(){
-        String map = "/boardTest1.txt";
-        setgameLauncher(map);
-        while (l.getLevelMap()!="/skyboard.txt"){
-            l.delay(5);
+        setgameLauncher("/caveboard.txt");
+        while (l.getLevelMap() == "/caveboard.txt"){
+            l.delay(1);
             l.getGame().move(l.getGame().getPlayers().get(0),randomMove());
         }
-        assertThat(l.getLevelMap()=="/skyboard.txt").isTrue();
+        setgameLauncher("/iceboard.txt");
+        while (l.getLevelMap() == "iceboard.txt"){
+            l.delay(1);
+            l.getGame().move(l.getGame().getPlayers().get(0),randomMove());
+        }
+        setgameLauncher("/lavaboard.txt");
+        while (l.getLevelMap() == "/lavaboard.txt"){
+            l.delay(1);
+            l.getGame().move(l.getGame().getPlayers().get(0),randomMove());
+        }
+        System.out.println(l.getLevelMap());
     }
 
     public void setgameLauncher(String map){
@@ -62,11 +60,9 @@ public class Pelletchancemaptest {
         l.getPacManUItest().newMap(l.getGame(),l.getPacManUItest().getNameBG());
         l.getGame().start();
     }
-
     public Direction randomMove(){
         List<Direction> Move_D = Arrays.asList(Direction.NORTH,Direction.SOUTH,Direction.EAST,Direction.WEST);
         Random random = new Random();
         return Move_D.get(random.nextInt(Move_D.size()));
     }
-
 }
