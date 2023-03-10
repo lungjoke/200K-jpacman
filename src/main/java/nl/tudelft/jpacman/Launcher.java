@@ -259,8 +259,8 @@ public class Launcher {
         addSinglePlayerKeys(builder);
         pacManUI = builder.build(getGame(),"src/main/resources/sprite/BGsky.png");
         pacManUI.start();
-
     }
+
     public void setlaunchGame() {
         game.setLauncher(this);
     }
@@ -288,4 +288,5 @@ public class Launcher {
     public static void main(String[] args) throws IOException {
         new Launcher().launch();
     }
+
 }

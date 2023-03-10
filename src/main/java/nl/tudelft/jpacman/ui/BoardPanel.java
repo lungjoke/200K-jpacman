@@ -87,9 +87,8 @@ class BoardPanel extends JPanel {
         int cellW = window.width / board.getWidth();
         int cellH = window.height / board.getHeight();
 
-
         ImageIcon C = new ImageIcon(bg);
-        graphics.drawImage(C.getImage(),0,0,550,490,this);
+        graphics.drawImage(C.getImage(),0,0,550,500,this);
 
         for (int y = 0; y < board.getHeight(); y++) {
             for (int x = 0; x < board.getWidth(); x++) {
