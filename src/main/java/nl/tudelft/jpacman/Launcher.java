@@ -193,8 +193,19 @@ public class Launcher {
      */
 
 
-    public void lost(){GamenewMap();}
-    public void won(){gameUI.GemeWon();GamenewMap();}
+    public void lost(){
+        gameUI.GemeWon();
+        GamenewMap();
+        pacManUI.newMap(getGame(),gameUI.getBGName());
+        gameUI.nextCutScense(pacManUI);
+    }
+    public void won(){
+        gameUI.GemeWon();
+        GamenewMap();
+        gameUI.nextCutScense(pacManUI);
+        System.out.println(gameUI.getBGName());
+        //ToGame();
+    }
 
 
     public void launch() {
@@ -212,7 +223,7 @@ public class Launcher {
         pacManUI.start();
     }
 
-    private void GamenewMap(){
+    private PacManUI GamenewMap(){
         levelMap = gameUI.getBoardName();
         SPRITE_STORE.setNameFileWall(gameUI.getWallName());
         SPRITE_STORE.setNameFilePellet(gameUI.getPelletName());
@@ -220,7 +231,11 @@ public class Launcher {
         game.setLauncher(this);
         builder.addStartButton(getGame());
         builder.addStopButton(getGame());
-        pacManUI.newMap(getGame(),gameUI.getBGName());
+        return pacManUI;
+    }
+
+    private void ToGame(){
+
     }
 
     /**

@@ -5,11 +5,14 @@ import nl.tudelft.jpacman.npc.ghost.Clyde;
 import nl.tudelft.jpacman.npc.ghost.Inky;
 import nl.tudelft.jpacman.npc.ghost.Pinky;
 
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 public class GameUI {
+
+    private List<String> cutScenseName = Arrays.asList("/skyCut.png", "/forrestCut.png", "/caveCut.png","/iceCut.png","/lavaCut.png");
     /**
      * A list of lists representing the game board.
      * */
@@ -45,6 +48,8 @@ public class GameUI {
     /**
      * GameUI()
      * */
+    private CutScense cutScense;
+
     public GameUI(){
         BoardNnm = 0;
         themeNnm = 0;
@@ -129,5 +134,22 @@ public class GameUI {
         Clyde.setMoveInterval((int) (Clyde.getMoveInterval()*lavelnum.get(num)));
         Inky.setMoveInterval((int) (Inky.getMoveInterval()*lavelnum.get(num)));
         Pinky.setMoveInterval((int) (Pinky.getMoveInterval()*lavelnum.get(num)));
+    }
+
+    public void nextCutScense(PacManUI pacManUI){
+
+        //cutScense.setCutscense("src/main/resources/CutScense/skyCut.png");
+
+        cutScense = new CutScense(pacManUI, getCutScenseName());
+        System.out.println(getCutScenseName());
+        pacManUI.contentPanel.removeAll();
+        pacManUI.contentPanel.add(cutScense.getCutscenseUI(), BorderLayout.CENTER);
+        pacManUI.pack();
+
+
+    }
+
+    public String getCutScenseName(){
+        return "src/main/resources/CutScense" + cutScenseName.get(themeNnm);
     }
 }

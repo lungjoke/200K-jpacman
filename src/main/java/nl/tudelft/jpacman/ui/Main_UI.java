@@ -14,7 +14,9 @@ import java.io.IOException;
 public class Main_UI extends JFrame {
     private final JPanel panel = new JPanel(null);
     private JButton button2;
+    private CutScense cutScense;
     public Main_UI(PacManUI pacManUI){
+        cutScense = new CutScense(pacManUI, "src/main/resources/CutScense/sky2Cut.png");
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -42,7 +44,8 @@ public class Main_UI extends JFrame {
                 SwingUtilities.invokeLater(new Runnable() {
                     @Override
                     public void run() {
-                        playgame(pacManUI);
+                        //playgame(pacManUI);
+                        ToCut(pacManUI);
                     }
                 });
             }
@@ -64,6 +67,12 @@ public class Main_UI extends JFrame {
         pacManUI.contentPanel.add(pacManUI.getScorePanel(),BorderLayout.NORTH);
         pacManUI.contentPanel.add(pacManUI.getBoardPanel(),BorderLayout.CENTER);
         pacManUI.contentPanel.add(pacManUI.getButtonPanel(),BorderLayout.SOUTH);
+        pacManUI.pack();
+    }
+
+    public void ToCut(PacManUI pacManUI){
+        pacManUI.contentPanel.removeAll();
+        pacManUI.contentPanel.add(cutScense.getCutscenseUI());
         pacManUI.pack();
     }
 }

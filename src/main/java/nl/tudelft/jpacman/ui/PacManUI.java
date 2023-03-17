@@ -111,6 +111,7 @@ public class PacManUI extends JFrame {
         contentPanel.add(boardPanel);
         pack();
     }
+
     /**
      * Starts the "engine", the thread that redraws the interface at set
      * intervals.
