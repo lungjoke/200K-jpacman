@@ -51,7 +51,7 @@ public class Blinky extends Ghost {
     /**
      * The base movement interval.
      */
-    private static final int MOVE_INTERVAL = 250;
+    private static int MOVE_INTERVAL = 250;
 
     /**
      * Creates a new "Blinky", a.k.a. "Shadow".
@@ -96,5 +96,14 @@ public class Blinky extends Ghost {
             return Optional.ofNullable(path.get(0));
         }
         return Optional.empty();
+    }
+    /**
+     * setMoveInterval
+     * */
+    public static void setMoveInterval(int num){
+        MOVE_INTERVAL = num;
+    }
+    public static int getMoveInterval(){
+        return MOVE_INTERVAL;
     }
 }

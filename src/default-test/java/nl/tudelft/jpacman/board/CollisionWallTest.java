@@ -27,7 +27,7 @@ public class CollisionWallTest {
     public void setup(){
         launcher = new Launcher();
         launcher.launch();
-        launcher.getPacManUItest().buttonPlay.doClick();
+        launcher.getPacManUItest().getmain_ui().getButton2().doClick();
 
     }
     @AfterEach

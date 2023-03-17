@@ -57,7 +57,7 @@ public class LauncherSmokeTest {
     @Test
     void smokeTest() throws InterruptedException {
         // click buttonPlay.
-        launcher.getPacManUItest().buttonPlay.doClick();
+        launcher.getPacManUItest().getmain_ui().getButton2().doClick();
 
         Game game = launcher.getGame();
         Player player = game.getPlayers().get(0);

@@ -15,7 +15,7 @@ public class ResourceTest {
     public void SetUp(){
         launcher = new Launcher();
         launcher.launch();
-        launcher.getPacManUItest().buttonPlay.doClick();
+        launcher.getPacManUItest().getmain_ui().getButton2().doClick();
     }
 
     @Test

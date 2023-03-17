@@ -55,7 +55,7 @@ public class Clyde extends Ghost {
     /**
      * The base movement interval.
      */
-    private static final int MOVE_INTERVAL = 250;
+    private static int MOVE_INTERVAL = 250;
 
     /**
      * A map of opposite directions.
@@ -110,5 +110,11 @@ public class Clyde extends Ghost {
             return Optional.of(direction);
         }
         return Optional.empty();
+    }
+    public static void setMoveInterval(int num){
+        MOVE_INTERVAL = num;
+    }
+    public static int getMoveInterval(){
+        return MOVE_INTERVAL;
     }
 }

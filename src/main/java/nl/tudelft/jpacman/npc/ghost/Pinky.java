@@ -61,7 +61,7 @@ public class Pinky extends Ghost {
     /**
      * The base movement interval.
      */
-    private static final int MOVE_INTERVAL = 200;
+    private static int MOVE_INTERVAL = 200;
 
     /**
      * Creates a new "Pinky", a.k.a. "Speedy".
@@ -103,5 +103,11 @@ public class Pinky extends Ghost {
             return Optional.ofNullable(path.get(0));
         }
         return Optional.empty();
+    }
+    public static void setMoveInterval(int num){
+        MOVE_INTERVAL = num;
+    }
+    public static int getMoveInterval(){
+        return MOVE_INTERVAL;
     }
 }

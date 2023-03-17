@@ -17,7 +17,7 @@ public class TestSprint_1 {
     @BeforeEach
     void setUp() {
         l.launch();
-        l.getPacManUItest().buttonPlay.doClick();
+        l.getPacManUItest().getmain_ui().getButton2().doClick();
     }
     @AfterEach
     void tearDown() {
@@ -56,7 +56,7 @@ public class TestSprint_1 {
     public void setgameLauncher(String map){
         l.levelMap = map;
         l.makeGame();
-        l.setlaunchGame();
+        l.getGame().setLauncher(l);
         l.getPacManUItest().newMap(l.getGame(),l.getPacManUItest().getNameBG());
         l.getGame().start();
     }

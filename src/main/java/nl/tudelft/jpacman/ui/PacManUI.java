@@ -33,7 +33,6 @@ public class PacManUI extends JFrame {
      * Default serialisation UID.
      */
     private static final long serialVersionUID = 1L;
-
     /**
      * The desired frame rate interval for the graphics in milliseconds, 40
      * being 25 fps.
@@ -49,14 +48,6 @@ public class PacManUI extends JFrame {
      * The panel displaying the game.
      */
     private BoardPanel boardPanel;
-
-    public BoardPanel getBoardPanel(){
-        return this.boardPanel;
-    }
-
-    public String getNameBG(){
-        return getBoardPanel().getBGName();
-    }
     /**
      *contentPanel
      * */
@@ -81,11 +72,10 @@ public class PacManUI extends JFrame {
      * @param scoreFormatter
      *            The formatter used to display the current score.
      */
-    public boolean isbuttonPlay;
-    public boolean getisbuttonPlay(){
-        return this.isbuttonPlay;
-    }
-    public JButton buttonPlay;
+    private boolean isbuttonPlay = true;
+    private final PacKeyListener keys;
+    private final JPanel buttonPanel;
+    private final Main_UI main_ui = new Main_UI(this);
     public PacManUI(final Game game, final Map<String, Action> buttons,
                     final Map<Integer, Action> keyMappings,
                     ScoreFormatter scoreFormatter,String nameFileBG) {
@@ -95,25 +85,20 @@ public class PacManUI extends JFrame {
         assert keyMappings != null;
 
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        setSize(500,500);
-        PacKeyListener keys = new PacKeyListener(keyMappings);
+        keys = new PacKeyListener(keyMappings);
         addKeyListener(keys);
-
-        JPanel buttonPanel = new ButtonPanel(buttons, this);
-
-        scorePanel = new ScorePanel(game.getPlayers());
+        buttonPanel= new ButtonPanel(buttons, this);
         if (scoreFormatter != null) {
             scorePanel.setScoreFormatter(scoreFormatter);
         }
+        scorePanel = new ScorePanel(game.getPlayers());
         contentPanel.setLayout(new BorderLayout());
         boardPanel = new BoardPanel(game,nameFileBG);
-        Main_UI(buttonPanel);
+        contentPanel.add(main_ui.getMain_UI());
+        pack();
     }
-    /**
-     *
-     * newMap
-     *
-     * */
+
+
     public void newMap(Game game,String nameFileBG){
         contentPanel.remove(scorePanel);
         scorePanel = new ScorePanel(game.getPlayers());
@@ -126,50 +111,6 @@ public class PacManUI extends JFrame {
         contentPanel.add(boardPanel);
         pack();
     }
-    /**
-     *
-     *
-     *Main_UI
-     *
-     * */
-    public void Main_UI(JPanel buttonPanel){
-        isbuttonPlay = false;
-        ImageIcon icon = new ImageIcon("src/main/resources/sprite/BGmainmenu.jpg");
-        Image image = icon.getImage().getScaledInstance(500, 500, Image.SCALE_SMOOTH);
-        ImageIcon scaledIcon = new ImageIcon(image);
-        JLabel label = new JLabel();
-        label.setIcon(scaledIcon);
-        label.setBounds(0, 0, 500, 500);
-
-        ImageIcon imagebtn = new ImageIcon("src/main/resources/sprite/Element_Play.png");
-        this.buttonPlay = new ImageButton(imagebtn.getImage());
-        this.buttonPlay.setBounds(175, 300, 150, 100);
-        JPanel panel = new JPanel(null);
-        click(buttonPlay,panel,buttonPanel);
-        panel.add(buttonPlay);
-        panel.add(label);
-        add(panel);
-    }
-    private void click(JButton buttonPlay,JPanel panel,JPanel buttonPanel){
-        buttonPlay.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                SwingUtilities.invokeLater(new Runnable() {
-                    @Override
-                    public void run() {
-                        isbuttonPlay = true;
-                        remove(panel);
-                        pack();
-                        contentPanel.add(buttonPanel, BorderLayout.SOUTH);
-                        contentPanel.add(scorePanel, BorderLayout.NORTH);
-                        contentPanel.add(boardPanel, BorderLayout.CENTER);
-                        pack();
-                    }
-                });
-            }
-        });
-    }
-
     /**
      * Starts the "engine", the thread that redraws the interface at set
      * intervals.
@@ -184,8 +125,19 @@ public class PacManUI extends JFrame {
     /**
      * Draws the next frame, i.e. refreshes the scores and game.
      */
-    private void nextFrame() {
+    public void nextFrame() {
         boardPanel.repaint();
         scorePanel.refresh();
     }
+
+    public boolean getisbuttonPlay(){
+        return isbuttonPlay;
+    }
+    public Main_UI getmain_ui(){
+        return  main_ui;
+    }
+    public String getNameBG(){return getBoardPanel().getBGName();}
+    public JPanel getButtonPanel(){return buttonPanel;}
+    public ScorePanel getScorePanel(){return scorePanel;}
+    public BoardPanel getBoardPanel(){return this.boardPanel;}
 }

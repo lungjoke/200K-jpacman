@@ -44,7 +44,7 @@ public class Inky extends Ghost {
     /**
      * The base movement interval.
      */
-    private static final int MOVE_INTERVAL = 250;
+    private static int MOVE_INTERVAL = 250;
 
     /**
      * Creates a new "Inky".
@@ -120,5 +120,11 @@ public class Inky extends Ghost {
         }
 
         return destination;
+    }
+    public static void setMoveInterval(int num){
+        MOVE_INTERVAL = num;
+    }
+    public static int getMoveInterval(){
+        return MOVE_INTERVAL;
     }
 }

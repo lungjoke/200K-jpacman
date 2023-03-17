@@ -18,6 +18,7 @@ import nl.tudelft.jpacman.points.PointCalculator;
 import nl.tudelft.jpacman.points.PointCalculatorLoader;
 import nl.tudelft.jpacman.sprite.PacManSprites;
 import nl.tudelft.jpacman.ui.Action;
+import nl.tudelft.jpacman.ui.GameUI;
 import nl.tudelft.jpacman.ui.PacManUI;
 import nl.tudelft.jpacman.ui.PacManUiBuilder;
 
@@ -31,12 +32,12 @@ public class Launcher {
     private PacManUiBuilder builder;
     public final PacManSprites SPRITE_STORE = new PacManSprites();
 
-    public final String DEFAULT_MAP = "/forest.txt";
-    public String levelMap = DEFAULT_MAP;
+    public String levelMap;
 
     private PacManUI pacManUI;
     private Game game;
 
+    private GameUI gameUI = new GameUI();
     /**
      * @return The game object this launcher will start when {@link #launch()}
      *         is called.
@@ -84,7 +85,7 @@ public class Launcher {
 
     /**
      * Creates a new level. By default this method will use the map parser to
-     * parse the default board stored in the <code>forest.txt</code> resource.
+     * parse the default board stored in the <code>forest1.txt</code> resource.
      *
      * @return A new level.
      */
@@ -181,7 +182,7 @@ public class Launcher {
         try {
             Thread.sleep(num);
         } catch (InterruptedException e) {
-            throw new RuntimeException(e);
+            System.out.println("error");
         }
     }
 
@@ -190,80 +191,38 @@ public class Launcher {
     /**
      * Creates and starts a JPac-Man game.
      */
-    public void lost(){
-        levelMap = "/skyboard.txt";
-        SPRITE_STORE.setNameFileWall("/sprite/sky2.png");
-        SPRITE_STORE.setNameFilePellet("/sprite/featherpellet.png");
-        makeGame();
-        setlaunchGame();
-        builder.addStartButton(getGame());
-        builder.addStopButton(getGame());
-        pacManUI.newMap(getGame(),"src/main/resources/sprite/BGsky.png");
-    }
-    public void won(){
-        if (getLevelMap() == "/skyboard.txt") {
-            levelMap = "/forest.txt";
-            SPRITE_STORE.setNameFileWall("/sprite/Forest.png");
-            SPRITE_STORE.setNameFilePellet("/sprite/gem for.png");
-            makeGame();
-            setlaunchGame();
-            builder.addStartButton(getGame());
-            builder.addStopButton(getGame());
-            pacManUI.newMap(getGame(),"src/main/resources/sprite/BGForest.png");
 
-        } else if (getLevelMap() == "/forest.txt") {
-            levelMap = "/caveboard.txt";
-            SPRITE_STORE.setNameFileWall("/sprite/Stone.png");
-            SPRITE_STORE.setNameFilePellet("/sprite/gemStone.png");
-            makeGame();
-            setlaunchGame();
-            builder.addStartButton(getGame());
-            builder.addStopButton(getGame());
-            pacManUI.newMap(getGame(),"src/main/resources/sprite/BGcave.png");
-        } else if (getLevelMap() == "/caveboard.txt") {
-            levelMap = "/iceboard.txt";
-            SPRITE_STORE.setNameFileWall("/sprite/ice cave.png");
-            SPRITE_STORE.setNameFilePellet("/sprite/gemice.png");
-            makeGame();
-            setlaunchGame();
-            builder.addStartButton(getGame());
-            builder.addStopButton(getGame());
-            pacManUI.newMap(getGame(),"src/main/resources/sprite/BGice.png");
-        } else if (getLevelMap() == "/iceboard.txt") {
-            levelMap = "/lavaboard.txt";
-            SPRITE_STORE.setNameFileWall("/sprite/Lava.png");
-            SPRITE_STORE.setNameFilePellet("/sprite/gemlava.png");
-            makeGame();
-            setlaunchGame();
-            builder.addStartButton(getGame());
-            builder.addStopButton(getGame());
-            pacManUI.newMap(getGame(),"src/main/resources/sprite/BGlava.png");
-        } else {
-            levelMap = "/skyboard.txt";
-            SPRITE_STORE.setNameFileWall("/sprite/sky2.png");
-            SPRITE_STORE.setNameFilePellet("/sprite/featherpellet.png");
-            makeGame();
-            setlaunchGame();
-            builder.addStartButton(getGame());
-            builder.addStopButton(getGame());
-            pacManUI.newMap(getGame(),"src/main/resources/sprite/BGsky.png");
-        }
-    }
+
+    public void lost(){GamenewMap();}
+    public void won(){gameUI.GemeWon();GamenewMap();}
+
+
     public void launch() {
-        levelMap = "/skyboard.txt";
-        SPRITE_STORE.setNameFileWall("/sprite/sky2.png");
-        SPRITE_STORE.setNameFilePellet("/sprite/featherpellet.png");
+        GameStart();
+    }
+    private void GameStart(){
+        levelMap = gameUI.getBoardName();
+        SPRITE_STORE.setNameFileWall(gameUI.getWallName());
+        SPRITE_STORE.setNameFilePellet(gameUI.getPelletName());
         makeGame();
-        setlaunchGame();
+        game.setLauncher(this);
         builder = new PacManUiBuilder().withDefaultButtons();
         addSinglePlayerKeys(builder);
-        pacManUI = builder.build(getGame(),"src/main/resources/sprite/BGsky.png");
+        pacManUI = builder.build(getGame(),gameUI.getBGName());
         pacManUI.start();
     }
 
-    public void setlaunchGame() {
+    private void GamenewMap(){
+        levelMap = gameUI.getBoardName();
+        SPRITE_STORE.setNameFileWall(gameUI.getWallName());
+        SPRITE_STORE.setNameFilePellet(gameUI.getPelletName());
+        makeGame();
         game.setLauncher(this);
+        builder.addStartButton(getGame());
+        builder.addStopButton(getGame());
+        pacManUI.newMap(getGame(),gameUI.getBGName());
     }
+
     /**
      * Disposes of the UI. For more information see
      * {@link javax.swing.JFrame#dispose()}.
@@ -288,5 +247,4 @@ public class Launcher {
     public static void main(String[] args) throws IOException {
         new Launcher().launch();
     }
-
 }

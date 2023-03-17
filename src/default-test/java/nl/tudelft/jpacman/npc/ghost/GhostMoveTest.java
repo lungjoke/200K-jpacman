@@ -18,7 +18,7 @@ public class GhostMoveTest {
     void Setup(){
         launcher = new Launcher();
         launcher.launch();
-        launcher.getPacManUItest().buttonPlay.doClick();
+        launcher.getPacManUItest().getmain_ui().getButton2().doClick();
     }
     @DisplayName("TC401")
     @Test
