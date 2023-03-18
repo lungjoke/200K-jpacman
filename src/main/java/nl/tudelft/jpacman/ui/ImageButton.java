@@ -12,7 +12,6 @@ class ImageButton extends JButton {
         setContentAreaFilled(false);
         setBorderPainted(false);
     }
-
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);

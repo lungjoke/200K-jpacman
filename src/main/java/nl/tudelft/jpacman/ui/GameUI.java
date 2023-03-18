@@ -12,11 +12,12 @@ import java.util.List;
 
 public class GameUI {
 
-    private List<String> cutScenseName = Arrays.asList("/skyCut.png", "/forrestCut.png", "/caveCut.png","/iceCut.png","/lavaCut.png");
+
     /**
      * A list of lists representing the game board.
      * */
     private List<List<String>> board =  new ArrayList<List<String>>();
+    private List<CutScense> cut = new ArrayList<CutScense>();
     /**
      *  A list of strings representing the wall sprites.
      * */
@@ -36,7 +37,7 @@ public class GameUI {
     /**
      * An integer representing the current level.
      * */
-    private int lavel;
+    public static int lavel;
     /**
      *An integer representing the current board number.
      * */
@@ -48,9 +49,13 @@ public class GameUI {
     /**
      * GameUI()
      * */
-    private CutScense cutScense;
 
     public GameUI(){
+        cut.add(new CutScense("src/main/resources/CutScense/skyCut.png"));
+        cut.add(new CutScense("src/main/resources/CutScense/forrestCut.png"));
+        cut.add(new CutScense("src/main/resources/CutScense/caveCut.png"));
+        cut.add(new CutScense("src/main/resources/CutScense/iceCut.png"));
+        cut.add(new CutScense("src/main/resources/CutScense/lavaCut.png"));
         BoardNnm = 0;
         themeNnm = 0;
         lavelnum.add(1.25F);
@@ -79,9 +84,8 @@ public class GameUI {
             GameReset();
             lavel = 0;
         }
-        System.out.println("BoardNnm "+BoardNnm+"\nthemeNnm "+themeNnm);
-        System.out.println("lavel "+lavel);
     }
+
     /**
      * A function that resets the current board and
      * theme numbers to their default values.
@@ -104,10 +108,12 @@ public class GameUI {
     public String getBoardName(){
         return "/Board"+board.get(lavel).get(BoardNnm);
     }
+
     /**
      *
      * A function that returns the name of the current wall sprite.
      * */
+
     public String getWallName(){
         return "/sprite"+Wall.get(themeNnm);
     }
@@ -137,19 +143,13 @@ public class GameUI {
     }
 
     public void nextCutScense(PacManUI pacManUI){
-
-        //cutScense.setCutscense("src/main/resources/CutScense/skyCut.png");
-
-        cutScense = new CutScense(pacManUI, getCutScenseName());
-        System.out.println(getCutScenseName());
+        CutScense cutScense = getCutScense();
+        cutScense.setPacManUI(pacManUI);
         pacManUI.contentPanel.removeAll();
-        pacManUI.contentPanel.add(cutScense.getCutscenseUI(), BorderLayout.CENTER);
+        pacManUI.contentPanel.add(cutScense.getCutscenseUI());
         pacManUI.pack();
-
-
     }
-
-    public String getCutScenseName(){
-        return "src/main/resources/CutScense" + cutScenseName.get(themeNnm);
+    public CutScense getCutScense(){
+        return cut.get(themeNnm);
     }
 }

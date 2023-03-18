@@ -10,6 +10,7 @@ import java.util.concurrent.TimeUnit;
 
 import javax.swing.*;
 
+import nl.tudelft.jpacman.Launcher;
 import nl.tudelft.jpacman.game.Game;
 import nl.tudelft.jpacman.ui.ScorePanel.ScoreFormatter;
 
@@ -28,7 +29,7 @@ import nl.tudelft.jpacman.ui.ScorePanel.ScoreFormatter;
  *
  */
 public class PacManUI extends JFrame {
-
+    private Launcher l;
     /**
      * Default serialisation UID.
      */
@@ -98,7 +99,6 @@ public class PacManUI extends JFrame {
         pack();
     }
 
-
     public void newMap(Game game,String nameFileBG){
         contentPanel.remove(scorePanel);
         scorePanel = new ScorePanel(game.getPlayers());
@@ -110,6 +110,13 @@ public class PacManUI extends JFrame {
         boardPanel = new BoardPanel(game,nameFileBG);
         contentPanel.add(boardPanel);
         pack();
+    }
+    public void newMapStart(Game game,String nameFileBG){
+        scorePanel = new ScorePanel(game.getPlayers());
+        if (scoreFormatter != null) {
+            scorePanel.setScoreFormatter(scoreFormatter);
+        }
+        boardPanel = new BoardPanel(game,nameFileBG);
     }
 
     /**
@@ -141,4 +148,8 @@ public class PacManUI extends JFrame {
     public JPanel getButtonPanel(){return buttonPanel;}
     public ScorePanel getScorePanel(){return scorePanel;}
     public BoardPanel getBoardPanel(){return this.boardPanel;}
+    public void setl(Launcher l){
+        this.l = l;
+        main_ui.setLauncher(l);
+    }
 }

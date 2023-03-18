@@ -10,16 +10,12 @@ import java.io.IOException;
 
 public class CutScense extends JFrame {
     JPanel panel = new JPanel(null);
-
     private String Cutscense = "src/main/resources/CutScense/skyCut.png";
     private  String Skipbutton = "src/main/resources/CutScense/skySkip.png";
-
-
-    public CutScense(PacManUI pacManUI, String cutscense) {
-
+    private PacManUI pacManUI;
+    public CutScense(String cutscense) {
         setSize(500, 500);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
         // Create ImageIcon from file and scale it to fit panel size
         ImageIcon icon = new ImageIcon(cutscense);
         Image image = icon.getImage().getScaledInstance(500, 500, Image.SCALE_SMOOTH);
@@ -31,8 +27,6 @@ public class CutScense extends JFrame {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-
-
         JButton button2 = new ImageButton(imagebtn);
         button2.setBounds(175, 300, 150, 100); // Set position and size
 
@@ -53,14 +47,10 @@ public class CutScense extends JFrame {
                 });
             }
         });
-
-
         panel.add(button2);
         panel.add(label);
         panel.setPreferredSize(new Dimension(scaledIcon.getIconWidth(), scaledIcon.getIconHeight()));
-        add(panel);
 
-        //setVisible(true);
     }
 
     public JPanel getCutscenseUI() {
@@ -69,7 +59,6 @@ public class CutScense extends JFrame {
 
     public void playgame(PacManUI pacManUI) {
         pacManUI.contentPanel.removeAll();
-        //pacManUI.pack();
         pacManUI.contentPanel.add(pacManUI.getScorePanel(), BorderLayout.NORTH);
         pacManUI.contentPanel.add(pacManUI.getBoardPanel(), BorderLayout.CENTER);
         pacManUI.contentPanel.add(pacManUI.getButtonPanel(), BorderLayout.SOUTH);
@@ -91,6 +80,9 @@ public class CutScense extends JFrame {
     }
     public String getSkipbutton() {
         return Skipbutton;
+    }
+    public void setPacManUI(PacManUI pacManUI){
+        this.pacManUI = pacManUI;
     }
 }
 

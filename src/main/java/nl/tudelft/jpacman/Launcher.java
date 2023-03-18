@@ -29,6 +29,8 @@ import nl.tudelft.jpacman.ui.PacManUiBuilder;
  */
 @SuppressWarnings("PMD.TooManyMethods")
 public class Launcher {
+
+    //public static boolean s =true;
     private PacManUiBuilder builder;
     public final PacManSprites SPRITE_STORE = new PacManSprites();
 
@@ -72,6 +74,7 @@ public class Launcher {
      *
      * @return a new Game.
      */
+
     public Game makeGame() {
         GameFactory gf = getGameFactory();
         Level level = makeLevel();
@@ -192,22 +195,17 @@ public class Launcher {
      * Creates and starts a JPac-Man game.
      */
 
-
     public void lost(){
+        GamenewMap();
+        pacManUI.newMap(getGame(),gameUI.getBGName());
+        won();
+    }
+    public void won(){
         gameUI.GemeWon();
         GamenewMap();
         pacManUI.newMap(getGame(),gameUI.getBGName());
         gameUI.nextCutScense(pacManUI);
     }
-    public void won(){
-        gameUI.GemeWon();
-        GamenewMap();
-        gameUI.nextCutScense(pacManUI);
-        System.out.println(gameUI.getBGName());
-        //ToGame();
-    }
-
-
     public void launch() {
         GameStart();
     }
@@ -221,9 +219,10 @@ public class Launcher {
         addSinglePlayerKeys(builder);
         pacManUI = builder.build(getGame(),gameUI.getBGName());
         pacManUI.start();
+        pacManUI.setl(this);
     }
 
-    private PacManUI GamenewMap(){
+    public PacManUI GamenewMap(){
         levelMap = gameUI.getBoardName();
         SPRITE_STORE.setNameFileWall(gameUI.getWallName());
         SPRITE_STORE.setNameFilePellet(gameUI.getPelletName());
@@ -234,8 +233,15 @@ public class Launcher {
         return pacManUI;
     }
 
-    private void ToGame(){
-
+    public void genMap(){
+        levelMap = gameUI.getBoardName();
+        SPRITE_STORE.setNameFileWall(gameUI.getWallName());
+        SPRITE_STORE.setNameFilePellet(gameUI.getPelletName());
+        makeGame();
+        game.setLauncher(this);
+        builder.addStartButton(getGame());
+        builder.addStopButton(getGame());
+        pacManUI.newMapStart(getGame(),gameUI.getBGName());
     }
 
     /**
