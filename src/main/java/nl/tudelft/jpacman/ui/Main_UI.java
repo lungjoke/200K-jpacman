@@ -29,7 +29,7 @@ public class Main_UI extends JFrame {
     private JLabel label = new JLabel();
 
     public Main_UI(PacManUI pacManUI){
-        cutScense = new CutScense("src/main/resources/CutScense/sky2Cut.png");
+        cutScense = new CutScense("src/main/resources/CutScense/sky2Cut.png","src/main/resources/CutScense/Skipblack.png");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         ImageIcon scaledIcon = new ImageIcon(
             new ImageIcon("src/main/resources/sprite/BGmainUI.png")
@@ -117,6 +117,8 @@ public class Main_UI extends JFrame {
         pacManUI.contentPanel.removeAll();
         pacManUI.contentPanel.add(cutScense.getCutscenseUI());
         pacManUI.pack();
+        pacManUI.contentPanel.setVisible(false);
+        pacManUI.contentPanel.setVisible(true);
     }
 
     public void setmainBnt(){

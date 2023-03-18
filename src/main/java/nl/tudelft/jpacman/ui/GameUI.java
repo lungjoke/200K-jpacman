@@ -12,12 +12,16 @@ import java.util.List;
 
 public class GameUI {
 
-
+    private boolean levelup=false;
     /**
      * A list of lists representing the game board.
      * */
     private List<List<String>> board =  new ArrayList<List<String>>();
     private List<CutScense> cut = new ArrayList<CutScense>();
+    Vicetory_UI vicetory_ui = new Vicetory_UI("src/main/resources/WinLostBoard/gameWin.png",
+                                             "src/main/resources/WinLostBoard/toMain.png",
+                                              "src/main/resources/WinLostBoard/playAgain.png");
+    Deadscense deadscense = new Deadscense("src/main/resources/WinLostBoard/gameLose.png", "src/main/resources/WinLostBoard/toMain.png", "src/main/resources/WinLostBoard/playAgain.png");
     /**
      *  A list of strings representing the wall sprites.
      * */
@@ -51,11 +55,11 @@ public class GameUI {
      * */
 
     public GameUI(){
-        cut.add(new CutScense("src/main/resources/CutScense/skyCut.png"));
-        cut.add(new CutScense("src/main/resources/CutScense/forrestCut.png"));
-        cut.add(new CutScense("src/main/resources/CutScense/caveCut.png"));
-        cut.add(new CutScense("src/main/resources/CutScense/iceCut.png"));
-        cut.add(new CutScense("src/main/resources/CutScense/lavaCut.png"));
+        cut.add(new CutScense("src/main/resources/CutScense/skyCut.png","src/main/resources/CutScense/Skipblack.png"));
+        cut.add(new CutScense("src/main/resources/CutScense/forrestCut.png","src/main/resources/CutScense/Skipwhite.png"));
+        cut.add(new CutScense("src/main/resources/CutScense/caveCut.png","src/main/resources/CutScense/Skipwhite.png"));
+        cut.add(new CutScense("src/main/resources/CutScense/iceCut.png","src/main/resources/CutScense/Skipblack.png"));
+        cut.add(new CutScense("src/main/resources/CutScense/lavaCut.png","src/main/resources/CutScense/Skipwhite.png"));
         BoardNnm = 0;
         themeNnm = 0;
         lavelnum.add(1.25F);
@@ -76,13 +80,9 @@ public class GameUI {
         if(themeNnm<4){
             BoardNnm ++;
             themeNnm ++;
-        }else if (lavel!=2){
+        }else{
             GameReset();
-            lavel ++;
-        }
-        else {
-            GameReset();
-            lavel = 0;
+            levelup =true;
         }
     }
 
@@ -143,13 +143,33 @@ public class GameUI {
     }
 
     public void nextCutScense(PacManUI pacManUI){
+        if (levelup){
+            pacManUI.contentPanel.removeAll();
+            vicetory_ui.setPacManUI(pacManUI);
+            levelup = false;
+            pacManUI.contentPanel.add(vicetory_ui.getVictoryUI());
+            pacManUI.pack();
+        }else {
         CutScense cutScense = getCutScense();
         cutScense.setPacManUI(pacManUI);
         pacManUI.contentPanel.removeAll();
         pacManUI.contentPanel.add(cutScense.getCutscenseUI());
-        pacManUI.pack();
+        pacManUI.pack();}
     }
     public CutScense getCutScense(){
         return cut.get(themeNnm);
+    }
+
+    public void toVictoryUI(PacManUI pacManUI){
+        vicetory_ui.setPacManUI(pacManUI);
+        pacManUI.contentPanel.removeAll();
+        pacManUI.contentPanel.add(vicetory_ui.getVictoryUI());
+        pacManUI.pack();
+    }
+    public void toDeadscense(PacManUI pacManUI){
+        deadscense.setPacManUI(pacManUI);
+        pacManUI.contentPanel.removeAll();
+        pacManUI.contentPanel.add(deadscense.getDeadscense());
+        pacManUI.pack();
     }
 }
