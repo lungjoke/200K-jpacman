@@ -14,6 +14,7 @@ public class CutScense extends JFrame {
     private String Cutscense = "src/main/resources/CutScense/skyCut.png";
     private  String Skipbutton = "src/main/resources/CutScense/skySkip.png";
     private PacManUI pacManUI;
+    JButton button2;
     public CutScense(String cutscense,String skipbtn) {
         setSize(500, 500);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -35,7 +36,6 @@ public class CutScense extends JFrame {
         JLabel label = new JLabel();
         label.setIcon(scaledIcon);
         label.setBounds(0, 0, 500, 500); // Set position and size
-
         // Add ActionListener to button
         button2.addActionListener(new ActionListener() {
             @Override

@@ -14,6 +14,8 @@ public class Deadscense extends JFrame {
     private JButton toPlayAgainBtn;
     private PacManUI pacManUI;
 
+    private JButton toMainbtn;
+    private JButton toPlayAgainBtn;
     public Deadscense(String GameOverBG ,String mainMenu, String playAgain){
 
         setSize(500, 500);

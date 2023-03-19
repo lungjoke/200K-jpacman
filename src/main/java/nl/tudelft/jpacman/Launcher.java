@@ -255,8 +255,6 @@ public class Launcher {
     public PacManUI getPacManUItest(){
         return this.pacManUI;
     }
-
-    public GameUI getGameUI(){return this.gameUI;}
     /**
      * Main execution method for the Launcher.
      *
@@ -267,7 +265,5 @@ public class Launcher {
      */
     public static void main(String[] args) throws IOException {
         new Launcher().launch();
-
-
     }
 }
