@@ -195,7 +195,6 @@ public class Launcher {
     public void lost(){
         GamenewMap();
         pacManUI.newMap(getGame(),gameUI.getBGName());
-        //won();
         gameUI.toDeadscense(pacManUI);
     }
     public void won(){
@@ -229,17 +228,6 @@ public class Launcher {
         builder.addStartButton(getGame());
         builder.addStopButton(getGame());
         return pacManUI;
-    }
-
-    public void genMap(){
-        levelMap = gameUI.getBoardName();
-        SPRITE_STORE.setNameFileWall(gameUI.getWallName());
-        SPRITE_STORE.setNameFilePellet(gameUI.getPelletName());
-        makeGame();
-        game.setLauncher(this);
-        builder.addStartButton(getGame());
-        builder.addStopButton(getGame());
-        pacManUI.newMapStart(getGame(),gameUI.getBGName());
     }
 
     /**

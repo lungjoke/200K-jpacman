@@ -133,6 +133,7 @@ public class PacManUI extends JFrame {
     /**
      * Draws the next frame, i.e. refreshes the scores and game.
      */
+
     public void nextFrame() {
         boardPanel.repaint();
         scorePanel.refresh();

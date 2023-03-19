@@ -18,7 +18,7 @@ public class PelletChangeMaptest {
     void setUp() {
         l.launch();
         l.getPacManUItest().getmain_ui().getButton2().doClick();
-        l.getPacManUItest().getmain_ui().getCutScense().getButton2().doClick();
+        l.getPacManUItest().getmain_ui().getCutScense().getButtonSkip().doClick();
     }
 
     @AfterEach

@@ -55,7 +55,7 @@ public class Main_UI extends JFrame {
                 SwingUtilities.invokeLater(new Runnable() {
                     @Override
                     public void run() {
-                        launcher.GamenewMap();
+                        launcher.lost();
                         cutScense.setPacManUI(launcher.getPacManUItest());
                         ToCut(pacManUI);
                     }

@@ -9,12 +9,11 @@ import java.io.File;
 import java.io.IOException;
 
 public class CutScense extends JFrame {
-    private JButton button2;
+    private JButton Skip;
     JPanel panel = new JPanel(null);
     private String Cutscense = "src/main/resources/CutScense/skyCut.png";
     private  String Skipbutton = "src/main/resources/CutScense/skySkip.png";
     private PacManUI pacManUI;
-    JButton button2;
     public CutScense(String cutscense,String skipbtn) {
         setSize(500, 500);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -29,15 +28,15 @@ public class CutScense extends JFrame {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        button2 = new ImageButton(imagebtn);
-        button2.setBounds(400, 440, 70, 29); // Set position and size
+        Skip = new ImageButton(imagebtn);
+        Skip.setBounds(400, 440, 70, 29); // Set position and size
 
         // Create JLabel and set image icon
         JLabel label = new JLabel();
         label.setIcon(scaledIcon);
         label.setBounds(0, 0, 500, 500); // Set position and size
         // Add ActionListener to button
-        button2.addActionListener(new ActionListener() {
+        Skip.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 SwingUtilities.invokeLater(new Runnable() {
@@ -48,7 +47,7 @@ public class CutScense extends JFrame {
                 });
             }
         });
-        panel.add(button2);
+        panel.add(Skip);
         panel.add(label);
         panel.setPreferredSize(new Dimension(scaledIcon.getIconWidth(), scaledIcon.getIconHeight()));
 
@@ -66,28 +65,11 @@ public class CutScense extends JFrame {
         pacManUI.pack();
     }
 
-    public void setCutscense(String cutname) {
-        System.out.println(cutname);
-        Cutscense = cutname;
-        System.out.println(cutname);
-
-    }
-    public void setSkipbutton(String Skipname) {
-        Skipbutton = Skipname;
-    }
-
-    public String getCutscense() {
-        return Cutscense;
-    }
-    public String getSkipbutton() {
-        return Skipbutton;
-    }
     public void setPacManUI(PacManUI pacManUI){
         this.pacManUI = pacManUI;
     }
-
-    public JButton getButton2() {
-        return button2;
+    public JButton getButtonSkip() {
+        return Skip;
     }
 }
 

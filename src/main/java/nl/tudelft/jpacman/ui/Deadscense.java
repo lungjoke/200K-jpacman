@@ -14,13 +14,10 @@ public class Deadscense extends JFrame {
     private JButton toPlayAgainBtn;
     private PacManUI pacManUI;
 
-    private JButton toMainbtn;
-    private JButton toPlayAgainBtn;
     public Deadscense(String GameOverBG ,String mainMenu, String playAgain){
 
         setSize(500, 500);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        // Create ImageIcon from file and scale it to fit panel size
         ImageIcon icon = new ImageIcon(GameOverBG);
         Image image = icon.getImage().getScaledInstance(500, 500, Image.SCALE_SMOOTH);
         ImageIcon scaledIcon = new ImageIcon(image);
@@ -39,7 +36,6 @@ public class Deadscense extends JFrame {
         toMainbtn.setBounds(100, 350, 100, 44); // Set position and size
         toPlayAgainBtn.setBounds(300, 350, 100, 44); // Set position and size
 
-        // Create JLabel and set image icon
         JLabel label = new JLabel();
         label.setIcon(scaledIcon);
         label.setBounds(0, 0, 500, 500); // Set position and size
@@ -72,10 +68,6 @@ public class Deadscense extends JFrame {
         panel.add(toPlayAgainBtn);
         panel.add(label);
         panel.setPreferredSize(new Dimension(scaledIcon.getIconWidth(), scaledIcon.getIconHeight()));
-        //add(panel);
-
-        //setVisible(true);
-
     }
 
     public JPanel getDeadscense() {
