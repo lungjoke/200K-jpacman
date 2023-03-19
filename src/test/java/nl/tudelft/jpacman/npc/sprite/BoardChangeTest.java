@@ -3,6 +3,7 @@ package nl.tudelft.jpacman.npc.sprite;
 import nl.tudelft.jpacman.Launcher;
 import nl.tudelft.jpacman.sprite.Sprite;
 import nl.tudelft.jpacman.sprite.SpriteStore;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -19,7 +20,12 @@ public class BoardChangeTest {
     public void setup(){
         launcher = new Launcher();
         launcher.launch();
-        launcher.getPacManUItest().getmain_ui().getButton2().doClick();
+        launcher.getPacManUItest().getmain_ui().getButtonPlay().doClick();
+    }
+
+    @AfterEach
+    void tearDown() {
+        launcher.dispose();
     }
 
     @DisplayName("TC1501")

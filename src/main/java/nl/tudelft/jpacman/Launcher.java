@@ -19,6 +19,8 @@ import nl.tudelft.jpacman.points.PointCalculatorLoader;
 import nl.tudelft.jpacman.sprite.PacManSprites;
 import nl.tudelft.jpacman.ui.*;
 
+import static nl.tudelft.jpacman.ui.GameUI.level;
+
 /**
  * Creates and launches the JPacMan UI.
  *
@@ -252,6 +254,9 @@ public class Launcher {
      *                     When a resource could not be read.
      */
     public static void main(String[] args) throws IOException {
-        new Launcher().launch();
+
+        Launcher launcher = new Launcher();
+        launcher.launch();
+
     }
 }

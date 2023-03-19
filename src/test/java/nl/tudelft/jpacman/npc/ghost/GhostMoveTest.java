@@ -18,7 +18,7 @@ public class GhostMoveTest {
     void Setup(){
         launcher = new Launcher();
         launcher.launch();
-        launcher.getPacManUItest().getmain_ui().getButton2().doClick();
+        launcher.getPacManUItest().getmain_ui().getButtonPlay().doClick();
         launcher.getPacManUItest().getmain_ui().getCutScense().getButtonSkip().doClick();
     }
     @AfterEach

@@ -75,7 +75,7 @@ public class PacManUI extends JFrame {
      * @param scoreFormatter
      *            The formatter used to display the current score.
      */
-    private boolean isbuttonPlay = true;
+
     private final PacKeyListener keys;
     private JPanel buttonPanel;
     private Map<String, Action> buttonkey;
@@ -109,6 +109,8 @@ public class PacManUI extends JFrame {
         colors.add(new Color(255,99,71));
     }
 
+
+
     public void newMap(Game game,String nameFileBG){
         buttonPanel = new ButtonPanel(buttonkey, this);
         scorePanel = new ScorePanel(game.getPlayers());
@@ -139,9 +141,6 @@ public class PacManUI extends JFrame {
         scorePanel.refresh();
     }
 
-    public boolean getisbuttonPlay(){
-        return isbuttonPlay;
-    }
     public Main_UI getmain_ui(){
         return  main_ui;
     }
@@ -152,5 +151,9 @@ public class PacManUI extends JFrame {
     public void setl(Launcher l){
         this.l = l;
         main_ui.setLauncher(l);
+    }
+
+    public Container getContentPanel(){
+        return contentPanel;
     }
 }

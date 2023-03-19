@@ -37,11 +37,11 @@ public class GameUI {
     /**
      *  A list of floating-point numbers representing the level multiplier for each level.
      * */
-    private List<Float> lavelnum = new ArrayList<Float>();
+    private List<Float> levelnum = new ArrayList<Float>();
     /**
      * An integer representing the current level.
      * */
-    public static int lavel;
+    public static int level;
     /**
      *An integer representing the current board number.
      * */
@@ -62,11 +62,11 @@ public class GameUI {
         cut.add(new CutScense("src/main/resources/CutScense/lavaCut.png","src/main/resources/CutScense/Skipwhite.png"));
         BoardNnm = 0;
         themeNnm = 0;
-        lavelnum.add(1.25F);
-        lavelnum.add(1F);
-        lavelnum.add(0.75F);
-        lavel = 0;
-        setlavelnpc(lavel);
+        levelnum.add(1.25F);
+        levelnum.add(1F);
+        levelnum.add(0.75F);
+        level = 0;
+        setlevelnpc(level);
         board.add(Arrays.asList("/skyboardEasy.txt", "/forestEasy.txt", "/caveboardEasy.txt","/iceboardEasy.txt","/lavaboardEasy.txt"));
         board.add(Arrays.asList("/skyboardNormal.txt", "/forestNormal.txt", "/caveboardNormal.txt","/iceboardNormal.txt","/lavaboardNormal.txt"));
         board.add(Arrays.asList("/skyboardHard.txt", "/forestHard.txt", "/caveboardHard.txt","/iceboardHard.txt","/lavaboardHard.txt"));
@@ -98,15 +98,15 @@ public class GameUI {
      *
      * A function that sets the current level to the specified number.
      * */
-    public void setLavel(int num){
-        lavel = num;
+    public void setlevel(int num){
+        level = num;
     }
     /**
      *
      * A function that returns the name of the current board.
      * */
     public String getBoardName(){
-        return "/Board"+board.get(lavel).get(BoardNnm);
+        return "/Board"+board.get(level).get(BoardNnm);
     }
 
     /**
@@ -135,11 +135,11 @@ public class GameUI {
      *A private function that sets the move interval
      *  for each ghost based on the current level.
      * */
-    private void setlavelnpc(int num){
-        Blinky.setMoveInterval((int) (Blinky.getMoveInterval()*lavelnum.get(num)));
-        Clyde.setMoveInterval((int) (Clyde.getMoveInterval()*lavelnum.get(num)));
-        Inky.setMoveInterval((int) (Inky.getMoveInterval()*lavelnum.get(num)));
-        Pinky.setMoveInterval((int) (Pinky.getMoveInterval()*lavelnum.get(num)));
+    private void setlevelnpc(int num){
+        Blinky.setMoveInterval((int) (Blinky.getMoveInterval()*levelnum.get(num)));
+        Clyde.setMoveInterval((int) (Clyde.getMoveInterval()*levelnum.get(num)));
+        Inky.setMoveInterval((int) (Inky.getMoveInterval()*levelnum.get(num)));
+        Pinky.setMoveInterval((int) (Pinky.getMoveInterval()*levelnum.get(num)));
     }
 
     public void nextCutScense(PacManUI pacManUI){

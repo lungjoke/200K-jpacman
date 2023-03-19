@@ -17,7 +17,8 @@ public class Main_UI extends JFrame {
     private Launcher launcher;
     private GameUI gameUI;
     private final JPanel panel = new JPanel(null);
-    private JButton buttonplay;
+
+    private JButton ButtonPlay;
     private JButton EasyBtn;
     private JButton NormalBtn;
     private JButton HardBtn;
@@ -25,6 +26,7 @@ public class Main_UI extends JFrame {
     private boolean isbntEasy = false;
     private boolean isbntNormal = true;
     private boolean isbntHard= true;
+    private boolean isbuttonPlay = true;
 
     private JLabel label = new JLabel();
 
@@ -41,15 +43,15 @@ public class Main_UI extends JFrame {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        buttonplay = new ImageButton(imagebtn);
-        buttonplay.setBounds(175, 330, 150, 60);
+        ButtonPlay = new ImageButton(imagebtn);
+        ButtonPlay.setBounds(175, 330, 150, 60);
         label.setIcon(scaledIcon);
         label.setBounds(0, 0, 500, 500);
         setmainBnt();
         setaddPanel();
         panel.setPreferredSize(new Dimension(500,500));
         addclick(pacManUI);
-        buttonplay.addActionListener(new ActionListener() {
+        ButtonPlay.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 SwingUtilities.invokeLater(new Runnable() {
@@ -109,10 +111,6 @@ public class Main_UI extends JFrame {
         return panel;
     }
 
-    public JButton getButton2() {
-        return buttonplay;
-    }
-
     public void ToCut(PacManUI pacManUI){
         pacManUI.contentPanel.removeAll();
         pacManUI.contentPanel.add(cutScense.getCutscenseUI());
@@ -130,7 +128,7 @@ public class Main_UI extends JFrame {
             ImageIcon imagebtn = new ImageIcon("src/main/resources/sprite/EasyBtn2.png");
             EasyBtn = new ImageButton(imagebtn.getImage());
             EasyBtn.setBounds(50, 180, 130, 50);
-            GameUI.lavel = 0;
+            GameUI.level = 0;
         }
         if(isbntNormal){
             ImageIcon imagebtn = new ImageIcon("src/main/resources/sprite/NormalBtn.png");
@@ -140,7 +138,7 @@ public class Main_UI extends JFrame {
             ImageIcon imagebtn = new ImageIcon("src/main/resources/sprite/NormalBtn2.png");
             NormalBtn = new ImageButton(imagebtn.getImage());
             NormalBtn.setBounds(185, 250, 130, 50);
-            GameUI.lavel = 1;
+            GameUI.level = 1;
         }
         if(isbntHard){
             ImageIcon imagebtn = new ImageIcon("src/main/resources/sprite/HardBtn.png");
@@ -150,7 +148,7 @@ public class Main_UI extends JFrame {
             ImageIcon imagebtn = new ImageIcon("src/main/resources/sprite/HardBtn2.png");
             HardBtn = new ImageButton(imagebtn.getImage());
             HardBtn.setBounds(315, 180, 130, 50);
-            GameUI.lavel = 2;
+            GameUI.level = 2;
         }
     }
     public void resetbnt(){
@@ -162,7 +160,7 @@ public class Main_UI extends JFrame {
         panel.add(HardBtn,0);
         panel.add(NormalBtn,1);
         panel.add(EasyBtn,2);
-        panel.add(buttonplay,3);
+        panel.add(ButtonPlay,3);
         panel.add(label,4);
     }
     public void setaddall(PacManUI pacManUI){
@@ -184,4 +182,23 @@ public class Main_UI extends JFrame {
         return cutScense;
     }
 
+    public JButton getEasyBtn() {
+        return EasyBtn;
+    }
+
+    public JButton getNormalBtn() {
+        return NormalBtn;
+    }
+
+    public JButton getHardBtn() {
+        return HardBtn;
+    }
+
+    public JButton getButtonPlay() {
+        return ButtonPlay;
+    }
+
+    public boolean isIsbuttonPlay() {
+        return isbuttonPlay;
+    }
 }

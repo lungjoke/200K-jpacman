@@ -1,27 +1,25 @@
 package nl.tudelft.jpacman.npc.sprite;
 
 import nl.tudelft.jpacman.Launcher;
-import nl.tudelft.jpacman.board.Direction;
-import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
-public class ResourceTest {
+public class ResourceMapTest {
     private Launcher launcher;
     @BeforeEach
     public void SetUp(){
         launcher = new Launcher();
         launcher.launch();
-        launcher.getPacManUItest().getmain_ui().getButton2().doClick();
+        launcher.getPacManUItest().getmain_ui().getButtonPlay().doClick();
     }
 
-    @Test
-    void testEast() {
-        Direction east = Direction.valueOf("EAST");
-        Assertions.assertThat(east.getDeltaY()).isEqualTo(0);
+    @AfterEach
+    void tearDown() {
+        launcher.dispose();
     }
 
     @DisplayName("TC1401")

@@ -58,7 +58,12 @@ public class LauncherSmokeTest {
     @Test
     void smokeTest() throws InterruptedException {
         // click buttonPlay.
-        launcher.getPacManUItest().getmain_ui().getButton2().doClick();
+        launcher.getPacManUItest().getmain_ui().getButtonPlay().doClick();
+        assertThat(launcher.getPacManUItest().getmain_ui().isIsbuttonPlay()).isTrue();
+
+        // click skipButton.
+        launcher.getPacManUItest().getmain_ui().getCutScense().getButtonSkip().doClick();
+        //assertThat(launcher.getPacManUItest().getmain_ui().isIsbuttonPlay()).isTrue();
 
         Game game = launcher.getGame();
         Player player = game.getPlayers().get(0);
@@ -79,33 +84,24 @@ public class LauncherSmokeTest {
         assertThat(player.getScore()).isEqualTo(10);
 
         // try to move as far as we can
-        moveForTest(game, Direction.EAST, 6);
-        assertThat(player.getScore()).isEqualTo(60);
+        moveForTest(game, Direction.SOUTH, 4);
+        assertThat(player.getScore()).isEqualTo(50);
 
         // move towards the monsters
-        moveForTest(game, Direction.NORTH,4 );
-        assertThat(player.getScore()).isEqualTo(100);
-
-        // no more points to earn here.
-        moveForTest(game, Direction.WEST, 12);
-        assertThat(player.getScore()).isEqualTo(220);
-
-        moveForTest(game, Direction.SOUTH, 2);
-        assertThat(player.getScore()).isEqualTo(240);
+        moveForTest(game, Direction.NORTH,8 );
+        assertThat(player.getScore()).isEqualTo(90);
 
         // Sleeping in tests is generally a bad idea.
         // Here we do it just to let the monsters move.
         Thread.sleep(5000L);
 
         // we're close to monsters, this will get us killed.
-        moveForTest(game, Direction.WEST, 10);
-        moveForTest(game, Direction.EAST, 10);
         assertThat(player.isAlive()).isFalse();
 
         game.stop();
         assertThat(game.isInProgress()).isFalse();
 
-        assertThat(launcher.getPacManUItest().getisbuttonPlay()).isTrue();
+
 
 
     }

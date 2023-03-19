@@ -18,7 +18,7 @@ public class PelletScoreTest {
     public void setup(){
         launcher = new Launcher();
         launcher.launch();
-        launcher.getPacManUItest().getmain_ui().getButton2().doClick();
+        launcher.getPacManUItest().getmain_ui().getButtonPlay().doClick();
 
 
     }

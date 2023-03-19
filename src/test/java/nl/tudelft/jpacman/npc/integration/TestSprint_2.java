@@ -16,7 +16,7 @@ public class TestSprint_2 {
     @BeforeEach
     void setUp() {
         l.launch();
-        l.getPacManUItest().getmain_ui().getButton2().doClick();
+        l.getPacManUItest().getmain_ui().getButtonPlay().doClick();
     }
     @AfterEach
     void tearDown() {
