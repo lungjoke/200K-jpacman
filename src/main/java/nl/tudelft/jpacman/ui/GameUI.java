@@ -153,7 +153,9 @@ public class GameUI {
         CutScense cutScense = getCutScense();
         cutScense.setPacManUI(pacManUI);
         pacManUI.contentPanel.removeAll();
+        //cutScense.setName(Wall.get(themeNnm));
         pacManUI.contentPanel.add(cutScense.getCutscenseUI());
+        //System.out.println(cutScense.getName());
         pacManUI.pack();}
     }
     public CutScense getCutScense(){

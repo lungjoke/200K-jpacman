@@ -4,6 +4,7 @@ import nl.tudelft.jpacman.Launcher;
 import nl.tudelft.jpacman.ui.CutScense;
 import nl.tudelft.jpacman.ui.PacManUI;
 
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -14,6 +15,7 @@ import java.awt.event.ActionEvent;
 
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 
 public class CutScenseTest {
@@ -23,44 +25,74 @@ public class CutScenseTest {
     private Launcher launcher;
     @BeforeEach
     public void setUp() {
-        cutScense = new CutScense("src/main/resources/CutScense/skyCut.png",
-            "src/main/resources/CutScense/skySkip.png");
+
         launcher = new Launcher();
+        launcher.launch();
+    }
+
+    @AfterEach
+    void tearDown() {
+        launcher.dispose();
+    }
+
+    @Test
+    public void testSkipCutScenseToSkyMap() {
+        launcher.getPacManUItest().getmain_ui().getHardBtn().doClick();
         launcher.getPacManUItest().getmain_ui().getButtonPlay().doClick();
-        pacManUI = launcher.getPacManUItest();
-        cutScense.setPacManUI(pacManUI);
+        launcher.delay(1000);
+        JPanel p1 = (JPanel) launcher.getPacManUItest().getContentPanel().getComponent(0);
+        System.out.println(p1.getName());
+        assertThat(p1.getName()).isEqualTo("src/main/resources/CutScense/sky2Cut.png");
     }
 
     @Test
-    public void testGetCutscenseUI() {
-        //JPanel panel = cutScense.getCutscenseUI();
-        JPanel panel = launcher.getPacManUItest().getmain_ui().getCutScense().getCutscenseUI();
-        assertNotNull(panel);
-        assertEquals(new Dimension(500, 500), panel.getPreferredSize());
-        assertEquals(null, panel.getLayout());
+    public void testSkipCutScenseToForrestMap() {
+        launcher.getPacManUItest().getmain_ui().getHardBtn().doClick();
+        launcher.getPacManUItest().getmain_ui().getButtonPlay().doClick();
+        launcher.won();
+        launcher.delay(1000);
+        JPanel p1 = (JPanel) launcher.getPacManUItest().getContentPanel().getComponent(0);
+        System.out.println(p1.getName());
+        assertThat(p1.getName()).isEqualTo("src/main/resources/CutScense/forrestCut.png");
     }
 
     @Test
-    public void testPlaygame() {
-        pacManUI.getContentPanel().add(new JLabel("Test Label"));
-        cutScense.playgame(pacManUI);
-        assertEquals(2, pacManUI.getContentPanel().getComponentCount());
-        assertNotNull(pacManUI.getScorePanel());
-        assertNotNull(pacManUI.getBoardPanel());
-        assertNotNull(pacManUI.getButtonPanel());
+    public void testSkipCutScenseToCaveMap() {
+        launcher.getPacManUItest().getmain_ui().getHardBtn().doClick();
+        launcher.getPacManUItest().getmain_ui().getButtonPlay().doClick();
+        launcher.won();
+        launcher.won();
+        launcher.delay(1000);
+        JPanel p1 = (JPanel) launcher.getPacManUItest().getContentPanel().getComponent(0);
+        System.out.println(p1.getName());
+        assertThat(p1.getName()).isEqualTo("src/main/resources/CutScense/caveCut.png");
     }
 
     @Test
-    public void testGetButtonSkip() {
-        JButton skipButton = cutScense.getButtonSkip();
-        assertNotNull(skipButton);
-        assertTrue(skipButton.isVisible());
+    public void testSkipCutScenseToIceMap() {
+        launcher.getPacManUItest().getmain_ui().getHardBtn().doClick();
+        launcher.getPacManUItest().getmain_ui().getButtonPlay().doClick();
+        launcher.won();
+        launcher.won();
+        launcher.won();
+        launcher.delay(1000);
+        JPanel p1 = (JPanel) launcher.getPacManUItest().getContentPanel().getComponent(0);
+        System.out.println(p1.getName());
+        assertThat(p1.getName()).isEqualTo("src/main/resources/CutScense/iceCut.png");
+    }
 
-        skipButton.getActionListeners()[0].actionPerformed(new ActionEvent(this, 0, ""));
-        assertEquals(2, pacManUI.getContentPanel().getComponentCount());
-        assertNotNull(pacManUI.getScorePanel());
-        assertNotNull(pacManUI.getBoardPanel());
-        assertNotNull(pacManUI.getButtonPanel());
+    @Test
+    public void testSkipCutScenseToLavaMap() {
+        launcher.getPacManUItest().getmain_ui().getHardBtn().doClick();
+        launcher.getPacManUItest().getmain_ui().getButtonPlay().doClick();
+        launcher.won();
+        launcher.won();
+        launcher.won();
+        launcher.won();
+        launcher.delay(1000);
+        JPanel p1 = (JPanel) launcher.getPacManUItest().getContentPanel().getComponent(0);
+        System.out.println(p1.getName());
+        assertThat(p1.getName()).isEqualTo("src/main/resources/CutScense/lavaCut.png");
     }
 }
 

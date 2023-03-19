@@ -162,6 +162,7 @@ public class Main_UI extends JFrame {
         panel.add(EasyBtn,2);
         panel.add(ButtonPlay,3);
         panel.add(label,4);
+        panel.setName("main");
     }
     public void setaddall(PacManUI pacManUI){
         setmainBnt();

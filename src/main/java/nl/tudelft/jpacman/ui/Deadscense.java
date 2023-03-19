@@ -68,6 +68,7 @@ public class Deadscense extends JFrame {
         panel.add(toPlayAgainBtn);
         panel.add(label);
         panel.setPreferredSize(new Dimension(scaledIcon.getIconWidth(), scaledIcon.getIconHeight()));
+        panel.setName("DexdScense");
     }
 
     public JPanel getDeadscense() {

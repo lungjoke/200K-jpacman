@@ -112,6 +112,7 @@ public class PacManUI extends JFrame {
 
 
     public void newMap(Game game,String nameFileBG){
+
         buttonPanel = new ButtonPanel(buttonkey, this);
         scorePanel = new ScorePanel(game.getPlayers());
         scorePanel.setBackground(colors.get(themeNnm));
@@ -119,6 +120,7 @@ public class PacManUI extends JFrame {
             scorePanel.setScoreFormatter(scoreFormatter);
         }
         boardPanel = new BoardPanel(game,nameFileBG);
+        boardPanel.setName("Game");
     }
 
     /**

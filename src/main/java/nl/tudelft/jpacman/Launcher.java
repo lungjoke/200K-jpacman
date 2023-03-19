@@ -18,6 +18,9 @@ import nl.tudelft.jpacman.points.PointCalculator;
 import nl.tudelft.jpacman.points.PointCalculatorLoader;
 import nl.tudelft.jpacman.sprite.PacManSprites;
 import nl.tudelft.jpacman.ui.*;
+import nl.tudelft.jpacman.ui.Action;
+
+import javax.swing.*;
 
 import static nl.tudelft.jpacman.ui.GameUI.level;
 
@@ -255,8 +258,6 @@ public class Launcher {
      */
     public static void main(String[] args) throws IOException {
 
-        Launcher launcher = new Launcher();
-        launcher.launch();
-
+        new Launcher().launch();
     }
 }

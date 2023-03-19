@@ -50,6 +50,7 @@ public class CutScense extends JFrame {
         panel.add(Skip);
         panel.add(label);
         panel.setPreferredSize(new Dimension(scaledIcon.getIconWidth(), scaledIcon.getIconHeight()));
+        panel.setName(cutscense);
 
     }
 
