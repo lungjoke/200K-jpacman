@@ -1,8 +1,8 @@
 package nl.tudelft.jpacman.ui;
 
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
@@ -13,6 +13,8 @@ import javax.swing.*;
 import nl.tudelft.jpacman.Launcher;
 import nl.tudelft.jpacman.game.Game;
 import nl.tudelft.jpacman.ui.ScorePanel.ScoreFormatter;
+
+import static nl.tudelft.jpacman.ui.GameUI.themeNnm;
 
 /**
  * The default JPacMan UI frame. The PacManUI consists of the following
@@ -75,8 +77,11 @@ public class PacManUI extends JFrame {
      */
     private boolean isbuttonPlay = true;
     private final PacKeyListener keys;
-    private final JPanel buttonPanel;
+    private JPanel buttonPanel;
+    private Map<String, Action> buttonkey;
     private final Main_UI main_ui = new Main_UI(this);
+
+    private List<Color> colors = new ArrayList<Color>();
     public PacManUI(final Game game, final Map<String, Action> buttons,
                     final Map<Integer, Action> keyMappings,
                     ScoreFormatter scoreFormatter,String nameFileBG) {
@@ -84,10 +89,10 @@ public class PacManUI extends JFrame {
         assert game != null;
         assert buttons != null;
         assert keyMappings != null;
-
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         keys = new PacKeyListener(keyMappings);
         addKeyListener(keys);
+        buttonkey = buttons;
         buttonPanel= new ButtonPanel(buttons, this);
         if (scoreFormatter != null) {
             scorePanel.setScoreFormatter(scoreFormatter);
@@ -97,22 +102,17 @@ public class PacManUI extends JFrame {
         boardPanel = new BoardPanel(game,nameFileBG);
         contentPanel.add(main_ui.getMain_UI());
         pack();
+        colors.add(new Color(135,206,250));
+        colors.add(new Color(46,139,87));
+        colors.add(new Color(105 ,105,105));
+        colors.add(new Color(173,216,230));
+        colors.add(new Color(255,99,71));
     }
 
     public void newMap(Game game,String nameFileBG){
-        contentPanel.remove(scorePanel);
+        buttonPanel = new ButtonPanel(buttonkey, this);
         scorePanel = new ScorePanel(game.getPlayers());
-        if (scoreFormatter != null) {
-            scorePanel.setScoreFormatter(scoreFormatter);
-        }
-        contentPanel.add(scorePanel, BorderLayout.NORTH);
-        contentPanel.remove(boardPanel);
-        boardPanel = new BoardPanel(game,nameFileBG);
-        contentPanel.add(boardPanel);
-        pack();
-    }
-    public void newMapStart(Game game,String nameFileBG){
-        scorePanel = new ScorePanel(game.getPlayers());
+        scorePanel.setBackground(colors.get(themeNnm));
         if (scoreFormatter != null) {
             scorePanel.setScoreFormatter(scoreFormatter);
         }

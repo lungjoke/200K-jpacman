@@ -49,7 +49,7 @@ public class GameUI {
     /**
      *An integer representing the current theme number.
      * */
-    private int themeNnm;
+    public static int themeNnm;
     /**
      * GameUI()
      * */
@@ -159,7 +159,6 @@ public class GameUI {
     public CutScense getCutScense(){
         return cut.get(themeNnm);
     }
-
     public void toVictoryUI(PacManUI pacManUI){
         vicetory_ui.setPacManUI(pacManUI);
         pacManUI.contentPanel.removeAll();

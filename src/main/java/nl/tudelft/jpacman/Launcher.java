@@ -193,15 +193,13 @@ public class Launcher {
      */
 
     public void lost(){
-        GamenewMap();
-        pacManUI.newMap(getGame(),gameUI.getBGName());
-        //won();
-        gameUI.toDeadscense(pacManUI);
+        won();
+        //GamenewMap();
+        //gameUI.toDeadscense(pacManUI);
     }
     public void won(){
         gameUI.GemeWon();
         GamenewMap();
-        pacManUI.newMap(getGame(),gameUI.getBGName());
         gameUI.nextCutScense(pacManUI);
     }
     public void launch() {
@@ -220,7 +218,7 @@ public class Launcher {
         pacManUI.setl(this);
     }
 
-    public PacManUI GamenewMap(){
+    public void GamenewMap(){
         levelMap = gameUI.getBoardName();
         SPRITE_STORE.setNameFileWall(gameUI.getWallName());
         SPRITE_STORE.setNameFilePellet(gameUI.getPelletName());
@@ -228,19 +226,9 @@ public class Launcher {
         game.setLauncher(this);
         builder.addStartButton(getGame());
         builder.addStopButton(getGame());
-        return pacManUI;
+        pacManUI.newMap(getGame(),gameUI.getBGName());
     }
 
-    public void genMap(){
-        levelMap = gameUI.getBoardName();
-        SPRITE_STORE.setNameFileWall(gameUI.getWallName());
-        SPRITE_STORE.setNameFilePellet(gameUI.getPelletName());
-        makeGame();
-        game.setLauncher(this);
-        builder.addStartButton(getGame());
-        builder.addStopButton(getGame());
-        pacManUI.newMapStart(getGame(),gameUI.getBGName());
-    }
 
     /**
      * Disposes of the UI. For more information see
@@ -264,6 +252,6 @@ public class Launcher {
      *                     When a resource could not be read.
      */
     public static void main(String[] args) throws IOException {
-        new Launcher().launch();
+       new Launcher().launch();
     }
 }
