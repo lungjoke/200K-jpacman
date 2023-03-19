@@ -172,4 +172,9 @@ public class GameUI {
         pacManUI.contentPanel.add(deadscense.getDeadscense());
         pacManUI.pack();
     }
+
+    public Deadscense getDeadscense() {
+        return deadscense;
+    }
+
 }

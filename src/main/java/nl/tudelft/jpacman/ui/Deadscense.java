@@ -10,9 +10,12 @@ import java.io.IOException;
 
 public class Deadscense extends JFrame {
     JPanel panel = new JPanel(null);
+    private JButton toMainbtn;
+    private JButton toPlayAgainBtn;
     private PacManUI pacManUI;
 
     public Deadscense(String GameOverBG ,String mainMenu, String playAgain){
+
         setSize(500, 500);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         // Create ImageIcon from file and scale it to fit panel size
@@ -28,8 +31,8 @@ public class Deadscense extends JFrame {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        JButton toMainbtn = new ImageButton(imageMainMenu);
-        JButton toPlayAgainBtn = new ImageButton(imagePlayAgain);
+        toMainbtn = new ImageButton(imageMainMenu);
+        toPlayAgainBtn = new ImageButton(imagePlayAgain);
 
         toMainbtn.setBounds(100, 350, 100, 44); // Set position and size
         toPlayAgainBtn.setBounds(300, 350, 100, 44); // Set position and size
@@ -93,5 +96,13 @@ public class Deadscense extends JFrame {
     }
     public void setPacManUI(PacManUI pacManUI){
         this.pacManUI = pacManUI;
+    }
+
+    public JButton getToMainbtn() {
+        return toMainbtn;
+    }
+
+    public JButton getToPlayAgainBtn() {
+        return toPlayAgainBtn;
     }
 }

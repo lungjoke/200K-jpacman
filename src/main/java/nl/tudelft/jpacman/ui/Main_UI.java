@@ -179,4 +179,9 @@ public class Main_UI extends JFrame {
     public void setLauncher(Launcher launcher) {
         this.launcher = launcher;
     }
+
+    public CutScense getCutScense(){
+        return cutScense;
+    }
+
 }

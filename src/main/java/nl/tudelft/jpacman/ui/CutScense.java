@@ -9,6 +9,7 @@ import java.io.File;
 import java.io.IOException;
 
 public class CutScense extends JFrame {
+    private JButton button2;
     JPanel panel = new JPanel(null);
     private String Cutscense = "src/main/resources/CutScense/skyCut.png";
     private  String Skipbutton = "src/main/resources/CutScense/skySkip.png";
@@ -27,7 +28,7 @@ public class CutScense extends JFrame {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        JButton button2 = new ImageButton(imagebtn);
+        button2 = new ImageButton(imagebtn);
         button2.setBounds(400, 440, 70, 29); // Set position and size
 
         // Create JLabel and set image icon
@@ -83,6 +84,10 @@ public class CutScense extends JFrame {
     }
     public void setPacManUI(PacManUI pacManUI){
         this.pacManUI = pacManUI;
+    }
+
+    public JButton getButton2() {
+        return button2;
     }
 }
 
