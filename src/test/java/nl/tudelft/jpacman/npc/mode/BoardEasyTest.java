@@ -1,4 +1,4 @@
-package nl.tudelft.jpacman.npc.ui;
+package nl.tudelft.jpacman.npc.mode;
 
 import nl.tudelft.jpacman.Launcher;
 import org.junit.jupiter.api.AfterEach;
@@ -11,7 +11,7 @@ import static nl.tudelft.jpacman.ui.GameUI.level;
 import static nl.tudelft.jpacman.ui.GameUI.themeNnm;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
-public class gameuitest {
+public class BoardEasyTest {
 
     private Launcher launcher;
 
@@ -39,7 +39,7 @@ public class gameuitest {
 
     @Test
     public void testEasyBoard_2() {
-        launcher.getPacManUItest().getmain_ui().getHardBtn().doClick();
+        launcher.getPacManUItest().getmain_ui().getEasyBtn().doClick();
         launcher.getPacManUItest().getmain_ui().getButtonPlay().doClick();
         launcher.getPacManUItest().getmain_ui().getCutScense().getButtonSkip().doClick();
         launcher.won();
@@ -52,7 +52,7 @@ public class gameuitest {
 
     @Test
     public void testEasyBoard_3() {
-        launcher.getPacManUItest().getmain_ui().getHardBtn().doClick();
+        launcher.getPacManUItest().getmain_ui().getEasyBtn().doClick();
         launcher.getPacManUItest().getmain_ui().getButtonPlay().doClick();
         launcher.getPacManUItest().getmain_ui().getCutScense().getButtonSkip().doClick();
         launcher.won();
@@ -67,7 +67,7 @@ public class gameuitest {
 
     @Test
     public void testEasyBoard_4() {
-        launcher.getPacManUItest().getmain_ui().getHardBtn().doClick();
+        launcher.getPacManUItest().getmain_ui().getEasyBtn().doClick();
         launcher.getPacManUItest().getmain_ui().getButtonPlay().doClick();
         launcher.getPacManUItest().getmain_ui().getCutScense().getButtonSkip().doClick();
         launcher.won();
@@ -84,7 +84,7 @@ public class gameuitest {
 
     @Test
     public void testEasyBoard_5() {
-        launcher.getPacManUItest().getmain_ui().getHardBtn().doClick();
+        launcher.getPacManUItest().getmain_ui().getEasyBtn().doClick();
         launcher.getPacManUItest().getmain_ui().getButtonPlay().doClick();
         launcher.getPacManUItest().getmain_ui().getCutScense().getButtonSkip().doClick();
         launcher.won();

@@ -22,6 +22,8 @@ public class DeadCcenseTest {
     void tearDown() {
         launcher.dispose();
     }
+    /**
+     * Test that game over UI show after dead*/
     @Test
     public void testVisibleDeadCcense() {
         launcher.getPacManUItest().getmain_ui().getNormalBtn().doClick();
@@ -33,6 +35,9 @@ public class DeadCcenseTest {
         System.out.println(p1.getName());
         assertThat(p1.getName()).isEqualTo("DeadScense");
     }
+
+    /**
+     * Test click button back to main menu and UI change to mainUI*/
     @Test
     public void testButtonMainDeadCcense() {
         launcher.getPacManUItest().getmain_ui().getNormalBtn().doClick();
@@ -45,6 +50,9 @@ public class DeadCcenseTest {
         System.out.println(p1.getName());
         assertThat(p1.getName()).isEqualTo("main");
     }
+
+    /**
+     * Test click button play again and game restart at map sky*/
     @Test
     public void testPlayAgainDeadCcense() {
         launcher.getPacManUItest().getmain_ui().getNormalBtn().doClick();
