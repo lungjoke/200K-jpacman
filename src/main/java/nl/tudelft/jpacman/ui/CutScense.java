@@ -14,6 +14,7 @@ public class CutScense extends JFrame {
     private String Cutscense = "src/main/resources/CutScense/skyCut.png";
     private  String Skipbutton = "src/main/resources/CutScense/skySkip.png";
     private PacManUI pacManUI;
+    private Boolean IsSkipButton=false;
     public CutScense(String cutscense,String skipbtn) {
         setSize(500, 500);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -42,7 +43,9 @@ public class CutScense extends JFrame {
                 SwingUtilities.invokeLater(new Runnable() {
                     @Override
                     public void run() {
+                        IsSkipButton=true;
                         playgame(pacManUI);
+
                     }
                 });
             }
@@ -71,6 +74,10 @@ public class CutScense extends JFrame {
     }
     public JButton getButtonSkip() {
         return Skip;
+    }
+
+    public Boolean IsSkipButton() {
+        return IsSkipButton;
     }
 }
 

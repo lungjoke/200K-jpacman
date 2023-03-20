@@ -25,7 +25,7 @@ public class Main_UI extends JFrame {
     private boolean isbntEasy = false;
     private boolean isbntNormal = true;
     private boolean isbntHard= true;
-    private boolean isbuttonPlay = true;
+    private boolean isbuttonPlay = false;
 
     private JLabel label = new JLabel();
 
@@ -56,6 +56,7 @@ public class Main_UI extends JFrame {
                 SwingUtilities.invokeLater(new Runnable() {
                     @Override
                     public void run() {
+                        isbuttonPlay=true;
                         launcher.lost();
                         cutScense.setPacManUI(launcher.getPacManUItest());
                         ToCut(pacManUI);

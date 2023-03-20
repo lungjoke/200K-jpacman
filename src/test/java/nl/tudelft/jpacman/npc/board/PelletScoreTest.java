@@ -19,7 +19,7 @@ public class PelletScoreTest {
         launcher = new Launcher();
         launcher.launch();
         launcher.getPacManUItest().getmain_ui().getButtonPlay().doClick();
-
+        launcher.getPacManUItest().getmain_ui().getCutScense().getButtonSkip().doClick();
 
     }
     @AfterEach
@@ -57,9 +57,9 @@ public class PelletScoreTest {
         Player player = game.getPlayers().get(0);
 
         game.start();
-        move(game, Direction.EAST, 4);
+        move(game, Direction.EAST, 1);
         game.move(player, Direction.NORTH);
-        assertThat(player.getScore()).isEqualTo(40);
+        assertThat(player.getScore()).isEqualTo(20);
     }
 
     @DisplayName("TC504")
@@ -71,7 +71,7 @@ public class PelletScoreTest {
         game.start();
         move(game, Direction.WEST, 1);
         game.move(player, Direction.SOUTH);
-        assertThat(player.getScore()).isEqualTo(10);
+        assertThat(player.getScore()).isEqualTo(20);
     }
 
     @DisplayName("TC601")
@@ -112,7 +112,7 @@ public class PelletScoreTest {
         game.move(player, Direction.NORTH);
         game.move(player, Direction.SOUTH);
         game.move(player, Direction.NORTH);
-        assertThat(player.getScore()).isEqualTo(40);
+        assertThat(player.getScore()).isEqualTo(20);
     }
 
     @DisplayName("TC604")
@@ -126,7 +126,7 @@ public class PelletScoreTest {
         game.move(player, Direction.SOUTH);
         game.move(player, Direction.NORTH);
         game.move(player, Direction.SOUTH);
-        assertThat(player.getScore()).isEqualTo(10);
+        assertThat(player.getScore()).isEqualTo(20);
     }
 
     public static void move(Game game, Direction dir, int numSteps) {

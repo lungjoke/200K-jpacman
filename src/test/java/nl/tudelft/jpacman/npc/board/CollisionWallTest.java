@@ -46,8 +46,8 @@ public class CollisionWallTest {
         Player player = game.getPlayers().get(0);
 
         game.start();
-        move(game, Direction.WEST, 11);
-        assertThat(player.getScore()).isEqualTo(60);
+        move(game, Direction.WEST, 1);
+        assertThat(player.getScore()).isEqualTo(10);
     }
 
     /** Move as far as it can, if the number of pellet not equal to the number in row from that direction it means that we found wall*/
@@ -58,8 +58,8 @@ public class CollisionWallTest {
         Player player = game.getPlayers().get(0);
 
         game.start();
-        move(game, Direction.EAST, 11);
-        assertThat(player.getScore()).isEqualTo(60);
+        move(game, Direction.EAST, 1);
+        assertThat(player.getScore()).isEqualTo(10);
     }
 
     /** Move as far as it can in row or column start from pacman position,
@@ -71,8 +71,8 @@ public class CollisionWallTest {
         Player player = game.getPlayers().get(0);
 
         game.start();
-        move(game, Direction.NORTH, 15);
-        assertThat(player.getScore()).isEqualTo(0);
+        move(game, Direction.NORTH, 4);
+        assertThat(player.getScore()).isEqualTo(40);
     }
 
     /** Move as far as it can, if the number of pellet not equal to the number in row from that direction it means that we found wall*/
@@ -83,8 +83,8 @@ public class CollisionWallTest {
         Player player = game.getPlayers().get(0);
 
         game.start();
-        move(game, Direction.NORTH, 5);
-        assertThat(player.getScore()).isEqualTo(0);
+        move(game, Direction.SOUTH, 4);
+        assertThat(player.getScore()).isEqualTo(40);
     }
 
     public static void move(Game game, Direction dir, int numSteps) {

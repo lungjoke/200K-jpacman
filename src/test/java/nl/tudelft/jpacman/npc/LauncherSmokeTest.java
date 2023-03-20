@@ -61,12 +61,13 @@ public class LauncherSmokeTest {
     void smokeTest() throws InterruptedException {
         // click buttonPlay.
         launcher.getPacManUItest().getmain_ui().getButtonPlay().doClick();
+        launcher.delay(2000);
         assertThat(launcher.getPacManUItest().getmain_ui().isIsbuttonPlay()).isTrue();
 
         // click skipButton.
         launcher.getPacManUItest().getmain_ui().getCutScense().getButtonSkip().doClick();
-        JPanel l1 = (JPanel) launcher.getPacManUItest().getContentPanel().getComponent(1);
-        //assertThat(launcher.getPacManUItest().getmain_ui().isIsbuttonPlay()).isTrue();
+        launcher.delay(2000);
+        assertThat(launcher.getPacManUItest().getmain_ui().getCutScense().IsSkipButton()).isTrue();
 
         Game game = launcher.getGame();
         Player player = game.getPlayers().get(0);
