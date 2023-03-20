@@ -249,6 +249,9 @@ public class Launcher {
     public PacManUI getPacManUItest(){
         return this.pacManUI;
     }
+    public GameUI getGameUI(){
+        return gameUI;
+    }
     /**
      * Main execution method for the Launcher.
      *
@@ -259,7 +262,14 @@ public class Launcher {
      */
     public static void main(String[] args) throws IOException {
 
-        Launcher l = new Launcher();
-        l.launch();
+        Launcher launcher = new Launcher();
+        launcher.launch();
+        /**launcher.getPacManUItest().getmain_ui().getHardBtn().doClick();
+        launcher.getPacManUItest().getmain_ui().getButtonPlay().doClick();
+        launcher.getPacManUItest().getmain_ui().getCutScense().getButtonSkip().doClick();
+        launcher.won();
+        launcher.delay(1000);
+        JPanel p1 = (JPanel) launcher.getPacManUItest().getContentPanel().getComponent(0);
+        System.out.println(p1.getName());*/
     }
 }

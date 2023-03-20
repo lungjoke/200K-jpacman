@@ -19,9 +19,6 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 
 public class CutScenseTest {
-
-    private CutScense cutScense;
-    private PacManUI pacManUI;
     private Launcher launcher;
     @BeforeEach
     public void setUp() {
@@ -49,6 +46,7 @@ public class CutScenseTest {
     public void testSkipCutScenseToForrestMap() {
         launcher.getPacManUItest().getmain_ui().getHardBtn().doClick();
         launcher.getPacManUItest().getmain_ui().getButtonPlay().doClick();
+        launcher.getPacManUItest().getmain_ui().getCutScense().getButtonSkip().doClick();
         launcher.won();
         launcher.delay(1000);
         JPanel p1 = (JPanel) launcher.getPacManUItest().getContentPanel().getComponent(0);
@@ -60,7 +58,9 @@ public class CutScenseTest {
     public void testSkipCutScenseToCaveMap() {
         launcher.getPacManUItest().getmain_ui().getHardBtn().doClick();
         launcher.getPacManUItest().getmain_ui().getButtonPlay().doClick();
+        launcher.getPacManUItest().getmain_ui().getCutScense().getButtonSkip().doClick();
         launcher.won();
+        launcher.getGameUI().getCutScense().getButtonSkip().doClick();
         launcher.won();
         launcher.delay(1000);
         JPanel p1 = (JPanel) launcher.getPacManUItest().getContentPanel().getComponent(0);
@@ -72,8 +72,11 @@ public class CutScenseTest {
     public void testSkipCutScenseToIceMap() {
         launcher.getPacManUItest().getmain_ui().getHardBtn().doClick();
         launcher.getPacManUItest().getmain_ui().getButtonPlay().doClick();
+        launcher.getPacManUItest().getmain_ui().getCutScense().getButtonSkip().doClick();
         launcher.won();
+        launcher.getGameUI().getCutScense().getButtonSkip().doClick();
         launcher.won();
+        launcher.getGameUI().getCutScense().getButtonSkip().doClick();
         launcher.won();
         launcher.delay(1000);
         JPanel p1 = (JPanel) launcher.getPacManUItest().getContentPanel().getComponent(0);
@@ -85,9 +88,13 @@ public class CutScenseTest {
     public void testSkipCutScenseToLavaMap() {
         launcher.getPacManUItest().getmain_ui().getHardBtn().doClick();
         launcher.getPacManUItest().getmain_ui().getButtonPlay().doClick();
+        launcher.getPacManUItest().getmain_ui().getCutScense().getButtonSkip().doClick();
         launcher.won();
+        launcher.getGameUI().getCutScense().getButtonSkip().doClick();
         launcher.won();
+        launcher.getGameUI().getCutScense().getButtonSkip().doClick();
         launcher.won();
+        launcher.getGameUI().getCutScense().getButtonSkip().doClick();
         launcher.won();
         launcher.delay(1000);
         JPanel p1 = (JPanel) launcher.getPacManUItest().getContentPanel().getComponent(0);
