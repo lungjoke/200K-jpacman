@@ -198,6 +198,7 @@ public class Launcher {
      */
 
     public void lost(){
+        gameUI.GameReset();
         GamenewMap();
         pacManUI.newMap(getGame(),gameUI.getBGName());
         gameUI.toDeadscense(pacManUI);
@@ -258,6 +259,7 @@ public class Launcher {
      */
     public static void main(String[] args) throws IOException {
 
-        new Launcher().launch();
+        Launcher l = new Launcher();
+        l.launch();
     }
 }
