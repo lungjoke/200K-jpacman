@@ -14,6 +14,7 @@ import nl.tudelft.jpacman.Launcher;
 import nl.tudelft.jpacman.game.Game;
 import nl.tudelft.jpacman.ui.ScorePanel.ScoreFormatter;
 
+import static nl.tudelft.jpacman.ui.GameUI.level;
 import static nl.tudelft.jpacman.ui.GameUI.themeNnm;
 
 /**
@@ -120,7 +121,7 @@ public class PacManUI extends JFrame {
             scorePanel.setScoreFormatter(scoreFormatter);
         }
         boardPanel = new BoardPanel(game,nameFileBG);
-        boardPanel.setName("Game");
+        boardPanel.setName("theme: "+themeNnm+"\nlevel: "+level);
     }
 
     /**
