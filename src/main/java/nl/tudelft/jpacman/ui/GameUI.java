@@ -101,10 +101,12 @@ public class GameUI {
     public void setlevel(int num){
         level = num;
     }
+
     /**
      *
      * A function that returns the name of the current board.
      * */
+
     public String getBoardName(){
         return "/Board"+board.get(level).get(BoardNnm);
     }
@@ -144,24 +146,19 @@ public class GameUI {
 
     public void nextCutScense(PacManUI pacManUI){
         if (levelup){
-            pacManUI.contentPanel.removeAll();
-            vicetory_ui.setPacManUI(pacManUI);
+            toVictoryUI(pacManUI);
             levelup = false;
-            pacManUI.contentPanel.add(vicetory_ui.getVictoryUI());
-            pacManUI.pack();
         }else {
         CutScense cutScense = getCutScense();
         cutScense.setPacManUI(pacManUI);
         pacManUI.contentPanel.removeAll();
-        //cutScense.setName(Wall.get(themeNnm));
         pacManUI.contentPanel.add(cutScense.getCutscenseUI());
-        //System.out.println(cutScense.getName());
         pacManUI.pack();}
     }
     public CutScense getCutScense(){
         return cut.get(themeNnm);
     }
-    public void toVictoryUI(PacManUI pacManUI){
+    private void toVictoryUI(PacManUI pacManUI){
         vicetory_ui.setPacManUI(pacManUI);
         pacManUI.contentPanel.removeAll();
         pacManUI.contentPanel.add(vicetory_ui.getVictoryUI());
@@ -176,6 +173,9 @@ public class GameUI {
 
     public Deadscense getDeadscense() {
         return deadscense;
+    }
+    public Vicetory_UI getVicetory_ui(){
+        return vicetory_ui;
     }
 
 }

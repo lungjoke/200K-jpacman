@@ -267,10 +267,9 @@ public class Launcher {
         launcher.getPacManUItest().getmain_ui().getNormalBtn().doClick();
         launcher.getPacManUItest().getmain_ui().getButtonPlay().doClick();
         launcher.getPacManUItest().getmain_ui().getCutScense().getButtonSkip().doClick();
-        launcher.won();
-        launcher.getGameUI().getCutScense().getButtonSkip().doClick();
+        launcher.lost();
         launcher.delay(1000);
-        JPanel p1 = (JPanel) launcher.getPacManUItest().getContentPanel().getComponent(1);
+        JPanel p1 = (JPanel) launcher.getPacManUItest().getContentPanel().getComponent(0);
         System.out.println(p1.getName());
     }
 }
