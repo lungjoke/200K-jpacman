@@ -37,7 +37,7 @@ public class GameUI {
     /**
      *  A list of floating-point numbers representing the level multiplier for each level.
      * */
-    private List<Float> levelnum = new ArrayList<Float>();
+    private List<Integer> levelnum = new ArrayList<Integer>();
     /**
      * An integer representing the current level.
      * */
@@ -62,11 +62,10 @@ public class GameUI {
         cut.add(new CutScense("src/main/resources/CutScense/lavaCut.png","src/main/resources/CutScense/Skipwhite.png"));
         BoardNnm = 0;
         themeNnm = 0;
-        levelnum.add(1.25F);
-        levelnum.add(1F);
-        levelnum.add(0.75F);
+        levelnum.add(300);
+        levelnum.add(250);
+        levelnum.add(200);
         level = 0;
-        setlevelnpc(level);
         board.add(Arrays.asList("/skyboardEasy.txt", "/forestEasy.txt", "/caveboardEasy.txt","/iceboardEasy.txt","/lavaboardEasy.txt"));
         board.add(Arrays.asList("/skyboardNormal.txt", "/forestNormal.txt", "/caveboardNormal.txt","/iceboardNormal.txt","/lavaboardNormal.txt"));
         board.add(Arrays.asList("/skyboardHard.txt", "/forestHard.txt", "/caveboardHard.txt","/iceboardHard.txt","/lavaboardHard.txt"));
@@ -126,6 +125,7 @@ public class GameUI {
     public String getPelletName(){
         return "/sprite"+Pellet.get(themeNnm);
     }
+
     /**
      *A function that returns the name of the current background sprite.
      * */
@@ -137,24 +137,26 @@ public class GameUI {
      *A private function that sets the move interval
      *  for each ghost based on the current level.
      * */
-    private void setlevelnpc(int num){
-        Blinky.setMoveInterval((int) (Blinky.getMoveInterval()*levelnum.get(num)));
-        Clyde.setMoveInterval((int) (Clyde.getMoveInterval()*levelnum.get(num)));
-        Inky.setMoveInterval((int) (Inky.getMoveInterval()*levelnum.get(num)));
-        Pinky.setMoveInterval((int) (Pinky.getMoveInterval()*levelnum.get(num)));
+    public void setlevelnpc(){
+        Clyde.setMoveInterval(levelnum.get(level));
+        Inky.setMoveInterval(levelnum.get(level));
+        Pinky.setMoveInterval(levelnum.get(level));
+        Blinky.setMoveInterval(levelnum.get(level));
     }
 
     public void nextCutScense(PacManUI pacManUI){
         if (levelup){
             toVictoryUI(pacManUI);
             levelup = false;
-        }else {
+            setlevelnpc();
+        } else {setlevelnpc();
         CutScense cutScense = getCutScense();
         cutScense.setPacManUI(pacManUI);
         pacManUI.contentPanel.removeAll();
         pacManUI.contentPanel.add(cutScense.getCutscenseUI());
         pacManUI.pack();}
     }
+
     public CutScense getCutScense(){
         return cut.get(themeNnm);
     }
@@ -164,6 +166,7 @@ public class GameUI {
         pacManUI.contentPanel.add(vicetory_ui.getVictoryUI());
         pacManUI.pack();
     }
+
     public void toDeadscense(PacManUI pacManUI){
         deadscense.setPacManUI(pacManUI);
         pacManUI.contentPanel.removeAll();

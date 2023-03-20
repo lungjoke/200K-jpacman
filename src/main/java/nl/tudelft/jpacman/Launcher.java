@@ -202,12 +202,14 @@ public class Launcher {
         GamenewMap();
         pacManUI.newMap(getGame(),gameUI.getBGName());
         gameUI.toDeadscense(pacManUI);
+        gameUI.setlevelnpc();
     }
     public void won(){
         gameUI.GemeWon();
         GamenewMap();
         pacManUI.newMap(getGame(),gameUI.getBGName());
         gameUI.nextCutScense(pacManUI);
+        gameUI.setlevelnpc();
     }
     public void launch() {
         GameStart();

@@ -15,7 +15,6 @@ import java.io.IOException;
 
 public class Main_UI extends JFrame {
     private Launcher launcher;
-    private GameUI gameUI;
     private final JPanel panel = new JPanel(null);
 
     private JButton ButtonPlay;

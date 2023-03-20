@@ -8,6 +8,8 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import javax.swing.*;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 /**
@@ -63,6 +65,7 @@ public class LauncherSmokeTest {
 
         // click skipButton.
         launcher.getPacManUItest().getmain_ui().getCutScense().getButtonSkip().doClick();
+        JPanel l1 = (JPanel) launcher.getPacManUItest().getContentPanel().getComponent(1);
         //assertThat(launcher.getPacManUItest().getmain_ui().isIsbuttonPlay()).isTrue();
 
         Game game = launcher.getGame();
