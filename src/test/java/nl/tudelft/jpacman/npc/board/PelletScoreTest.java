@@ -27,7 +27,7 @@ public class PelletScoreTest {
         launcher.dispose();
     }
 
-    @DisplayName("TC501")
+    @DisplayName("TC901")
     @Test
     void testWestPellet() {
         Game game = launcher.getGame();
@@ -38,7 +38,7 @@ public class PelletScoreTest {
         assertThat(player.getScore()).isEqualTo(10);
     }
 
-    @DisplayName("TC502")
+    @DisplayName("TC902")
     @Test
     void testEastPellet() {
         Game game = launcher.getGame();
@@ -50,7 +50,7 @@ public class PelletScoreTest {
     }
 
 
-    @DisplayName("TC503")
+    @DisplayName("TC903")
     @Test
     void testNorthPellet() {
         Game game = launcher.getGame();
@@ -62,7 +62,7 @@ public class PelletScoreTest {
         assertThat(player.getScore()).isEqualTo(20);
     }
 
-    @DisplayName("TC504")
+    @DisplayName("TC904")
     @Test
     void testSouthPellet() {
         Game game = launcher.getGame();
@@ -74,7 +74,7 @@ public class PelletScoreTest {
         assertThat(player.getScore()).isEqualTo(20);
     }
 
-    @DisplayName("TC601")
+    @DisplayName("TC1001")
     @Test
     void testWestEmptyPellet() {
         Game game = launcher.getGame();
@@ -88,7 +88,7 @@ public class PelletScoreTest {
     }
 
 
-    @DisplayName("TC602")
+    @DisplayName("TC1002")
     @Test
     void testEastEmptyPellet() {
         Game game = launcher.getGame();
@@ -101,7 +101,7 @@ public class PelletScoreTest {
         assertThat(player.getScore()).isEqualTo(10);
     }
 
-    @DisplayName("TC603")
+    @DisplayName("TC1003")
     @Test
     void testNorthEmptyPellet() {
         Game game = launcher.getGame();
@@ -115,7 +115,7 @@ public class PelletScoreTest {
         assertThat(player.getScore()).isEqualTo(20);
     }
 
-    @DisplayName("TC604")
+    @DisplayName("TC1004")
     @Test
     void testSouthEmptyPellet() {
         Game game = launcher.getGame();

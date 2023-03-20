@@ -46,7 +46,6 @@ public class StartupSystemTest {
         assertThat(launcher.getPacManUItest().getisbuttonPlay()).isTrue();
     }
 
-
     private Game getGame() {
         return launcher.getGame();
     }

@@ -3,6 +3,7 @@ package nl.tudelft.jpacman.npc.mode;
 import nl.tudelft.jpacman.Launcher;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import javax.swing.*;
@@ -26,6 +27,7 @@ public class BoardHardTest {
         launcher.dispose();
     }
 
+    @DisplayName("TC2511")
     @Test
     public void testHardBoard_1() {
         launcher.getPacManUItest().getmain_ui().getHardBtn().doClick();
@@ -37,6 +39,7 @@ public class BoardHardTest {
         assertThat(p1.getName()).isEqualTo("theme: 0"+"\nlevel: 2");
     }
 
+    @DisplayName("TC2512")
     @Test
     public void testHardBoard_2() {
         launcher.getPacManUItest().getmain_ui().getHardBtn().doClick();
@@ -50,6 +53,7 @@ public class BoardHardTest {
         assertThat(p1.getName()).isEqualTo("theme: 1"+"\nlevel: 2");
     }
 
+    @DisplayName("TC2513")
     @Test
     public void testHardBoard_3() {
         launcher.getPacManUItest().getmain_ui().getHardBtn().doClick();
@@ -65,6 +69,7 @@ public class BoardHardTest {
         assertThat(p1.getName()).isEqualTo("theme: 2"+"\nlevel: 2");
     }
 
+    @DisplayName("TC2514")
     @Test
     public void testHardBoard_4() {
         launcher.getPacManUItest().getmain_ui().getHardBtn().doClick();
@@ -82,6 +87,7 @@ public class BoardHardTest {
         assertThat(p1.getName()).isEqualTo("theme: 3"+"\nlevel: 2");
     }
 
+    @DisplayName("TC2515")
     @Test
     public void testHardBoard_5() {
         launcher.getPacManUItest().getmain_ui().getHardBtn().doClick();

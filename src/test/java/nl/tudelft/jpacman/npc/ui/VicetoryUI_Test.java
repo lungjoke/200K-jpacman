@@ -3,6 +3,7 @@ package nl.tudelft.jpacman.npc.ui;
 import nl.tudelft.jpacman.Launcher;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import javax.swing.*;
@@ -17,13 +18,12 @@ public class VicetoryUI_Test {
         launcher = new Launcher();
         launcher.launch();
     }
-
     @AfterEach
     void tearDown() {
         launcher.dispose();
     }
     @Test
-    public void testVisibleVicetory() {
+    public void testVisibleVictory() {
         launcher.getPacManUItest().getmain_ui().getNormalBtn().doClick();
         launcher.getPacManUItest().getmain_ui().getButtonPlay().doClick();
         launcher.getPacManUItest().getmain_ui().getCutScense().getButtonSkip().doClick();
@@ -37,8 +37,10 @@ public class VicetoryUI_Test {
         System.out.println(p1.getName());
         assertThat(p1.getName()).isEqualTo("Vicetory");
     }
+
+    @DisplayName("TC1801")
     @Test
-    public void testButtonMainDeadCcense() {
+    public void testButtonMainDeadVictory() {
         launcher.getPacManUItest().getmain_ui().getNormalBtn().doClick();
         launcher.getPacManUItest().getmain_ui().getButtonPlay().doClick();
         launcher.getPacManUItest().getmain_ui().getCutScense().getButtonSkip().doClick();
@@ -53,8 +55,10 @@ public class VicetoryUI_Test {
         System.out.println(p1.getName());
         assertThat(p1.getName()).isEqualTo("main");
     }
+
+    @DisplayName("TC1901")
     @Test
-    public void testPlayAgainDeadCcense() {
+    public void testPlayAgainDeadVictory() {
         launcher.getPacManUItest().getmain_ui().getNormalBtn().doClick();
         launcher.getPacManUItest().getmain_ui().getButtonPlay().doClick();
         launcher.getPacManUItest().getmain_ui().getCutScense().getButtonSkip().doClick();

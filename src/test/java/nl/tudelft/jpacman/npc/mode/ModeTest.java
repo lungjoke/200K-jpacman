@@ -3,6 +3,7 @@ package nl.tudelft.jpacman.npc.mode;
 import nl.tudelft.jpacman.Launcher;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static nl.tudelft.jpacman.ui.GameUI.level;
@@ -21,6 +22,8 @@ public class ModeTest {
     void tearDown() {
         launcher.dispose();
     }
+
+    @DisplayName("TC301")
     @Test
     public void EasyModeTest(){
         launcher.getPacManUItest().getmain_ui().getEasyBtn().doClick();
@@ -28,6 +31,8 @@ public class ModeTest {
         launcher.getPacManUItest().getmain_ui().getCutScense().getButtonSkip().doClick();
         assertThat(level).isEqualTo(0);
     }
+
+    @DisplayName("TC302")
     @Test
     public void NormalModeTest(){
         launcher.getPacManUItest().getmain_ui().getNormalBtn().doClick();
@@ -36,6 +41,7 @@ public class ModeTest {
         assertThat(level).isEqualTo(1);
     }
 
+    @DisplayName("TC303")
     @Test
     public void HardModeTest(){
         launcher.getPacManUItest().getmain_ui().getHardBtn().doClick();

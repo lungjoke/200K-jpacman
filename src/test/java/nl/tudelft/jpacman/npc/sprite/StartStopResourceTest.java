@@ -1,18 +1,17 @@
-package nl.tudelft.jpacman.npc.mode;
+package nl.tudelft.jpacman.npc.sprite;
 
 import nl.tudelft.jpacman.Launcher;
+import nl.tudelft.jpacman.board.Board;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import javax.swing.*;
-
 import static nl.tudelft.jpacman.ui.GameUI.level;
-import static nl.tudelft.jpacman.ui.GameUI.themeNnm;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
-public class BoardEasyTest {
+public class StartStopResourceTest {
+
 
     private Launcher launcher;
 
@@ -27,35 +26,36 @@ public class BoardEasyTest {
         launcher.dispose();
     }
 
-    @DisplayName("TC2501")
+    /**
+     * Test resourceStart Stop button for each map
+     * */
+
+    @DisplayName("TC2301")
     @Test
-    public void testEasyBoard_1() {
+    public void startStopSkyTest(){
         launcher.getPacManUItest().getmain_ui().getEasyBtn().doClick();
         launcher.getPacManUItest().getmain_ui().getButtonPlay().doClick();
         launcher.getPacManUItest().getmain_ui().getCutScense().getButtonSkip().doClick();
-        launcher.delay(1000);
-        JPanel p1 = (JPanel) launcher.getPacManUItest().getContentPanel().getComponent(1);
-        System.out.println(p1.getName());
-        assertThat(p1.getName()).isEqualTo("theme: 0"+"\nlevel: 0");
+        String setBtnButtonPanel = launcher.getPacManUItest().getButtonPanel().getName();
+        assertThat(setBtnButtonPanel).isEqualTo("Start Stop resource from index 0");
     }
 
-    @DisplayName("TC2502")
+    @DisplayName("TC2302")
     @Test
-    public void testEasyBoard_2() {
+    public void startStopForrestTest(){
         launcher.getPacManUItest().getmain_ui().getEasyBtn().doClick();
         launcher.getPacManUItest().getmain_ui().getButtonPlay().doClick();
         launcher.getPacManUItest().getmain_ui().getCutScense().getButtonSkip().doClick();
         launcher.won();
         launcher.getGameUI().getCutScense().getButtonSkip().doClick();
         launcher.delay(1000);
-        JPanel p1 = (JPanel) launcher.getPacManUItest().getContentPanel().getComponent(1);
-        System.out.println(p1.getName());
-        assertThat(p1.getName()).isEqualTo("theme: 1"+"\nlevel: 0");
+        String setBtnButtonPanel = launcher.getPacManUItest().getButtonPanel().getName();
+        assertThat(setBtnButtonPanel).isEqualTo("Start Stop resource from index 1");
     }
 
-    @DisplayName("TC2503")
+    @DisplayName("TC2303")
     @Test
-    public void testEasyBoard_3() {
+    public void startStopCaveTest(){
         launcher.getPacManUItest().getmain_ui().getEasyBtn().doClick();
         launcher.getPacManUItest().getmain_ui().getButtonPlay().doClick();
         launcher.getPacManUItest().getmain_ui().getCutScense().getButtonSkip().doClick();
@@ -64,14 +64,14 @@ public class BoardEasyTest {
         launcher.won();
         launcher.getGameUI().getCutScense().getButtonSkip().doClick();
         launcher.delay(1000);
-        JPanel p1 = (JPanel) launcher.getPacManUItest().getContentPanel().getComponent(1);
-        System.out.println(p1.getName());
-        assertThat(p1.getName()).isEqualTo("theme: 2"+"\nlevel: 0");
+        String setBtnButtonPanel = launcher.getPacManUItest().getButtonPanel().getName();
+        assertThat(setBtnButtonPanel).isEqualTo("Start Stop resource from index 2");
     }
 
-    @DisplayName("TC2504")
+
+    @DisplayName("TC2304")
     @Test
-    public void testEasyBoard_4() {
+    public void startStopIceTest(){
         launcher.getPacManUItest().getmain_ui().getEasyBtn().doClick();
         launcher.getPacManUItest().getmain_ui().getButtonPlay().doClick();
         launcher.getPacManUItest().getmain_ui().getCutScense().getButtonSkip().doClick();
@@ -82,14 +82,13 @@ public class BoardEasyTest {
         launcher.won();
         launcher.getGameUI().getCutScense().getButtonSkip().doClick();
         launcher.delay(1000);
-        JPanel p1 = (JPanel) launcher.getPacManUItest().getContentPanel().getComponent(1);
-        System.out.println(p1.getName());
-        assertThat(p1.getName()).isEqualTo("theme: 3"+"\nlevel: 0");
+        String setBtnButtonPanel = launcher.getPacManUItest().getButtonPanel().getName();
+        assertThat(setBtnButtonPanel).isEqualTo("Start Stop resource from index 3");
     }
 
-    @DisplayName("TC2505")
+    @DisplayName("TC2305")
     @Test
-    public void testEasyBoard_5() {
+    public void startStopLavaTest(){
         launcher.getPacManUItest().getmain_ui().getEasyBtn().doClick();
         launcher.getPacManUItest().getmain_ui().getButtonPlay().doClick();
         launcher.getPacManUItest().getmain_ui().getCutScense().getButtonSkip().doClick();
@@ -102,8 +101,7 @@ public class BoardEasyTest {
         launcher.won();
         launcher.getGameUI().getCutScense().getButtonSkip().doClick();
         launcher.delay(1000);
-        JPanel p1 = (JPanel) launcher.getPacManUItest().getContentPanel().getComponent(1);
-        System.out.println(p1.getName());
-        assertThat(p1.getName()).isEqualTo("theme: 4"+"\nlevel: 0");
+        String setBtnButtonPanel = launcher.getPacManUItest().getButtonPanel().getName();
+        assertThat(setBtnButtonPanel).isEqualTo("Start Stop resource from index 4");
     }
 }

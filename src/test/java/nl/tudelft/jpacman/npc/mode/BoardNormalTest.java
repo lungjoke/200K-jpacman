@@ -3,6 +3,7 @@ package nl.tudelft.jpacman.npc.mode;
 import nl.tudelft.jpacman.Launcher;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import javax.swing.*;
@@ -26,6 +27,7 @@ public class BoardNormalTest {
         launcher.dispose();
     }
 
+    @DisplayName("TC2506")
     @Test
     public void testNormalBoard_1() {
         launcher.getPacManUItest().getmain_ui().getNormalBtn().doClick();
@@ -37,6 +39,7 @@ public class BoardNormalTest {
         assertThat(p1.getName()).isEqualTo("theme: 0"+"\nlevel: 1");
     }
 
+    @DisplayName("TC2507")
     @Test
     public void testNormalBoard_2() {
         launcher.getPacManUItest().getmain_ui().getNormalBtn().doClick();
@@ -50,6 +53,7 @@ public class BoardNormalTest {
         assertThat(p1.getName()).isEqualTo("theme: 1"+"\nlevel: 1");
     }
 
+    @DisplayName("TC2508")
     @Test
     public void testNormalBoard_3() {
         launcher.getPacManUItest().getmain_ui().getNormalBtn().doClick();
@@ -65,6 +69,7 @@ public class BoardNormalTest {
         assertThat(p1.getName()).isEqualTo("theme: 2"+"\nlevel: 1");
     }
 
+    @DisplayName("TC2509")
     @Test
     public void testNormalBoard_4() {
         launcher.getPacManUItest().getmain_ui().getNormalBtn().doClick();
@@ -82,6 +87,7 @@ public class BoardNormalTest {
         assertThat(p1.getName()).isEqualTo("theme: 3"+"\nlevel: 1");
     }
 
+    @DisplayName("TC2510")
     @Test
     public void testNormalBoard_5() {
         launcher.getPacManUItest().getmain_ui().getNormalBtn().doClick();

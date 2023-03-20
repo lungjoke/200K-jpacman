@@ -2,6 +2,7 @@ package nl.tudelft.jpacman.npc.level;
 
 import nl.tudelft.jpacman.Launcher;
 import nl.tudelft.jpacman.board.Direction;
+import nl.tudelft.jpacman.game.Game;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -47,16 +48,15 @@ public class PelletChangeMaptest {
         }
         assertThat(map==l.levelMap).isTrue();
     }
-    //@Test
+    @Test
     void PelletDead(){
-        String map = "/boardTest1.txt";
-        setgameLauncher(map);
-        while (l.getLevelMap()!="/skyboard.txt"){
-            //l.delay(5);
-            l.getGame().move(l.getGame().getPlayers().get(0),randomMove());
+        Game g1 =l.getGame();
+        l.getPacManUItest().getmain_ui().getButtonPlay().doClick();
+        l.getGame().start();
+        while (g1==l.getGame()){
+            l.delay(2000);
         }
-        //(l.getPacManUItest().=="/skyboard.txt").isTrue();
-
+        assertThat(l.getGame()).isNotEqualTo(g1);
     }
 
     public void setgameLauncher(String map){

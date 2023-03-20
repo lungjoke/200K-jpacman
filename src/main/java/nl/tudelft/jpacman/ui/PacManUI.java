@@ -122,6 +122,7 @@ public class PacManUI extends JFrame {
         }
         boardPanel = new BoardPanel(game,nameFileBG);
         boardPanel.setName("theme: "+themeNnm+"\nlevel: "+level);
+        buttonPanel.setName("Start Stop resource from index "+themeNnm);
     }
 
     /**

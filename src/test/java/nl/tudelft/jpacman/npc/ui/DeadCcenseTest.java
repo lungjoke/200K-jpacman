@@ -3,6 +3,7 @@ package nl.tudelft.jpacman.npc.ui;
 import nl.tudelft.jpacman.Launcher;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import javax.swing.*;
@@ -38,6 +39,7 @@ public class DeadCcenseTest {
 
     /**
      * Test click button back to main menu and UI change to mainUI*/
+    @DisplayName("TC1301")
     @Test
     public void testButtonMainDeadCcense() {
         launcher.getPacManUItest().getmain_ui().getNormalBtn().doClick();
@@ -53,6 +55,7 @@ public class DeadCcenseTest {
 
     /**
      * Test click button play again and game restart at map sky*/
+    @DisplayName("TC1401")
     @Test
     public void testPlayAgainDeadCcense() {
         launcher.getPacManUItest().getmain_ui().getNormalBtn().doClick();

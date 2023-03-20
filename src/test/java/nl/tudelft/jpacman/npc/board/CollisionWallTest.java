@@ -39,51 +39,51 @@ public class CollisionWallTest {
 
 
     /** Move as far as it can, if the number of pellet not equal to the number in row from that direction it means that we found wall*/
-    @DisplayName("TC701")
+    @DisplayName("TC1101")
     @Test
     void westWall(){
         Game game = launcher.getGame();
         Player player = game.getPlayers().get(0);
 
         game.start();
-        move(game, Direction.WEST, 1);
+        move(game, Direction.WEST, 10);
         assertThat(player.getScore()).isEqualTo(10);
     }
 
     /** Move as far as it can, if the number of pellet not equal to the number in row from that direction it means that we found wall*/
-    @DisplayName("TC702")
+    @DisplayName("TC1102")
     @Test
     void eastWall(){
         Game game = launcher.getGame();
         Player player = game.getPlayers().get(0);
 
         game.start();
-        move(game, Direction.EAST, 1);
+        move(game, Direction.EAST, 10);
         assertThat(player.getScore()).isEqualTo(10);
     }
 
     /** Move as far as it can in row or column start from pacman position,
      * if the number of pellet not equal to the number in row from that direction it means that we found wall*/
-    @DisplayName("TC703")
+    @DisplayName("TC1103")
     @Test
     void northWall(){
         Game game = launcher.getGame();
         Player player = game.getPlayers().get(0);
 
         game.start();
-        move(game, Direction.NORTH, 4);
+        move(game, Direction.NORTH, 10);
         assertThat(player.getScore()).isEqualTo(40);
     }
 
     /** Move as far as it can, if the number of pellet not equal to the number in row from that direction it means that we found wall*/
-    @DisplayName("TC704")
+    @DisplayName("TC1104")
     @Test
     void southWall(){
         Game game = launcher.getGame();
         Player player = game.getPlayers().get(0);
 
         game.start();
-        move(game, Direction.SOUTH, 4);
+        move(game, Direction.SOUTH, 10);
         assertThat(player.getScore()).isEqualTo(40);
     }
 

@@ -58,7 +58,7 @@ public class GameUI {
         cut.add(new CutScense("src/main/resources/CutScense/skyCut.png","src/main/resources/CutScense/Skipblack.png"));
         cut.add(new CutScense("src/main/resources/CutScense/forrestCut.png","src/main/resources/CutScense/Skipwhite.png"));
         cut.add(new CutScense("src/main/resources/CutScense/caveCut.png","src/main/resources/CutScense/Skipwhite.png"));
-        cut.add(new CutScense("src/main/resources/CutScense/iceCut.png","src/main/resources/CutScense/Skipblack.png"));
+        cut.add(new CutScense("src/main/resources/CutScense/iceCut.png","src/main/resources/CutScense/Skipwhite.png"));
         cut.add(new CutScense("src/main/resources/CutScense/lavaCut.png","src/main/resources/CutScense/Skipwhite.png"));
         BoardNnm = 0;
         themeNnm = 0;
