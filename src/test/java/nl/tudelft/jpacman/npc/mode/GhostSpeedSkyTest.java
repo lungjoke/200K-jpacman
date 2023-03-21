@@ -7,6 +7,7 @@ import nl.tudelft.jpacman.npc.ghost.Inky;
 import nl.tudelft.jpacman.npc.ghost.Pinky;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import javax.swing.*;
@@ -26,6 +27,8 @@ public class GhostSpeedSkyTest {
     void tearDown() {
         launcher.dispose();
     }
+
+    @DisplayName("TC801")
     @Test
     public void EasyModeTest(){
         launcher.getPacManUItest().getmain_ui().getEasyBtn().doClick();
@@ -39,6 +42,8 @@ public class GhostSpeedSkyTest {
         assertThat(Inky.getMoveInterval()).isEqualTo(300);
         assertThat(Pinky.getMoveInterval()).isEqualTo(300);
     }
+
+    @DisplayName("TC802")
     @Test
     public void NormalModeTest(){
         launcher.getPacManUItest().getmain_ui().getNormalBtn().doClick();
@@ -53,6 +58,8 @@ public class GhostSpeedSkyTest {
         assertThat(Pinky.getMoveInterval()).isEqualTo(250);
     }
 
+
+    @DisplayName("TC803")
     @Test
     public void HardModeTest(){
         launcher.getPacManUItest().getmain_ui().getHardBtn().doClick();

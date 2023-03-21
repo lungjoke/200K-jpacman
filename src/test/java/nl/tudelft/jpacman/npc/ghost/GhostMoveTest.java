@@ -25,7 +25,8 @@ public class GhostMoveTest {
     void tearDown() {
         launcher.dispose();
     }
-    @DisplayName("TC401")
+
+    @DisplayName("TC701")
     @Test
     void testPinkyMove() {
         Ghost PinkyPosition = Navigation.findUnitInBoard(Pinky.class, launcher.getGame().getLevel().getBoard());
@@ -39,7 +40,7 @@ public class GhostMoveTest {
         };
         assertThat(StartPosition!=MovePosition).isTrue();
     }
-    @DisplayName("TC402")
+    @DisplayName("TC702")
     @Test
     void testInkyMove() {
         Ghost InkyPosition = Navigation.findUnitInBoard(Inky.class, launcher.getGame().getLevel().getBoard());
@@ -53,7 +54,7 @@ public class GhostMoveTest {
         };
         assertThat(StartPosition!=MovePosition).isTrue();
     }
-    @DisplayName("TC403")
+    @DisplayName("TC703")
     @Test
     void testBlinkyMove() {
         Ghost BlinkyPosition = Navigation.findUnitInBoard(Blinky.class, launcher.getGame().getLevel().getBoard());
@@ -67,7 +68,7 @@ public class GhostMoveTest {
         };
         assertThat(StartPosition!=MovePosition).isTrue();
     }
-    @DisplayName("TC404")
+    @DisplayName("TC704")
     @Test
     void testClydeMove() {
         Ghost ClydePosition = Navigation.findUnitInBoard(Clyde.class, launcher.getGame().getLevel().getBoard());

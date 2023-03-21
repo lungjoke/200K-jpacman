@@ -22,6 +22,8 @@ public class VicetoryUI_Test {
     void tearDown() {
         launcher.dispose();
     }
+
+    @DisplayName("TC1601")
     @Test
     public void testVisibleVictory() {
         launcher.getPacManUItest().getmain_ui().getNormalBtn().doClick();

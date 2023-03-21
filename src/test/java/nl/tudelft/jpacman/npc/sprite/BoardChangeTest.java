@@ -28,19 +28,19 @@ public class BoardChangeTest {
         launcher.dispose();
     }
 
-    @DisplayName("TC1501")
+    @DisplayName("")
     @Test
     public void testBoardSky() {
         assertThat(launcher.getLevelMap()).isEqualTo("/skyboard.txt");
     }
 
-    @DisplayName("TC1502")
+    @DisplayName("")
     @Test
     public void testBoardForest (){
         launcher.getGame().levelWon();
         assertThat(launcher.getLevelMap()).isEqualTo("/forest.txt");
     }
-    @DisplayName("TC1503")
+    @DisplayName("")
     @Test
     public void testBoardcave(){
         launcher.getGame().levelWon();
@@ -48,7 +48,7 @@ public class BoardChangeTest {
         assertThat(launcher.getLevelMap()).isEqualTo("/caveboard.txt");
     }
 
-    @DisplayName("TC1504")
+    @DisplayName("")
     @Test
     public void testBoardice(){
         launcher.getGame().levelWon();
@@ -57,7 +57,7 @@ public class BoardChangeTest {
         assertThat(launcher.getLevelMap()).isEqualTo("/iceboard.txt");
     }
 
-    @DisplayName("TC1505")
+    @DisplayName("")
     @Test
     public void testBoardlava(){
         launcher.getGame().levelWon();

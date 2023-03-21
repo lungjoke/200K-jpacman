@@ -31,7 +31,7 @@ public class FindUnitInBoardTest {
             mock(PointCalculator.class));
         parser = new MapParser(levelFactory, new BoardFactory(sprites));
     }
-    @DisplayName("TC2301")
+    @DisplayName("TC3301")
     @Test
     void testFindPinkyInBoard(){
         Board b = parser.parseMap(Lists.newArrayList("G G G G")).getBoard();
@@ -41,7 +41,7 @@ public class FindUnitInBoardTest {
 
         assertThat(foundPinky).isNotNull();
     }
-    @DisplayName("TC2302")
+    @DisplayName("TC3302")
     @Test
     void testFindInkyInBoard(){
         Board b = parser.parseMap(Lists.newArrayList("G G G G")).getBoard();
@@ -49,7 +49,7 @@ public class FindUnitInBoardTest {
 
         assertThat(foundInky).isNotNull();
     }
-    @DisplayName("TC2303")
+    @DisplayName("TC3303")
     @Test
     void testFindBlinkyInBoard(){
         Board b = parser.parseMap(Lists.newArrayList("G G G G")).getBoard();
@@ -57,7 +57,7 @@ public class FindUnitInBoardTest {
 
         assertThat(foundBlinky).isNotNull();
     }
-    @DisplayName("TC2304")
+    @DisplayName("TC3304")
     @Test
     void testFindClydeInBoard(){
         Board b = parser.parseMap(Lists.newArrayList("G G G G")).getBoard();

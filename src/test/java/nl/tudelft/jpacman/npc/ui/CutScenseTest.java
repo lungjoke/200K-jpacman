@@ -32,6 +32,7 @@ public class CutScenseTest {
         launcher.dispose();
     }
 
+    @DisplayName("TC401")
     @Test
     public void testSkipCutScenseToSkyMap() {
         launcher.getPacManUItest().getmain_ui().getHardBtn().doClick();
@@ -42,6 +43,7 @@ public class CutScenseTest {
         assertThat(p1.getName()).isEqualTo("src/main/resources/CutScense/sky2Cut.png");
     }
 
+    @DisplayName("TC402")
     @Test
     public void testSkipCutScenseToForrestMap() {
         launcher.getPacManUItest().getmain_ui().getHardBtn().doClick();
@@ -54,6 +56,7 @@ public class CutScenseTest {
         assertThat(p1.getName()).isEqualTo("src/main/resources/CutScense/forrestCut.png");
     }
 
+    @DisplayName("TC403")
     @Test
     public void testSkipCutScenseToCaveMap() {
         launcher.getPacManUItest().getmain_ui().getHardBtn().doClick();
@@ -68,6 +71,7 @@ public class CutScenseTest {
         assertThat(p1.getName()).isEqualTo("src/main/resources/CutScense/caveCut.png");
     }
 
+    @DisplayName("TC404")
     @Test
     public void testSkipCutScenseToIceMap() {
         launcher.getPacManUItest().getmain_ui().getHardBtn().doClick();
@@ -84,6 +88,7 @@ public class CutScenseTest {
         assertThat(p1.getName()).isEqualTo("src/main/resources/CutScense/iceCut.png");
     }
 
+    @DisplayName("TC405")
     @Test
     public void testSkipCutScenseToLavaMap() {
         launcher.getPacManUItest().getmain_ui().getHardBtn().doClick();

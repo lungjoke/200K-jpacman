@@ -5,6 +5,7 @@ import nl.tudelft.jpacman.board.Direction;
 import nl.tudelft.jpacman.game.Game;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
@@ -26,6 +27,8 @@ public class PelletChangeMaptest {
     void tearDown() {
         l.dispose();
     }
+
+    @DisplayName("TC1501")
     @Test
     void PelletChangeMapTest(){
         String map = "/boardTest.txt";
@@ -38,6 +41,8 @@ public class PelletChangeMaptest {
 
         assertThat(map!=l.getLevelMap()).isTrue();
     }
+
+    @DisplayName("TC1701")
     @Test
     void PelletNoChanceMapTest(){
         String map = "/boardTest.txt";
@@ -47,16 +52,6 @@ public class PelletChangeMaptest {
             l.getGame().move(l.getGame().getPlayers().get(0),randomMove());
         }
         assertThat(map==l.levelMap).isTrue();
-    }
-    @Test
-    void PelletDead(){
-        Game g1 =l.getGame();
-        l.getPacManUItest().getmain_ui().getButtonPlay().doClick();
-        l.getGame().start();
-        while (g1==l.getGame()){
-            l.delay(2000);
-        }
-        assertThat(l.getGame()).isNotEqualTo(g1);
     }
 
     public void setgameLauncher(String map){

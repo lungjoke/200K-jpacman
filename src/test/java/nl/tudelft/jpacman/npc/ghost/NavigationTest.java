@@ -55,7 +55,7 @@ class NavigationTest {
     /**
      * Verifies that the path to the same square is empty.
      */
-    @DisplayName("TC2701")
+    @DisplayName("TC3701")
     @Test
     void testShortestPathEmpty() {
         Board b = parser.parseMap(Lists.newArrayList(" ")).getBoard();
@@ -69,7 +69,7 @@ class NavigationTest {
     /**
      * Verifies that if no path exists, the result is <code>null</code>.
      */
-    @DisplayName("TC2801")
+    @DisplayName("TC3801")
     @Test
     void testNoShortestPath() {
         Board b = parser
@@ -85,7 +85,7 @@ class NavigationTest {
     /**
      * Verifies that having no traveller ignores terrain.
      */
-    @DisplayName("TC2901")
+    @DisplayName("TC3901")
     @Test
     void testNoTraveller() {
         Board b = parser
@@ -100,7 +100,7 @@ class NavigationTest {
     /**
      * Tests if the algorithm can find a path in a straight line.
      */
-    @DisplayName("TC3001")
+    @DisplayName("TC4001")
     @Test
     void testSimplePath() {
         Board b = parser.parseMap(Lists.newArrayList("####", "#  #", "####"))
@@ -116,7 +116,7 @@ class NavigationTest {
     /**
      * Verifies that the algorithm can find a path when it has to take corners.
      */
-    @DisplayName("TC3101")
+    @DisplayName("TC4101")
     @Test
     void testCornerPath() {
         Board b = parser.parseMap(
@@ -131,7 +131,7 @@ class NavigationTest {
     /**
      * Verifies that the nearest object is detected.
      */
-    @DisplayName("TC3201")
+    @DisplayName("TC4201")
     @Test
     void testNearestUnit() {
         Board b = parser
@@ -146,7 +146,7 @@ class NavigationTest {
     /**
      * Verifies that there is no such location if there is no nearest object.
      */
-    @DisplayName("TC3301")
+    @DisplayName("TC4301")
     @Test
     void testNoNearestUnit() {
         Board b = parser.parseMap(Lists.newArrayList(" ")).getBoard();
@@ -162,7 +162,7 @@ class NavigationTest {
      * @throws IOException if board reading fails.
      */
 
-    @DisplayName("TC3401")
+    @DisplayName("TC4401")
     @Test
     void testFullSizedLevel() throws IOException {
         try (InputStream i = getClass().getResourceAsStream("/forest.txt")) {

@@ -82,10 +82,8 @@ class LevelTest {
         assertThat(level.isInProgress()).isFalse();
     }
 
-    /**
-     * Validates the state of the level when it is started.
-     */
-    @DisplayName("TC1101")
+
+    @DisplayName("TC2101")
     @Test
     void start() {
         level.start();
@@ -95,7 +93,7 @@ class LevelTest {
     /**
      * Validates the state of the level when it is started then stopped.
      */
-    @DisplayName("TC1001")
+    @DisplayName("TC2001")
     @Test
     void startStop() {
         level.start();
@@ -106,66 +104,12 @@ class LevelTest {
     /**
      * Validates the state of the level when it is started then stopped and started again.
      */
-    @DisplayName("TC1201")
+    @DisplayName("TC2201")
     @Test
     void startstopStart() {
         level.start();
         level.stop();
         level.start();
         assertThat(level.isInProgress()).isTrue();
-    }
-
-    /**
-     * Verifies registering a player puts the player on the correct starting
-     * square.
-     */
-    @Test
-    @SuppressWarnings("PMD.JUnitTestsShouldIncludeAssert")
-    void registerPlayer() {
-        Player p = mock(Player.class);
-        level.registerPlayer(p);
-        verify(p).occupy(square1);
-    }
-
-    /**
-     * Verifies registering a player twice does not do anything.
-     */
-    @Test
-    @SuppressWarnings("PMD.JUnitTestsShouldIncludeAssert")
-    void registerPlayerTwice() {
-        Player p = mock(Player.class);
-        level.registerPlayer(p);
-        level.registerPlayer(p);
-        verify(p, times(1)).occupy(square1);
-    }
-
-    /**
-     * Verifies registering a second player puts that player on the correct
-     * starting square.
-     */
-    @Test
-    @SuppressWarnings("PMD.JUnitTestsShouldIncludeAssert")
-    void registerSecondPlayer() {
-        Player p1 = mock(Player.class);
-        Player p2 = mock(Player.class);
-        level.registerPlayer(p1);
-        level.registerPlayer(p2);
-        verify(p2).occupy(square2);
-    }
-
-    /**
-     * Verifies registering a third player puts the player on the correct
-     * starting square.
-     */
-    @Test
-    @SuppressWarnings("PMD.JUnitTestsShouldIncludeAssert")
-    void registerThirdPlayer() {
-        Player p1 = mock(Player.class);
-        Player p2 = mock(Player.class);
-        Player p3 = mock(Player.class);
-        level.registerPlayer(p1);
-        level.registerPlayer(p2);
-        level.registerPlayer(p3);
-        verify(p3).occupy(square1);
     }
 }

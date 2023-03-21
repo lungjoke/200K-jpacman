@@ -3,6 +3,7 @@ package nl.tudelft.jpacman.npc.board;
 import nl.tudelft.jpacman.board.BoardFactory;
 import nl.tudelft.jpacman.board.Direction;
 import nl.tudelft.jpacman.board.Square;
+import nl.tudelft.jpacman.board.Unit;
 import nl.tudelft.jpacman.sprite.PacManSprites;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -52,7 +53,7 @@ class BoardFactoryTest {
      */
 
 
-    @DisplayName("TC1801")
+    @DisplayName("TC2801")
     @Test
     void worldIsRound() {
         factory.createBoard(new Square[][]{{s1}});
@@ -63,7 +64,7 @@ class BoardFactoryTest {
      * Verifies a chain of cells is connected to the east.
      */
 
-    @DisplayName("TC1901")
+    @DisplayName("TC2901")
     @Test
     void connectedEast() {
         factory.createBoard(new Square[][]{{s1}, {s2}});
@@ -75,7 +76,7 @@ class BoardFactoryTest {
      * Verifies a chain of cells is connected to the west.
      */
 
-    @DisplayName("TC2001")
+    @DisplayName("TC3001")
     @Test
     void connectedWest() {
         factory.createBoard(new Square[][]{{s1}, {s2}});
@@ -87,7 +88,7 @@ class BoardFactoryTest {
      * Verifies a chain of cells is connected to the north.
      */
 
-    @DisplayName("TC2101")
+    @DisplayName("TC3101")
     @Test
     void connectedNorth() {
         factory.createBoard(new Square[][]{{s1, s2}});
@@ -99,7 +100,7 @@ class BoardFactoryTest {
      * Verifies a chain of cells is connected to the south.
      */
 
-    @DisplayName("TC2201")
+    @DisplayName("TC3201")
     @Test
     void connectedSouth() {
         factory.createBoard(new Square[][]{{s1, s2}});

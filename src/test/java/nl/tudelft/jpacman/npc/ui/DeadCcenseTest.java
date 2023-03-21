@@ -25,6 +25,9 @@ public class DeadCcenseTest {
     }
     /**
      * Test that game over UI show after dead*/
+
+
+    @DisplayName("TC1201")
     @Test
     public void testVisibleDeadCcense() {
         launcher.getPacManUItest().getmain_ui().getNormalBtn().doClick();
